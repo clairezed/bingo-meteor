@@ -1,9 +1,10 @@
-<template name="bingoBuild">
-    <h2> Time to build your bingo grid ! </h2>
+<template name="addWords">
+    {{> gameName}}
+    <h2> Let's fill your bingo grid ! </h2>
       <input type="text" placeholder="The content of one of the tile is ...">
       <div class="words">
         {{#each words}}
-        <p><span class="label label-default">{{word}}</span></p>
+            <p><span class="label label-default">{{word}}</span></p>
         {{/each}}
       </div>
 </template>
