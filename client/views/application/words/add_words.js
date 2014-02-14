@@ -1,7 +1,4 @@
 Template.addWords.helpers({
-    // games: function(){
-    //     return Games.find();
-    // },
     words: function(){
         return Words.find({game_id: this._id});
     },

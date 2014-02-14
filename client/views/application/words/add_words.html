@@ -1,5 +1,5 @@
 <template name="addWords">
-    <h1>{{title}} is a nice title !</h1>
+    <h1> {{title}} is a nice title !</h1>
     <h2> Let's fill your bingo grid ! </h2>
 
     <form>
@@ -15,7 +15,7 @@
         </div>
     </form>
     {{#if enough_words}}
-        <a href="#" class="play-bingo btn btn-primary pull-right">Let's play bingo ! </a>
+        <a href="{{pathFor 'playBingo'}}" class="play-bingo btn btn-primary pull-right">Let's play bingo ! </a>
     {{/if}}
       <div class="words">
         {{#each words}}

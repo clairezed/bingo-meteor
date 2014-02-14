@@ -1,0 +1,17 @@
+<template name="playBingo">
+<h1> Time to play bingo !</h1>
+<h2> Title : {{title}}</h2>
+  <div class="row">
+    <div class="span-12">
+      <div id="grid-gen">
+        <div class="grid">
+         {{#each words}}
+          <div class="square">
+            <p> {{word}} </p>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
