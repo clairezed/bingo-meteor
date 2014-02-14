@@ -1,5 +1,5 @@
 Template.playersList.helpers({
     players: function(){
-        return Meteor.users.find({playing:  this._id});
+        return Meteor.users.find();
     }
 });

@@ -2,7 +2,15 @@
     <div class="well">
     <h3> Activité </h3>
   <ul>
-    {{> bingo_activities}}
+     <div class="row-fluid">
+        <ul>
+            {{#each bingo_activities}}
+            <li>
+                {{player}}'s just checked the case "{{word}}".
+            </li>
+            {{/each}}
+        </ul>
+    </div>
   </ul>
 </div>
 </template>

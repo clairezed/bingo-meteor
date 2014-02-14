@@ -1,10 +1,12 @@
 // Local (client-only) collection
-BingoActivities = new Meteor.Collection(null);
+BingoActivities = new Meteor.Collection();
 
 createActivity = function(word){
     var user = Meteor.user();
     console.log("createActivity");
-    return BingoActivities.insert({word: word.word, 
+    return BingoActivities.insert({
+    	game_id: word.game_id,
+    	word: word.word, 
         player: user.username, 
         created_at: new Date().getTime()});
 }
