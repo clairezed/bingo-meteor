@@ -1,0 +1,60 @@
+#grid-gen{
+	width: 100%;
+}
+	#grid-gen .grid{
+		width: 100%;
+	}
+	#grid-gen .grid .outer-square{
+		display: inline-block;
+		width: 19%;
+		padding-bottom: 19%;
+		position: relative;
+		background-color: #ccc;
+		cursor: pointer;
+	}
+	#grid-gen .grid .outer-square:hover{
+		background-color: #ddd;
+	}
+		#grid-gen .grid .outer-square .inner-square{
+			position: absolute;
+		   	left: 5%;
+		   	right: 5%;
+		   	top: 5%;
+		   	bottom: 5%;
+		}
+/*
+
+#grid-gen {
+    .play-btn{
+        float: right;
+    }
+    .grid{
+        width:950px;
+        margin:auto ;
+        .gen{
+                background: @turquoise1;
+            }
+        div {
+            float: left;
+            width:170px;
+            height:170px;
+            line-height: 170px;
+            margin: 5px;
+            display:block;
+            overflow:hidden;
+            text-align: center;
+            border-radius: 15px;
+            font-weight: bold;
+            color: #fff;
+            p{
+                padding: 10px;
+                margin: auto;
+                vertical-align: middle;
+                display: inline-block;
+                font-size: 18px;
+                line-height: 20px;
+            }
+        }
+
+    }
+}*/
