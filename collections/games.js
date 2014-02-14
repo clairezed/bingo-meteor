@@ -3,6 +3,9 @@ Games = new Meteor.Collection('games');
 Games.allow({
 	insert: function(userId, doc){
 		return !! userId;
+	},
+	remove: function(userId, doc){
+		return !! userId;
 	}
 })
 
@@ -34,7 +37,12 @@ Meteor.methods({
 		var gameId = Games.insert(game);
 
 		return gameId;
-
-
+	},
+	deleteGame: function(gameId){
+		console.log("in delete method");
+		var game = Games.findOne(gameId);
+		console.log(game._id);
+		Words.remove({game_id: game._id});
+		Games.remove(game._id);
 	}
 })

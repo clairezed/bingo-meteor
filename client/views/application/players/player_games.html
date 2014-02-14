@@ -1,0 +1,10 @@
+<template name="playerGames">
+	<h2>Or would you rather check one of your games ?</h2>
+	 {{#each games}}
+	 	<ul>
+	 		<li>
+	 			<a href="{{pathFor 'addWords'}}">{{title}}</a><a href="#" class="delete-game btn btn-danger btn-mini"> X </a>
+	 		</li>
+	 	</ul>
+    {{/each}}
+</template>
