@@ -3,7 +3,7 @@ Template.addWords.helpers({
         return Games.find();
     },
     words: function(){
-        return Words.find({game: this._id});
+        return Words.find({game_id: this._id});
     }
 });
 
@@ -13,21 +13,25 @@ Template.addWords.events({
 
         var word = {
             word: $(e.target).find('[name=word]').val(),
-            game: template.data._id
+            game_id: template.data._id
         }
-        word._id = Words.insert(word);
-        var current_game = Games.findOne({_id: template.data._id})
-        // clear input text
-        $(e.target).find('[name=word]').val("");
-        
-        Router.go('addWords', current_game);
+
+        Meteor.call('createWord', word, function(error, current_game_id){
+            if (error)
+                return alert(error.reason);
+            // var current_game = Games.findOne({_id: template.data._id})
+
+            /// clear input text
+            $(e.target).find('[name=word]').val("");
+            
+            Router.go('addWords', {_id: current_game_id});
+        })   
     },
     'click .delete': function(e){
-        console.log(this._id);
         var currentWordId = this._id;
         Words.remove(currentWordId);
-
     }
 })
 
-Meteor.subscribe('games');
+// Meteor.subscribe('games');
+// Meteor.subscribe('words');
