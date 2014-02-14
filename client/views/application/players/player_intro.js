@@ -16,10 +16,14 @@ Template.playerIntro.events({
         }
 
         Meteor.call('createGame', game, function(error, current_game_id){
-            if (error)
-                return alert(error.reason);
+            if (error){
+                throwError(error.reason);
+                Router.go('playerIntro');
+            }else{
+                
  
             Router.go('addWords', {_id: current_game_id});
+            }
         });
     }
 })

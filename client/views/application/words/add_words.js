@@ -18,7 +18,7 @@ Template.addWords.events({
 
         Meteor.call('createWord', word, function(error, current_game_id){
             if (error)
-                return alert(error.reason);
+                throwError(error.reason);
             // var current_game = Games.findOne({_id: template.data._id})
 
             /// clear input text

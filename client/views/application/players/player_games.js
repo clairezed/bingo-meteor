@@ -14,7 +14,7 @@ Template.playerGames.events({
 
         	Meteor.call('deleteGame', currentGameId, function(error){
         		if (error)
-                	return alert(error.reason);
+                	throwError(error.reason);
 
                 Router.go('playerIntro');
         	})

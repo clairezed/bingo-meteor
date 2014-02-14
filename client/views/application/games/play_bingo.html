@@ -1,6 +1,10 @@
 <template name="playBingo">
 <h1> Time to play bingo !</h1>
+{{#if ownGame}}
+  <a href="{{pathFor 'addWords'}}"class="add-words btn btn-primary pull-right">Modifier</a>
+  {{/if}}
 <h2> Title : {{title}}</h2>
+
   <div class="row">
     <div class="span12">
       <div id="grid-gen">

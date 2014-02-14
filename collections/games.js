@@ -1,14 +1,12 @@
 Games = new Meteor.Collection('games');
 
 Games.allow({
-	insert: function(userId, doc){
-		return !! userId;
-	},
-	update: function(userId, doc){
-		return !! userId;
-	},
-	remove: function(userId, doc){
-		return !! userId;
+	update: ownsDocument,
+	remove: ownsDocument
+})
+Games.deny({
+	update:function(userId, game, fieldNames) {
+		return (_.without(fieldNames, 'title', 'nb_words').length > 0);
 	}
 })
 
