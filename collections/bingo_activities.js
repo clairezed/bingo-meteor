@@ -10,6 +10,12 @@ Meteor.methods({
                   created_at: new Date().getTime()});
   },
   clearActivity: function(){
-      // BingoActivities.remove()
+      var excedentaryActivitiesCursor = BingoActivities.find({}, {sort: {created_at: -1}, skip: 5});
+
+            excedentaryActivitiesCursor.observe({
+                added: function(doc){
+                    BingoActivities.remove({_id: doc._id});
+            }
+        })
   }
 })

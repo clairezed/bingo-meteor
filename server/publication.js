@@ -1,21 +1,18 @@
 Meteor.publish('words', function(gameId) {
     return Words.find({game_id: gameId});
 });
+
 Meteor.publish('games', function() {
     return Games.find();
 });
-Meteor.publish('bingo_activities', function (gameId) {
-            var excedentaryActivitiesCursor = BingoActivities.find({}, {sort: {created_at: -1}, skip: 5});
 
-            excedentaryActivitiesCursor.observe({
-                added: function(doc){
-                    console.log(doc);
-                    BingoActivities.remove({_id: doc._id});
-            }
-        })
+Meteor.publish('bingo_activities', function (gameId) {
+  Meteor.call('clearActivity', function(error){
+        if(error)
+            throwError(error.reason);
+    })
 
     return BingoActivities.find({game_id: gameId});
-
 });
 
 Meteor.publish('players', function (gameId) {
