@@ -24,7 +24,13 @@ Template.playBingo.events({
                         if(error)
                             throwError(error.reason);
                     })
-                }
+                };
+                console.log(word_clicked);
+
+                Meteor.call('checkCompleted', [word_clicked, found], function(error, bingoCompletedId){
+                    if(error)
+                        throwError(error.reason);
+                })
                 
         })
     }

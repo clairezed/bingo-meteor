@@ -10,8 +10,9 @@ Meteor.methods({
                   created_at: new Date().getTime()});
   },
   clearActivity: function(){
+      // create cursor checking activities after a certain limit (skip)
       var excedentaryActivitiesCursor = BingoActivities.find({}, {sort: {created_at: -1}, skip: 5});
-
+            // remove all activities that have moved after (= were added to) skip limit
             excedentaryActivitiesCursor.observe({
                 added: function(doc){
                     BingoActivities.remove({_id: doc._id});
