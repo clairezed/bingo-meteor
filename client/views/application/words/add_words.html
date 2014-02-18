@@ -1,7 +1,21 @@
 <template name="addWords">
-    {{> gameName}}
+    <h1>{{title}} is a nice name !</h1>
     <h2> Let's fill your bingo grid ! </h2>
-      <input type="text" placeholder="The content of one of the tile is ...">
+
+    <form>
+        <div class="control-group">
+            <div class="controls">
+                <input name="word" type="text" class="input-xxlarge" placeholder="The content of one of the tile is ...">
+                <input name="gameId" type="hidden" value={{_id}}>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <input type="submit" value="Ok !" class="btn btn-primary"/>
+            </div>
+        </div>
+    </form>
+
       <div class="words">
         {{#each words}}
             <p><span class="label label-default">{{word}}</span></p>

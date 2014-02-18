@@ -18,3 +18,18 @@ Template.addWords.helpers({
         return Words.find();
     }
 });
+
+Template.addWords.events({
+    'submit form': function(e){
+        e.preventDefault();
+
+        var word = {
+            word: $(e.target).find('[name=word]').val(),
+            game: $(e.target).find('[name=gameId]').val()
+        }
+        word._id = Words.insert(words);
+        Router.go('addWords', game);
+    }
+})
+
+Meteor.subscribe('games');
