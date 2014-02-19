@@ -1,14 +1,3 @@
-// var wordsData = [
-//     {
-//         word: "turlututu"
-//     },
-//     {
-//         word: "ukulele"
-//     },
-//     {
-//         word: "yorkshire"
-//     }
-// ];
 Template.addWords.helpers({
     games: function(){
         return Games.find();
@@ -32,6 +21,12 @@ Template.addWords.events({
         $(e.target).find('[name=word]').val("");
         
         Router.go('addWords', current_game);
+    },
+    'click .delete': function(e){
+        console.log(this._id);
+        var currentWordId = this._id;
+        Words.remove(currentWordId);
+
     }
 })
 

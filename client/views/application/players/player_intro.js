@@ -13,12 +13,6 @@ Template.playerIntro.events({
         }
         game._id = Games.insert(game);
         Router.go('addWords', game);
-
-        // var player = {
-        //     name: $(e.target).find('[name=name]').val()
-        // }
-        // player._id = Players.insert(player);
-        // Router.go('setGameTitle', player);
     }
 })
 
