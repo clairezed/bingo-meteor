@@ -12,11 +12,13 @@
               <span class="icon-bar"></span>
             </a>
             <a class="brand" href="{{pathFor 'playerIntro'}}">Bullshit Bingo</a>
-            <div class="nav-collapse collapse">
-              <ul class="nav pull-right">
-                <li>{{loginButtons}}</li>
-              </ul>
-            </div>
+            {{#if currentUser}}
+              <div class="nav-collapse collapse">
+                <ul class="nav pull-right">
+                  <li>{{loginButtons}}</li>
+                </ul>
+              </div>
+              {{/if}}
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 Template.layout.helpers({
     //words: wordsData
-    currentPlayer: function(){
-        return Session.get('currentPlayer');
-    }   
+    // currentPlayer: function(){
+    //     return Session.get('currentPlayer');
+    // }   
 });

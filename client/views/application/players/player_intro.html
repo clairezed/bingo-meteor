@@ -1,10 +1,11 @@
     <template name="playerIntro">
-        <h1> Hi ! So, you want to play bingo ?<h1>
-            <h2> What's your name, sweetie ? </h2>
+        {{#if currentUser}}
+        <h1> Happy to see you, {{currentUser.username}} !<h1>
+            <h2> Let's do bingo ! </h2>
             <form>
                 <div class="control-group">
                     <div class="controls">
-                        <input name="name" type="text" class="input-xxlarge" placeholder="Hello, my name is …">
+                        <input name="title" type="text" class="input-xxlarge" placeholder="What's the title of your new bingo game ?"/>                      
                     </div>
                 </div>
                 <div class="control-group">
@@ -13,4 +14,11 @@
                     </div>
                 </div>
             </form>
+            {{else}}
+            <h1> Hi ! So, you want to play bingo ?<h1>
+                <h2> Would you please sign in, sweetie ? </h2>
+                <div class="pull-left">
+                    {{loginButtons}}
+                </div>
+            {{/if}}
         </template>
