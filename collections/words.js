@@ -25,6 +25,8 @@ Meteor.methods({
 		});
 
 		Words.insert(word);
+		// increment corresponding game nb words
+		Games.update(word.game_id, {$inc: {nb_words: 1}});
 		return word.game_id;
 	}
 })

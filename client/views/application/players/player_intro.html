@@ -14,7 +14,9 @@
                 </div>
             </div>
         </form>
-        {{>playerGames}}
+        {{# if has_games}}
+            {{>playerGames}}
+         {{/if}}
     {{else}}
         <h1> Hi ! So, you want to play bingo ?<h1>
         <h2> Would you please sign in, sweetie ? </h2>

@@ -14,7 +14,9 @@
             </div>
         </div>
     </form>
-
+    {{#if enough_words}}
+        <a href="#" class="play-bingo btn btn-primary pull-right">Let's play bingo ! </a>
+    {{/if}}
       <div class="words">
         {{#each words}}
             <p><span class="label label-info">{{word}}</span><a href="#" class="delete btn btn-danger btn-small"> X </a></p>

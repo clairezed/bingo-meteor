@@ -4,6 +4,9 @@ Games.allow({
 	insert: function(userId, doc){
 		return !! userId;
 	},
+	update: function(userId, doc){
+		return !! userId;
+	},
 	remove: function(userId, doc){
 		return !! userId;
 	}
@@ -31,7 +34,8 @@ Meteor.methods({
 		var game = _.extend(_.pick(gameAttributes, 'title'), {
 			creatorId: user._id,
 			created_at: new Date().getTime(),
-			updated_at: new Date().getTime()
+			updated_at: new Date().getTime(), 
+			nb_words: 0
 		});
 
 		var gameId = Games.insert(game);

@@ -1,7 +1,7 @@
 Template.playerGames.helpers({
     games: function(){
     	var user = Meteor.user();
-        return Games.find({creatorId: user._id});
+            return Games.find({creatorId: user._id});
     }
 });
 
