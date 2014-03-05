@@ -12,9 +12,15 @@
 		background-color: #ccc;
 		cursor: pointer;
 	}
+            #grid-gen .grid .outer-square.found{
+                    background-color: red ;
+            }
 	#grid-gen .grid .outer-square:hover{
 		background-color: #ddd;
 	}
+                        #grid-gen .grid .outer-square.found:hover{
+                                background-color: red ;
+                        }   
 		#grid-gen .grid .outer-square .inner-square{
 			position: absolute;
 		   	left: 5%;

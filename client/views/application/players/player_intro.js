@@ -20,9 +20,7 @@ Template.playerIntro.events({
                 throwError(error.reason);
                 Router.go('playerIntro');
             }else{
-                
- 
-            Router.go('addWords', {_id: current_game_id});
+                Router.go('addWords', {_id: current_game_id});
             }
         });
     }

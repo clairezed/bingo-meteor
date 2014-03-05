@@ -21,12 +21,30 @@ Meteor.methods({
 
 		var word = _.extend(_.pick(wordAttributes, 'word', 'game_id'), {
 			created_at: new Date().getTime(),
-			updated_at: new Date().getTime()
+			updated_at: new Date().getTime(), 
+			found_by: []
 		});
 
 		Words.insert(word);
 		// increment corresponding game nb words
 		Games.update(word.game_id, {$inc: {nb_words: 1}});
 		return word.game_id;
+	}, 
+	toggleFound: function(wordFound){
+
+		var user = Meteor.user();
+		if(_.contains(wordFound.found_by, user._id)){
+			Words.update(
+				{_id: wordFound._id}, 
+				{$pull: {found_by: user._id}}
+			);
+		}else{
+			Words.update(
+				{_id: wordFound._id}, 
+				{$addToSet: {found_by: user._id}}
+			);
+		}
+		
+	
 	}
 })

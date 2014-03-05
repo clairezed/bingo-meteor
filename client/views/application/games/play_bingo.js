@@ -4,32 +4,23 @@ Template.playBingo.helpers({
     }, 
     ownGame: function(){
     	return this.creatorId == Meteor.userId();
+    },
+    found_by_current_user: function(){
+        if (_.contains(this.found_by, Meteor.userId())){
+            console.log("found");
+            return "found";
+        }
+        return "";
     }
 });
 
 Template.playBingo.events({
     'click .outer-square': function(e, template){
         e.preventDefault();
-
-        console.log("click !");
-        console.log($(e.target).attr('id'));
+        
         word_clicked = Words.findOne($(e.target).attr('id'));
-        console.log(word_clicked);
-
-        // var word = {
-        //     word: $(e.target).find('[name=word]').val(),
-        //     game_id: template.data._id
-        // }
-
-        // Meteor.call('createWord', word, function(error, current_game_id){
-        //     if (error)
-        //         return alert(error.reason);
-        //     // var current_game = Games.findOne({_id: template.data._id})
-
-        //     /// clear input text
-        //     $(e.target).find('[name=word]').val("");
-            
-        //     Router.go('addWords', {_id: current_game_id});
-        // })   
+        Meteor.call('toggleFound', word_clicked, function(error, current_game_id){
+                
+        })
     }
 })
