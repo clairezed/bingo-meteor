@@ -1,3 +1,35 @@
+/* necessary for bootstrap3 navbar-fixed-top */
+body{padding-top: 70px; }
+
+ul{
+    list-style: none;
+}
+/* PLAYER GAMES */
+.player-games .bingo-title{
+    font-size: 16px;
+    margin-right: 1%;
+    font-weight: bold;
+}
+
+/* ADD WORDS */
+.words-list{
+    margin-top: 2%;
+}
+.words-list ul{
+    padding-left: 0;
+}
+.words-list li{
+    margin-left: 2%;
+    margin-top: 1%;
+}
+.words-list span.label{
+    font-size: 100%;
+    margin-right: 1%;
+    font-weight: normal;
+}
+
+
+
 #grid-gen{
 	width: 100%;
 }

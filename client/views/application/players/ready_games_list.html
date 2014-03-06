@@ -1,0 +1,12 @@
+<template name="readyGamesList">
+    <div class="well">
+    <h3>Play bingos</h3>
+     {{#each ready_games}}
+        <ul>
+            <li>
+                <a href="{{pathFor 'playBingo'}}">{{title}}</a>
+            </li>
+        </ul>
+    {{/each}}
+</div>
+</template>

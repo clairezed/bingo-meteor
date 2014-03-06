@@ -2,24 +2,24 @@
     <h1> {{title}} is a nice title !</h1>
     <h2> Let's fill your bingo grid ! </h2>
 
-    <form>
-        <div class="control-group">
-            <div class="controls">
-                <input name="word" type="text" class="input-xxlarge" placeholder="The content of one of the tile is ...">
-            </div>
+    <form class="form-inline" role="form">
+        <div class="form-group">
+            <input name="word" type="text" class="form-control" placeholder="The content of one of the tile is ...">
         </div>
-        <div class="control-group">
-            <div class="controls">
-                <input type="submit" value="Ok !" class="btn btn-primary"/>
-            </div>
+        <div class="form-group">
+            <input type="submit" value="Ok !" class="btn btn-primary"/>
         </div>
     </form>
     {{#if enough_words}}
-        <a href="{{pathFor 'playBingo'}}" class="play-bingo btn btn-primary pull-right">Let's play bingo ! </a>
+    <a href="{{pathFor 'playBingo'}}" class="play-bingo btn btn-primary pull-right">Let's play bingo ! </a>
     {{/if}}
-      <div class="words">
-        {{#each words}}
-            <p><span class="label label-info">{{word}}</span><a href="#" class="delete btn btn-danger btn-small"> X </a></p>
+    <div class="words-list">
+        <ul>
+           {{#each words}}
+           <li>
+            <span class="label label-info">{{word}}</span><a href="#" class="delete btn btn-danger btn-xs"> X </a>
+        </li>
         {{/each}}
-      </div>
+    </ul>
+</div>
 </template>

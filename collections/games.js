@@ -33,7 +33,9 @@ Meteor.methods({
 			creatorId: user._id,
 			created_at: new Date().getTime(),
 			updated_at: new Date().getTime(), 
-			nb_words: 0
+			nb_words: 0,
+			nb_words_required: 5,
+			ready: this.nb_words > this.nb_words_required
 		});
 
 		var gameId = Games.insert(game);
@@ -41,9 +43,7 @@ Meteor.methods({
 		return gameId;
 	},
 	deleteGame: function(gameId){
-		console.log("in delete method");
 		var game = Games.findOne(gameId);
-		console.log(game._id);
 		Words.remove({game_id: game._id});
 		Games.remove(game._id);
 	}

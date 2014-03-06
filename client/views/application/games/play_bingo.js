@@ -11,6 +11,9 @@ Template.playBingo.helpers({
             return "found";
         }
         return "";
+    },
+    players: function(){
+        return Meteor.users.find();
     }
 });
 

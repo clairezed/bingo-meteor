@@ -1,23 +1,51 @@
 <template name="playBingo">
-<h1> Time to play bingo !</h1>
-{{#if ownGame}}
+  <h1> Time to play bingo !</h1>
+  {{#if ownGame}}
   <a href="{{pathFor 'addWords'}}"class="add-words btn btn-primary pull-right">Modifier</a>
   {{/if}}
-<h2> Title : {{title}}</h2>
+  <h2> Bingo title : {{title}}</h2>
 
   <div class="row">
     <div class="span12">
       <div id="grid-gen">
         <div class="grid">
          {{#each words}}
-          <div class="outer-square {{found_by_current_user}}" >
-            <div class="inner-square" id="{{_id}}">
-              <p> {{word}} </p>
-            </div>
+         <div class="outer-square {{found_by_current_user}}" >
+          <div class="inner-square" id="{{_id}}">
+            <p> {{word}} </p>
           </div>
-          {{/each}}
         </div>
+        {{/each}}
       </div>
     </div>
   </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+  <h3> Joueurs </h3>
+  <ul>
+    {{#each players}}
+    <li>
+      <p> 
+          {{username}}
+       </p>
+    </li>
+    {{/each}}
+  </ul>
+  </div>
+  <div class="col-md-4">
+  <h3> Activité </h3>
+  <ul>
+    {{#each words}}
+    <li>
+      <p> {{word}} trouvé par : 
+        {{#each found_by}}
+          {{.}}, 
+        {{/each}}
+       </p>
+    </li>
+    {{/each}}
+  </ul>
+  </div>
+</div>
 </template>

@@ -5,8 +5,8 @@
 
 standard-app-packages
 preserve-inputs
-bootstrap
 iron-router
 spin
-accounts-ui-bootstrap-dropdown
 accounts-password
+bootstrap-3
+accounts-ui-bootstrap-3

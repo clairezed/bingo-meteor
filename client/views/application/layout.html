@@ -2,31 +2,33 @@
   <body>
     <container>
       <header>
-        <div class="container">
-          <div class="navbar">
-            <div class="navbar-inner">
-              <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collap
-              se">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </a>
-            <a class="brand" href="{{pathFor 'playerIntro'}}">Bullshit Bingo</a>
-            {{#if currentUser}}
-              <div class="nav-collapse collapse">
-                <ul class="nav pull-right">
-                  <li>{{loginButtons}}</li>
+          <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse-grp">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{pathFor 'playerIntro'}}">Bullshit Bingo</a>
+              </div>
+
+              <div class="collapse navbar-collapse" id="collapse-grp">
+                <ul class="nav navbar-nav navbar-right">
+                   {{#if currentUser}}
+                      {{ loginButtons }}
+                    {{/if}}
                 </ul>
               </div>
-              {{/if}}
           </div>
         </div>
+      </header>
+      <div id="main" class="container">
+        {{> errors}}
+        {{yield}}
       </div>
-    </header>
-    <div id="main" class="container">
-      {{> errors}}
-      {{yield}}
-    </div>
-  </container>
-</body>
+    </container>
+  </body>
 </template>

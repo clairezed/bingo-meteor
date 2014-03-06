@@ -1,27 +1,33 @@
 <template name="playerIntro">
     {{#if currentUser}}
-        <h1> Happy to see you, {{currentUser.username}} !</h1>
-        <h2> Let's do bingo ! </h2>
-        <form>
-            <div class="control-group">
-                <div class="controls">
-                    <input name="title" type="text" class="input-xxlarge" placeholder="What's the title of your new bingo game ?"/>                      
-                </div>
-            </div>
-            <div class="control-group">
-                <div class="controls">
-                    <input type="submit" value="Ok !" class="btn btn-primary"/>
-                </div>
-            </div>
-        </form>
+    <h1> Happy to see you, {{currentUser.username}} !</h1>
+    <h2> Let's do bingo ! </h2>
+    <form class="form-inline" role="form">
+        <div class="form-group ">
+            <input name="title" type="text" class="form-control" placeholder="What's the title of your new bingo game ?"/>                  
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Ok !" class="btn btn-primary"/>
+        </div>
+    </form>
+    <h2> You can also... </h2>
+    <div class="row">
+      <div class="col-md-6">
+        {{>readyGamesList}}
+        
+    </div>
+      <div class="col-md-6">
         {{# if has_games}}
             {{>playerGames}}
-         {{/if}}
-    {{else}}
-        <h1> Hi ! So, you want to play bingo ?<h1>
-        <h2> Would you please sign in, sweetie ? </h2>
-        <div class="pull-left">
-            {{loginButtons}}
-        </div>
+        {{/if}}
+    </div>
+</div>
+
+{{else}}
+<h1> Hi ! So, you want to play bingo ?<h1>
+    <h2> Would you please sign in, sweetie ? </h2>
+    <!-- <div class="pull-left"> -->
+        {{loginButtons}}
+    <!-- </div> -->
     {{/if}}
 </template>

@@ -27,7 +27,10 @@ Meteor.methods({
 
 		Words.insert(word);
 		// increment corresponding game nb words
-		Games.update(word.game_id, {$inc: {nb_words: 1}});
+		var game = Games.findOne(word.game_id);
+		
+		var ready = game.nb_words+1 >= game.nb_words_required;
+		Games.update(word.game_id, {$inc: {nb_words: 1}, $set: {ready: ready}});
 		return word.game_id;
 	}, 
 	toggleFound: function(wordFound){
