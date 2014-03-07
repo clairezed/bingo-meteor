@@ -7,13 +7,9 @@ Template.playBingo.helpers({
     },
     found_by_current_user: function(){
         if (_.contains(this.found_by, Meteor.userId())){
-            console.log("found");
             return "found";
         }
         return "";
-    },
-    players: function(){
-        return Meteor.users.find();
     }
 });
 
@@ -22,7 +18,10 @@ Template.playBingo.events({
         e.preventDefault();
         
         word_clicked = Words.findOne($(e.target).attr('id'));
-        Meteor.call('toggleFound', word_clicked, function(error, current_game_id){
+        Meteor.call('toggleFound', word_clicked, function(error, found){
+                if(found){
+                    newActivityId = createActivity(word_clicked);
+                }
                 
         })
     }

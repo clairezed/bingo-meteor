@@ -20,32 +20,12 @@
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-md-4">
-  <h3> Joueurs </h3>
-  <ul>
-    {{#each players}}
-    <li>
-      <p> 
-          {{username}}
-       </p>
-    </li>
-    {{/each}}
-  </ul>
+<div class="row play-bingo-info">
+  <div class="col-md-6">
+    {{>playersList}}
   </div>
-  <div class="col-md-4">
-  <h3> Activité </h3>
-  <ul>
-    {{#each words}}
-    <li>
-      <p> {{word}} trouvé par : 
-        {{#each found_by}}
-          {{.}}, 
-        {{/each}}
-       </p>
-    </li>
-    {{/each}}
-  </ul>
+  <div class="col-md-6">
+    {{>bingoActivityList}}
   </div>
 </div>
 </template>

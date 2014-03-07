@@ -13,7 +13,6 @@ Words.allow({
 Meteor.methods({
 	createWord: function(wordAttributes){
 		var user = Meteor.user();
-
 		if(!user)
 				throw new Meteor.Error(401, "You need to login to add a word, sweetie");
 		if(!wordAttributes.word)
@@ -33,6 +32,14 @@ Meteor.methods({
 		Games.update(word.game_id, {$inc: {nb_words: 1}, $set: {ready: ready}});
 		return word.game_id;
 	}, 
+	deleteWord: function(word){
+		 var game = Games.findOne(word.game_id);
+
+		 // check if still enough words to play bingo
+		 var ready = game.nb_words-1 >= game.nb_words_required;
+        	Games.update(word.game_id, {$inc: {nb_words: -1}, $set: {ready: ready}});
+    		Words.remove(word._id);
+	},
 	toggleFound: function(wordFound){
 
 		var user = Meteor.user();
@@ -41,11 +48,15 @@ Meteor.methods({
 				{_id: wordFound._id}, 
 				{$pull: {found_by: user._id}}
 			);
+			return false;
 		}else{
 			Words.update(
 				{_id: wordFound._id}, 
 				{$addToSet: {found_by: user._id}}
 			);
+			return true;
+			// create a public notification
+			
 		}
 		
 	

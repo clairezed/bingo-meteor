@@ -20,21 +20,19 @@ Template.addWords.events({
         Meteor.call('createWord', word, function(error, current_game_id){
             if (error)
                 throwError(error.reason);
-            var current_game = Games.findOne({_id: template.data._id})
-            console.log(current_game);
-            /// clear input text
+            // var current_game = Games.findOne({_id: template.data._id})
+            //// clear input text
             $(e.target).find('[name=word]').val("");
             
             Router.go('addWords', {_id: current_game_id});
         })   
     },
     'click .delete': function(e){
-        var currentWord = this;
-                var game = Games.findOne(word.game_id);
-        
-        var ready = game.nb_words+1 >= game.nb_words_required;
-        Games.update(word.game_id, {$inc: {nb_words: 1}, $set: {ready: ready}});
-        Games.update(currentWord.game_id, {$inc: {nb_words: -1}});
-        Words.remove(currentWord._id);
+        var word = this;
+       
+        Meteor.call('deleteWord', word, function(error){
+            if(error)
+                throwError(error.reason);
+        })
     }
 })

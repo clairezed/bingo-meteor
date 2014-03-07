@@ -1,0 +1,14 @@
+<template name="playersList">
+    <div class="well">
+    <h3> Joueurs </h3>
+   <ul>
+    {{#each players}}
+    <li>
+      <p> 
+          {{username}}
+       </p>
+    </li>
+    {{/each}}
+  </ul>
+</div>
+</template>
