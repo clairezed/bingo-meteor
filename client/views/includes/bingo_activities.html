@@ -1,8 +1,12 @@
 <template name="bingo_activities">
-    <div class="errors row-fluid">
-        {{#each bingo_activities}}
-            {{word}}, {{player}}
-        {{/each}}
+    <div class="row-fluid">
+        <ul>
+            {{#each bingo_activities}}
+            <li>
+                {{player}}'s just checked the case "{{word}}".
+            </li>
+            {{/each}}
+        </ul>
     </div>
 </template>
 

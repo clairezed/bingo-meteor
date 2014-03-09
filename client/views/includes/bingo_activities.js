@@ -1,12 +1,6 @@
 Template.bingo_activities.helpers({
-    activities: function() {
-        return BingoActivities.find();
+    bingo_activities    : function() {
+        console.log("act helper");
+        return BingoActivities.find({}, {sort: {created_at: -1}, limit: 5});
     }
 });
-
-// Template.bingo_activities.rendered = function() {
-//     var error = this.data;
-//     Meteor.defer(function() {
-//         Errors.update(error._id, {$set: {seen: true}});
-//     });
-// };

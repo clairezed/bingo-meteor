@@ -3,10 +3,10 @@ BingoActivities = new Meteor.Collection(null);
 
 createActivity = function(word){
     var user = Meteor.user();
-    var activityId = BingoActivities.insert({word: word, player: user});
     console.log("createActivity");
-    // console.log(activityId);
-    return activityId;
+    return BingoActivities.insert({word: word.word, 
+        player: user.username, 
+        created_at: new Date().getTime()});
 }
 
 clearActivity = function(){
