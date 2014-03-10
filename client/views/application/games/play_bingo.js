@@ -20,7 +20,10 @@ Template.playBingo.events({
         word_clicked = Words.findOne($(e.target).attr('id'));
         Meteor.call('toggleFound', word_clicked, function(error, found){
                 if(found){
-                    newActivityId = createActivity(word_clicked);
+                    Meteor.call('createActivity', word_clicked, function(error){
+                        if(error)
+                            throwError(error.reason);
+                    })
                 }
                 
         })

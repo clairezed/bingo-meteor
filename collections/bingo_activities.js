@@ -1,16 +1,26 @@
 // Local (client-only) collection
-BingoActivities = new Meteor.Collection();
+BingoActivities = new Meteor.Collection('bingo_activities');
 
-createActivity = function(word){
-    var user = Meteor.user();
-    console.log("createActivity");
-    return BingoActivities.insert({
-    	game_id: word.game_id,
-    	word: word.word, 
-        player: user.username, 
-        created_at: new Date().getTime()});
-}
+// BingoActivities.allow({
+//   insert: function(userId, doc){
+//     return !! userId;
+//   }, 
+//   remove: function(userId, doc){
+//     return !! userId;
+//   }
+// })
 
-clearActivity = function(){
-    // BingoActivities.remove()
-}
+
+Meteor.methods({
+  createActivity: function(word){
+      var user = Meteor.user();
+      return BingoActivities.insert({
+                  game_id: word.game_id,
+                  word: word.word, 
+                  player: user.username, 
+                  created_at: new Date().getTime()});
+  },
+  clearActivity: function(){
+      // BingoActivities.remove()
+  }
+})
