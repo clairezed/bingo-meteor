@@ -4,6 +4,6 @@ Meteor.publish('words', function(gameId) {
 Meteor.publish('games', function() {
     return Games.find();
 });
-Meteor.publish('players', function () {
-    return Meteor.users.find();
+Meteor.publish('players', function (gameId) {
+    return Meteor.users.find({playing: gameId});
 });
