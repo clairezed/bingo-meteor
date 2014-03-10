@@ -41,7 +41,6 @@ Meteor.methods({
     		Words.remove(word._id);
 	},
 	toggleFound: function(wordFound){
-
 		var user = Meteor.user();
 		if(_.contains(wordFound.found_by, user._id)){
 			Words.update(
@@ -55,7 +54,6 @@ Meteor.methods({
 				{$addToSet: {found_by: user._id}}
 			);
 			return true;
-			// create a public notification
 			
 		}
 		

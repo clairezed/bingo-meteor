@@ -1,15 +1,4 @@
-// Local (client-only) collection
 BingoActivities = new Meteor.Collection('bingo_activities');
-
-// BingoActivities.allow({
-//   insert: function(userId, doc){
-//     return !! userId;
-//   }, 
-//   remove: function(userId, doc){
-//     return !! userId;
-//   }
-// })
-
 
 Meteor.methods({
   createActivity: function(word){
