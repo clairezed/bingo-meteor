@@ -41,7 +41,7 @@ Meteor.methods({
 			});
 			}
 		});
-		Meteor.call('setPlayingUsers',  game_id, function (error, result) {});
+		 Meteor.call('setPlayingUsers',  game_id, function (error, result) {});
 		return game_id;
 	},
 	// , 
