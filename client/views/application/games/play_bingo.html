@@ -9,10 +9,10 @@
     <div class="span12">
       <div id="grid-gen">
         <div class="grid">
-         {{#each words}}
+         {{#each contents}}
          <div class="outer-square {{found_by_current_user}}" >
-          <div class="inner-square" id="{{_id}}">
-            <p> {{word}} </p>
+          <div class="inner-square" id="{{_id}}" data-index="{{pos}}">
+            <p> {{content}} </p>
           </div>
         </div>
         {{/each}}

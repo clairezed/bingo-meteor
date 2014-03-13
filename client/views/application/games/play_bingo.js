@@ -1,6 +1,7 @@
 Template.playBingo.helpers({
-    words: function(){
-        return Words.find({game_id: this._id});
+    contents: function(){
+        return PlayerContents.find({game_id: this._id, player_id: Meteor.userId()}, {sort: {pos: 1}});
+         // return BingoActivities.find({game_id: this._id}, {sort: {created_at: -1}, limit: 5});
     }, 
     ownGame: function(){
     	return this.creatorId == Meteor.userId();
@@ -17,10 +18,10 @@ Template.playBingo.events({
     'click .outer-square': function(e, template){
         e.preventDefault();
         
-        word_clicked = Words.findOne($(e.target).attr('id'));
-        Meteor.call('toggleFound', word_clicked, function(error, found){
+        content_clicked = PlayerContents.findOne($(e.target).attr('id'));
+        Meteor.call('toggleFound', content_clicked, function(error, found){
                 if(found){
-                    Meteor.call('createActivity', word_clicked, function(error){
+                    Meteor.call('createActivity', content_clicked, function(error){
                         if(error)
                             throwError(error.reason);
                     })

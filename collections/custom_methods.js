@@ -1,9 +1,10 @@
 Meteor.methods({
-        setPlaying: function (game_id) {
+        setPlayingUsers: function (game_id) {
+            console.log("set playing users");
             var user = Meteor.user();
             Meteor.users.update(user._id, {$set: {playing: game_id}});
         },
-         unsetPlaying: function (game_id) {
+         unsetPlayingUsers: function (game_id) {
             var user = Meteor.user();
             Meteor.users.update(user._id, {$set: {playing: ""}});
         }

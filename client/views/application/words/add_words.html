@@ -14,12 +14,16 @@
     <a href="{{pathFor 'playBingo'}}" class="play-bingo btn btn-primary pull-right">Let's play bingo ! </a>
     {{/if}}
     <div class="words-list">
-        <ul>
-           {{#each words}}
-           <li>
-            <span class="label label-info">{{.}}</span><a href="#" class="delete btn btn-danger btn-xs"> X </a>
-        </li>
-        {{/each}}
-    </ul>
-</div>
+        {{>wordsList}}
+    </div>
+</template>
+
+<template name="wordsList">
+    <ul>
+     {{#each words}}
+     <li>
+        <span class="label label-info">{{.}}</span><a href="#" class="delete btn btn-danger btn-xs"> X </a>
+    </li>
+    {{/each}}
+</ul>
 </template>
