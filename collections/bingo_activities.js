@@ -14,7 +14,6 @@ Meteor.methods({
 
         excedentaryActivitiesCursor.observe({
             added: function(doc){
-                console.log(doc);
                 BingoActivities.remove({_id: doc._id});
         }
     })

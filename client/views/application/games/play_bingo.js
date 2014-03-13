@@ -5,13 +5,14 @@ Template.playBingo.helpers({
     }, 
     ownGame: function(){
     	return this.creatorId == Meteor.userId();
-    },
-    found_by_current_user: function(){
-        if (_.contains(this.found_by, Meteor.userId())){
-            return "found";
-        }
-        return "";
     }
+    // ,
+    // found_by_current_user: function(){
+    //     if (_.contains(this.found_by, Meteor.userId())){
+    //         return "found";
+    //     }
+    //     return "";
+    // }
 });
 
 Template.playBingo.events({
@@ -20,6 +21,7 @@ Template.playBingo.events({
         
         content_clicked = PlayerContents.findOne($(e.target).attr('id'));
         Meteor.call('toggleFound', content_clicked, function(error, found){
+            console.log("end : " +found);
                 if(found){
                     Meteor.call('createActivity', content_clicked, function(error){
                         if(error)

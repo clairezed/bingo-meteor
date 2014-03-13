@@ -37,11 +37,12 @@ Meteor.methods({
 				player_id: user._id,
 				game_id: game_id,
 				content: word,
+				found: false,
 				pos: randomPos[index]
 			});
 			}
 		});
-		 Meteor.call('setPlayingUsers',  game_id, function (error, result) {});
+
 		return game_id;
 	},
 	// , 
@@ -55,19 +56,34 @@ Meteor.methods({
 	// },
 	toggleFound: function(contentFound){
 		var user = Meteor.user();
-		if(_.contains(contentFound.found_by, user._id)){
+		console.log("beginning : "+contentFound.found)
+		if(contentFound.found === true){
+			console.log("i'm true !" + contentFound.found);
 			PlayerContents.update(
 				{_id: contentFound._id}, 
-				{$pull: {found_by: user._id}}
+				{$set: {found: false}}
 			);
-			return false;
+			console.log("I should be false "+contentFound.found);
 		}else{
 			PlayerContents.update(
 				{_id: contentFound._id}, 
-				{$addToSet: {found_by: user._id}}
+				{$set: {found: true}}
 			);
-			return true;
-			
 		}
+		return contentFound.found;
+		// if(_.contains(contentFound.found_by, user._id)){
+		// 	PlayerContents.update(
+		// 		{_id: contentFound._id}, 
+		// 		{$pull: {found_by: user._id}}
+		// 	);
+		// 	return false;
+		// }else{
+		// 	PlayerContents.update(
+		// 		{_id: contentFound._id}, 
+		// 		{$addToSet: {found_by: user._id}}
+		// 	);
+		// 	return true;
+		// }
+
 	}
 })

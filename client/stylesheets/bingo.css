@@ -47,10 +47,10 @@ ul{
       #grid-gen .grid .outer-square:hover{
         background-color: #ddd;
       }
-            #grid-gen .grid .outer-square.found{
+            #grid-gen .grid .outer-square.found-true{
                     background-color: #ff0000 ;
             }
-            #grid-gen .grid .outer-square.found:hover{
+            #grid-gen .grid .outer-square.found-true:hover{
                     background-color: #ff3700 ;
             }   
 
