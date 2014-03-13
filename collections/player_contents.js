@@ -68,19 +68,5 @@ Meteor.methods({
 			);
 		}
 		return contentFound.found;
-		// if(_.contains(contentFound.found_by, user._id)){
-		// 	PlayerContents.update(
-		// 		{_id: contentFound._id}, 
-		// 		{$pull: {found_by: user._id}}
-		// 	);
-		// 	return false;
-		// }else{
-		// 	PlayerContents.update(
-		// 		{_id: contentFound._id}, 
-		// 		{$addToSet: {found_by: user._id}}
-		// 	);
-		// 	return true;
-		// }
-
 	}
 })

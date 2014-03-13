@@ -14,9 +14,7 @@ Meteor.publish('player_contents', function(gameId) {
                 })
             }
         }
-
     });
-
     return PlayerContents.find({game_id: gameId});
 });
 
@@ -30,7 +28,6 @@ Meteor.publish('bingo_activities', function (gameId) {
 
     excedentaryActivitiesCursor.observe({
         added: function(doc){
-            console.log(doc);
             BingoActivities.remove({_id: doc._id});
         }
     })
@@ -41,6 +38,10 @@ Meteor.publish('bingo_activities', function (gameId) {
 
 Meteor.publish('players', function (gameId) {
     return Meteor.users.find({playing: gameId}, {fields: {playing: 1, username: 1,}});
+});
+
+Meteor.publish('player_found_contents', function () {
+    return Meteor.player_found_contents.find();
 });
 
 

@@ -12,7 +12,6 @@ Template.playBingo.events({
         e.preventDefault();
         
         content_clicked = PlayerContents.findOne($(e.target).attr('id'));
-        console.log(content_clicked);
         Meteor.call('toggleFound', content_clicked, function(error, found){
             if(error)
                 throwError(error.reason);     
