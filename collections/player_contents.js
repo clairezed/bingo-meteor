@@ -56,14 +56,11 @@ Meteor.methods({
 	// },
 	toggleFound: function(contentFound){
 		var user = Meteor.user();
-		console.log("beginning : "+contentFound.found)
-		if(contentFound.found === true){
-			console.log("i'm true !" + contentFound.found);
+		if(contentFound.found){
 			PlayerContents.update(
 				{_id: contentFound._id}, 
 				{$set: {found: false}}
 			);
-			console.log("I should be false "+contentFound.found);
 		}else{
 			PlayerContents.update(
 				{_id: contentFound._id}, 

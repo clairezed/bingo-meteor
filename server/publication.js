@@ -3,6 +3,20 @@ Meteor.publish('games', function() {
 });
 
 Meteor.publish('player_contents', function(gameId) {
+    var player_contents = PlayerContents.find({game_id: gameId});
+    var handle = player_contents.observeChanges({
+        changed: function(id, fields){
+            if(fields.found){
+                var content = PlayerContents.findOne(id);
+                Meteor.call('createActivity', content, function(error, activity_id){
+                    if(error)
+                        console.log("there's a pb");
+                })
+            }
+        }
+
+    });
+
     return PlayerContents.find({game_id: gameId});
 });
 
