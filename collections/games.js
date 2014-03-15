@@ -89,6 +89,12 @@ Meteor.methods({
 		}else{
 		  console.log("not yet");
 		}
+	},
+	removeWinnersWhenTheyLeave: function(game_id){
+		var user = Meteor.user();
+		Games.update(game_id, {
+        		$pull: {winners: user._id}
+        	});
 	}
 })
 
