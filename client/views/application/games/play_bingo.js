@@ -12,10 +12,11 @@ Template.playBingo.events({
         e.preventDefault();
         
         content_clicked = PlayerContents.findOne($(e.target).attr('id'));
-        Meteor.call('toggleFound', content_clicked, function(error, found){
+        Meteor.call('toggleFound', content_clicked, function(error, contentFound){
+            console.log("playbingojs");
+            console.log(contentFound);
             if(error)
                 throwError(error.reason);     
-                
         })
     }
 })

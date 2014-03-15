@@ -67,6 +67,6 @@ Meteor.methods({
 				{$set: {found: true}}
 			);
 		}
-		return contentFound.found;
+		return contentFound;
 	}
 })
