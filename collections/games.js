@@ -32,7 +32,7 @@ Meteor.methods({
 			created_at: new Date().getTime(),
 			updated_at: new Date().getTime(), 
 			words: [],
-			nb_words_required: 5,
+			nb_words_required: 25,
 			winners: [],
 			ready: false
 		});
@@ -73,8 +73,6 @@ Meteor.methods({
 	        	});
 	},
 	checkBingo: function(foundContents){
-		console.log("Check BINGOS");
-
 		var playerFoundCases = foundContents.founds;
 
 		var bingo = _.find(winCombinations, function(combi){
@@ -86,8 +84,6 @@ Meteor.methods({
 		  Games.update(foundContents.game_id, {
 	        		$addToSet: {winners: foundContents.player_id}
 	        	});
-		}else{
-		  console.log("not yet");
 		}
 	},
 	removeWinnersWhenTheyLeave: function(game_id){

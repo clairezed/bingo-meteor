@@ -12,7 +12,6 @@ PlayerContents.allow({
 
 Meteor.methods({
 	createPlayerContents: function(game_id){
-		console.log("create player contents");
 		var user = Meteor.user();
 		if(!user)
 				throw new Meteor.Error(401, "You need to login to add a word, sweetie");
@@ -45,15 +44,14 @@ Meteor.methods({
 
 		return game_id;
 	},
-	// , 
-	// deletePlayerContents: function(word){game_id
-	// 	 var game = Games.findOne(word.game_id);
-
-	// 	 // check if still enough words to play bingo
-	// 	 var ready = game.nb_words-1 >= game.nb_words_required;
- //        	Games.update(word.game_id, {$inc: {nb_words: -1}, $set: {ready: ready}});
- //    		Grids.remove(word._id);
-	// },
+	deletePlayerContents: function(game_id){
+		console.log("deletePlayerContents");
+		var user = Meteor.user();
+		PlayerContents.remove({
+			player_id: user._id,
+			game_id: game_id
+		});
+	},
 	toggleFound: function(contentFound){
 		var user = Meteor.user();
 		if(contentFound.found){
