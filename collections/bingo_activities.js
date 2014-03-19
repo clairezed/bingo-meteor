@@ -2,6 +2,7 @@ BingoActivities = new Meteor.Collection('bingo_activities');
 
 Meteor.methods({
   createActivity: function(content){
+    console.log("createActivity");
       var user = Meteor.users.findOne(content.player_id);
       return BingoActivities.upsert(
         {

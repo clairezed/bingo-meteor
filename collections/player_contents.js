@@ -53,6 +53,7 @@ Meteor.methods({
 		});
 	},
 	toggleFound: function(contentFound){
+		console.log("toggleFound");
 		var user = Meteor.user();
 		if(contentFound.found){
 			PlayerContents.update(
@@ -68,3 +69,39 @@ Meteor.methods({
 		return contentFound;
 	}
 })
+
+///// OBSERVERS /////////////////////////////////////////////////////////////////////
+
+PlayerContents.startObservers = function startObservers(gameId) {
+  PlayerContents.observer = PlayerContents.find({game_id: gameId})
+  .observeChanges({
+    //change: notifySubscribedUsers // or some other function
+    changed: function(id, fields){
+            var content = PlayerContents.findOne(id);
+            // create activity only for found contents
+            if(fields.found){
+                Meteor.call('createActivity', content, function(error, activity_id){
+                    if(error)
+                        console.log("there's a pb");
+                });
+            };
+            // update content founds
+            Meteor.call('addFound', content, function(error, player_found_content_id){
+                    if(error)
+                        console.log(error.reason);
+                })
+        }
+  });
+};
+
+PlayerContents.stopObservers = function stopObservers(gameId) {
+  if(PlayerContents.observer) {
+    PlayerContents.observer.stop(); // Call the stop
+  }
+};
+
+
+// Trigger Somewhere else in the code
+// PlayerContents.stopObservers(gameId);
+// MyTool.doWorkOnPlayerContents(); // Some contrived work on the PlayerContents collection
+// PlayerContents.startObservers();

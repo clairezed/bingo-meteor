@@ -2,6 +2,7 @@ PlayerFoundContents = new Meteor.Collection('player_found_contents');
 
 Meteor.methods({
   addFound: function(content){
+    console.log("addFound");
     var player_found_contents = PlayerFoundContents.findOne({
       player_id: content.player_id, 
       game_id: content.game_id
@@ -26,3 +27,26 @@ Meteor.methods({
   //   console.log(user);
   // }
 })
+
+///// OBSERVERS /////////////////////////////////////////////////////////////////////
+
+PlayerFoundContents.startObservers = function startObservers() {
+  PlayerFoundContents.observer = PlayerFoundContents.find()
+  .observeChanges({
+    //change: notifySubscribedUsers // or some other function
+    changed: function(id, fields){
+      var foundContents = PlayerFoundContents.findOne(id);
+            Meteor.call('checkBingo', foundContents, function(error, fc_id){
+                if (error)
+                        console.log(error);
+            })
+
+        }
+  });
+};
+
+PlayerFoundContents.stopObservers = function stopObservers() {
+  if(PlayerFoundContents.observer) {
+    PlayerFoundContents.observer.stop(); // Call the stop
+  }
+};
