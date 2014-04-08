@@ -1,0 +1,61 @@
+<template name="login">
+    <h1> Hi ! So, you want to play bingo ?</h1>
+    <h2> Would you please sign in, sweetie ? </h2>
+    {{> loginForm}}
+</template>
+
+<template name="loginForm">
+    <form id="login-form" class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="login-username" class="col-sm-2 control-label">Username</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="login-username" placeholder="What's your name, sweetie ?">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="login-password" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="login-password" placeholder="Password">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Log in</button>
+            </div>
+        </div>
+    </form>
+</template>
+
+<template name="signupForm">
+  <form id="signup-form" class="form-horizontal" role="form">
+    <div class="form-group">
+        <label for="signup-username" class="col-sm-2 control-label">Username</label>
+        <div class="col-sm-10">
+            <input type="text" id="signup-username" class="form-control" placeholder="Username" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="signup-password" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-10">
+            <input type="password" id="signup-password" class="form-control" placeholder="Password" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="signup-name" class="col-sm-2 control-label">Full Name</label>
+        <div class="col-sm-10">
+            <input type="text" id="signup-name" class="form-control" placeholder="Full Name" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Sign up</button>
+        </div>
+    </div>
+</form>
+</template>
+
+<template name="logoutForm">
+  <form id="logout-form">
+    <button type="submit">Log Out</button>
+</form>
+</template>

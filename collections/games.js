@@ -27,7 +27,7 @@ Meteor.methods({
 				"Sorry Dude, a bingo game with the same title already exists", 
 				gameWithSameTitle._id);
 		}
-		var game = _.extend(_.pick(gameAttributes, 'title'), {
+		var game = _.extend(_.pick(gameAttributes, 'title', 'description', 'tags'), {
 			creatorId: user._id,
 			created_at: new Date().getTime(),
 			updated_at: new Date().getTime(), 
@@ -43,7 +43,6 @@ Meteor.methods({
 	},
 	deleteGame: function(gameId){
 		var game = Games.findOne(gameId);
-		Words.remove({game_id: game._id});
 		Games.remove(game._id);
 	},
 	// args : game_id / word

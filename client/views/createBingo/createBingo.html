@@ -1,0 +1,32 @@
+<template name="createBingo">
+ <span class="label label-info pull-right">Bingo creation - step 1/2</span>
+ {{#if currentUser}}
+ <p> Happy to see you, {{currentUser.username}} !</p>
+ <h1> Now let's <br>
+    Describe your game</h1>
+    <p>It's always good to let people know a bit more about the game you offer them. A title is the minimum !</p>
+    <form role="form">
+        <div class="row">
+            <div class="form-group col-sm-8">
+                <label for="title">Title *</label>
+                <input id="title" name="title" type="text" class="form-control" placeholder="What's the title of your new bingo game ?"/>  
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-8">
+                <label for="description">Description</label>
+                <textarea id="description" name="description"  class="form-control"  placeholder="slideshow description" rows="4" cols="50"></textarea>
+                <p class="help-block">Example block-level help text here.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-8">
+                <label for="tags">Tags</label>
+                <input type="text" class="form-control" id="tags" name="tags" placeholder="tags, separated with commas">
+            </div>
+        </div>
+        <input type="submit" value="Create" class="btn btn-primary"/>
+    </form>
+
+{{/if}}
+</template>

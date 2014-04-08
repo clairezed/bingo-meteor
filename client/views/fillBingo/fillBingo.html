@@ -1,7 +1,8 @@
-<template name="addWords">
-    <h1> {{title}} is a nice title !</h1>
-    <h2> Let's fill your bingo grid ! </h2>
-
+<template name="fillBingo">
+    <span class="label label-info pull-right">Bingo creation - step 2/2</span>
+    <h1> And finally <br>
+    Fill your grid</h1>
+    <p>what would a bingo game be without its grid filled with homemade content ? We need you provide 24 pieces of content before your bingo is ready to be played.</p>
     <form class="form-inline" role="form">
         <div class="form-group">
             <input name="word" type="text" class="form-control" placeholder="The content of one of the tile is ...">
@@ -19,10 +20,10 @@
 </template>
 
 <template name="wordsList">
-    <ul>
+    <ul class="list-inline">
      {{#each words}}
      <li>
-        <span class="label label-info">{{.}}</span><a href="#" class="delete btn btn-danger btn-xs"> X </a>
+        <span class="label label-info">{{.}} <a href="#" class="delete btn btn-danger btn-xs"> X </a></span>
     </li>
     {{/each}}
 </ul>

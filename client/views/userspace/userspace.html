@@ -1,0 +1,17 @@
+<template name="userspace">
+    <h1>Hello {{currentUser.username}} ! <br>
+       Here you can find all your Bingo Games. </h1>
+       {{#if has_games}}
+       <div class="well player-games">
+         <h3>Check one of your games</h3>
+         {{#each games}}
+         <ul>
+            <li>
+                <a href="{{pathFor 'fillBingo'}}" class="bingo-title">{{title}}</a>
+               <a href="#" class="delete-game btn btn-danger btn-xs"> X </a>
+           </li>
+       </ul>
+       {{/each}}
+   </div>
+   {{/if}}
+</template>
