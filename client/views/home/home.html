@@ -1,29 +1,41 @@
 <template name="home">
-    <h1> Fancy <br>
-     A sweet bingo party ? </h1>
-     <p> Everyone liiiiikes bingo. Here, you can create your own Bingo grid with the content you want,
-        or play to a Bingo game created by someone else. </p>
-    {{#if currentUser}}
-        <a href="{{pathFor 'createBingo'}}" class="play-bingo btn btn-primary"> Create a bingo game </a>
-     {{else}}
-        <a href="{{pathFor 'authenticate'}}" class="play-bingo btn btn-primary"> Create a bingo game </a>
-    {{/if}}
-    {{>latestBingosList}}
-</template>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h1> Fancy <br>
+               A sweet bingo party ? </h1>
+               <p> Everyone liiiiikes bingo. Here, you can create your own Bingo grid with the content you want,
+                or play to a Bingo game created by someone else. </p>
+                <p class="text-center">
+                    {{#if currentUser}}
+                    <a href="{{pathFor 'createBingo'}}" class="play-bingo btn btn-primary btn-lg">Create a bingo game</a>
+                    {{else}}
+                    <a href="{{pathFor 'authenticate'}}" class="play-bingo btn btn-primary btn-lg">Create a bingo game</a>
+                    {{/if}}
+                </p>
+            </div>
+        </div>
+        <br>
+        {{>latestBingosList}}
+    </template>
 
-<template name="latestBingosList">
-     <div class="well">
-        <h3>Latest Bingos</h3>
-        <ul>
-           {{#each ready_games}}
-           <li>
-            <a href="{{pathFor 'playBingo'}}">{{title}}</a>
-        </li>
-        {{else}}
-        <li>
-            No bingos for now, sorry !
-        </li>
-        {{/each}}
-    </ul>
-</div>
+    <template name="latestBingosList">
+        <br>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="well">
+                    <h3>Latest Bingos</h3>
+                    <ul>
+                       {{#each ready_games}}
+                       <li>
+                        <a href="{{pathFor 'playBingo'}}">{{title}}</a>
+                    </li>
+                    {{else}}
+                    <li>
+                        No bingos for now, sorry !
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
 </template>
