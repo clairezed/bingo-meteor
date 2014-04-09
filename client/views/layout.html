@@ -17,24 +17,29 @@
 
             <div class="collapse navbar-collapse" id="collapse-grp">
               <ul class="nav navbar-nav">
-                <li><a href="#">Create Bingo</a></li>
+                <li> 
+                  {{#if currentUser}}
+                  <a href="{{pathFor 'createBingo'}}">Create Bingo</a>
+                       {{else}}
+                       <a href="{{pathFor 'authenticate'}}">Create Bingo</a>
+                       {{/if}}
+                </li>
                 <li><a href="#">All Bingos</a></li>
                 <li><a href="#">Info</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><b class="caret"></b></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user">{{currentUser.username}}</span><b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     {{#if currentUser}}
                     <li><a href="{{pathFor 'userspace'}}">My bingos</a></li>
-                    <li><a href="#">Disconnect</a></li>
+                    <li><a class="disconnect" href="#">Disconnect</a></li>
                     {{else}}
-                    <li><a href="login">Log in</a></li>
-                    <li><a href="signup">Sign up</a></li>
+                    <li><a href="{{pathFor 'login'}}">Log in</a></li>
+                    <li><a href="{{pathFor 'signup'}}">Sign up</a></li>
                     {{/if}}
                   </ul>
                 </li>
-              </ul>
-              <ul class="nav navbar-nav navbar-right">
-                {{> loginButtons }}
               </ul>
             </div>
           </div>

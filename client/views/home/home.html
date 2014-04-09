@@ -6,7 +6,7 @@
     {{#if currentUser}}
         <a href="{{pathFor 'createBingo'}}" class="play-bingo btn btn-primary"> Create a bingo game </a>
      {{else}}
-        <a href="{{pathFor 'login'}}" class="play-bingo btn btn-primary"> Create a bingo game </a>
+        <a href="{{pathFor 'authenticate'}}" class="play-bingo btn btn-primary"> Create a bingo game </a>
     {{/if}}
     {{>latestBingosList}}
 </template>
