@@ -1,12 +1,9 @@
 Template.userspace.helpers({
-    games: function(){
+    grids: function(){
         var user = Meteor.user();
-            return Games.find({creatorId: user._id});
-    }, 
-     has_games: function(){
-            var user = Meteor.user();
-            if(user)
-                return Games.find({creatorId: user._id}).count() > 0;
+        if (user) {
+            return Grids.find({creatorId: user._id});
+        }
     }
 });
 
@@ -15,9 +12,9 @@ Template.userspace.events({
         e.preventDefault();
 
         if(confirm("Do you really want to delete your sweet bingo, sugar ?")){
-            var currentGameId = this._id;
+            var currentGridId = this._id;
 
-            Meteor.call('deleteGame', currentGameId, function(error){
+            Meteor.call('deleteGrid', currentGridId, function(error){
                 if (error)
                     throwError(error.reason);
             })

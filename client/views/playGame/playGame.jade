@@ -1,0 +1,13 @@
+template(name="playGame")
+  .pull-right Game launch by #{gameCreator.username}
+  if ownGame
+    a.btn.btn-primary.pull-right(href="{{pathFor 'fillGrid'}}") Modify
+  h1 #{grid.title}
+  .row
+    .col-md-8.col-md-offset-2
+      #grid-gen
+        .grid
+          each contents
+            .outer-square(class="found-{{found}}")
+              .inner-square(id="{{_id}}")
+                p #{content}

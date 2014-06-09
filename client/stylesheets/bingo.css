@@ -4,6 +4,11 @@ body{padding-top: 70px; }
 ul{
     list-style: none;
 }
+
+#main.container-fluid {
+    max-width: 80%;
+}
+
 /* PLAYER GAMES */
 .player-games .bingo-title{
     font-size: 16px;
@@ -52,7 +57,7 @@ ul{
             }
             #grid-gen .grid .outer-square.found-true:hover{
                     background-color: #ff3700 ;
-            }   
+            }
 
 		#grid-gen .grid .outer-square .inner-square{
 			position: absolute;

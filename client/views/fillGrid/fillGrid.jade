@@ -1,5 +1,5 @@
-template(name="fillBingo")
-  span.label.label-info.pull-right Bingo creation - step 2/2
+template(name="fillGrid")
+  span.label.label-info.pull-right Grid creation - step 2/2
   h1 And finally, fill your grid
   p what would a bingo game be without its grid filled with homemade content ? We need you provide 24 pieces of content before your bingo is ready to be played.
   form.form-inline(role="form")
@@ -8,7 +8,11 @@ template(name="fillBingo")
     .form-group
       input.btn.btn-primary(type="submit" value="Ok !")
   if ready
-    a.play-bingo.btn.btn-primary.pull-right(href="{{pathFor 'playBingo'}}") Let's play bingo !
+    if userGame
+      a.launch-game.btn.btn-primary.pull-right(href="#") Resume game
+    else
+      a.launch-game.btn.btn-primary.pull-right(href="#") Launch a game !
+
   .words-list
     +wordsList
 
@@ -16,5 +20,6 @@ template(name="wordsList")
   ul.list-inline
     each words
       li
-        span.label.label-info #{.}
-          a.delete.btn.btn-danger.btn-xs(href="#") X
+        span.label.label-info
+          span #{.}
+          a.delete.btn.btn-info.btn-xs(href="#") X

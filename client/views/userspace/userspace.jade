@@ -1,15 +1,15 @@
 template(name="userspace")
   h1 Hello #{currentUser.username} !
   h2 Here you can find all your Bingo Games.
-  if has_games
-    .well.player-games
-      ul
-        each games
-          li
-            a.bingo-title(href="{{pathFor 'fillBingo'}}") #{title}
-            a.delete-game.btn.btn-danger.btn-xs(href="#") X
-  else
-    p You don't have any bingo yet, sweetie !
-    p.text-center
-      a.play-bingo.btn.btn-primary(href="{{pathFor 'createBingo'}}")
-        |Let's create one now !
+  .well.player-games
+    ul
+      each grids
+        li
+          a.bingo-title(href="{{pathFor 'fillGrid'}}") #{title}
+          a.delete-game.btn.btn-danger.btn-xs(href="#") X
+      else
+        li
+          p You don't have any bingo yet, sweetie !
+          p.text-center
+            a.play-bingo.btn.btn-primary(href="{{pathFor 'createGrid'}}")
+              |Let's create one now !

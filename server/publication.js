@@ -1,16 +1,46 @@
+// GRIDS
+
+Meteor.publish('grids', function() {
+    return Grids.find();
+});
+
+
+// GAMES
+
 Meteor.publish('games', function() {
     return Games.find();
 });
 
-Meteor.publish('player_contents', function(gameId) {
+Meteor.publish('game', function(gameId) {
+    return Games.find({_id: gameId});
+});
+
+Meteor.publish('userGames', function(userId) {
+    return Games.find({creatorId: userId});
+})
+
+
+// PLAYER CONTENTS
+
+Meteor.publish('playerContents', function(gameId) {
     PlayerContents.startObservers(gameId);
     this.onStop(function () {
         PlayerContents.stopObservers(gameId);
     });
-    return PlayerContents.find({game_id: gameId});
+    return PlayerContents.find({gameId: gameId});
 });
-        
-Meteor.publish('bingo_activities', function (gameId) {
+
+// Meteor.publish('player_found_contents', function () {
+//     PlayerFoundContents.startObservers();
+//     this.onStop(function () {
+//         PlayerFoundContents.stopObservers();
+//     });
+//     return PlayerFoundContents.find();
+// });
+
+// BINGO ACTIVITIES
+
+Meteor.publish('bingoActivities', function (gameId) {
   Meteor.call('clearActivity', function(error){
         if(error)
             console.log(error.reason);
@@ -19,16 +49,12 @@ Meteor.publish('bingo_activities', function (gameId) {
     return BingoActivities.find({game_id: gameId});
 });
 
-Meteor.publish('players', function (gameId) {   
+
+// USERS
+
+Meteor.publish('players', function (gameId) {
     return Meteor.users.find({playing: gameId}, {fields: {playing: 1, username: 1,}});
 });
 
-Meteor.publish('player_found_contents', function () {
-    PlayerFoundContents.startObservers();
-    this.onStop(function () {
-        PlayerFoundContents.stopObservers();
-    });
-    return PlayerFoundContents.find();
-});
 
 

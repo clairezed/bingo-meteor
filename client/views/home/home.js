@@ -1,9 +1,9 @@
-Template.latestBingosList.helpers({
-    ready_games: function(){
-            return Games.find({ready: true});
+Template.latestGridsList.helpers({
+    readyGrids: function(){
+            return Grids.find({ready: true});
     }
 });
 
 Template.home.events({
-    
+
 })
