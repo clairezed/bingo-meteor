@@ -1,0 +1,19 @@
+template(name="authenticate")
+  +loginIntro
+  .row
+    .col-md-6
+      .center-block.well
+        p
+          strong You don't have an account yet ? Please sign up !
+        p We only require a username and a password so that you can find your Bingos back
+        a.play-bingo.btn.btn-primary(href="{{pathFor 'signup'}}") Sign up
+    .col-md-6
+      .center-block.well
+        p
+          strong You already have an account ?
+        p Just log in to create new Bingos or find you're Bingos back !
+        a.play-bingo.btn.btn-primary(href="{{pathFor 'login'}}") Log in
+
+template(name="loginIntro")
+  h1.text-center Hi ! So, you want to play bingo ?
+  p.text-center In order to create or modify you're Bingo games, you have to tell us who you are !

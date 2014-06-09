@@ -1,0 +1,24 @@
+template(name="home")
+  .row
+    .col-md-8.col-md-offset-2
+      h1 Fancy a sweet bingo party ?
+      p
+        | Everyone liiiiikes bingo. Here, you can create your own Bingo grid with the content you want,
+        | or play to a Bingo game created by someone else.
+      p.text-center
+        a.play-bingo.btn.btn-primary.btn-lg(href="{{#if currentUser}}{{pathFor 'createBingo'}}{{else}}{{pathFor 'authenticate'}}{{/if}}")
+          | Create a bingo game
+  +latestBingoList
+
+template(name="latestBingoList")
+  .row
+    .col-md-8.col-md-offset-2
+      .well
+        h3 Latest Bingos
+        ul
+          each ready_games
+            li
+              a(href="{{pathFor 'playBingo'}}")= title
+          else
+            li
+              | No bingos for now, sorry !

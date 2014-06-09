@@ -1,0 +1,20 @@
+template(name="createBingo")
+  span.label.label-info.pull-right Bingo creation - step 1/2
+  p Happy to see you, #{currentUser.username} !
+  h1 Now let's describe your game
+  p It's always good to let people know a bit more about the game you offer them. A title is the minimum !
+  form(role="form")
+    .row
+      .form-group.col-sm-8
+        label(for="title") Title
+        input#title.form-control(name="title" type="text" placeholder="What's the title of your new bingo game ?")
+    .row
+      .form-group.col-sm-8
+        label(for="description") Description
+        textarea#description.form-control(name="description" rows="4" cols="50" placeholder="slideshow description")
+        p.help-block Here comes the description of your bingo, to incitate people playing it.
+    .row
+      .form-group.col-sm-8
+        label(for="tags") Tags
+        input#tags.form-control(name="tags" type="text" placeholder="tags, separated with commas")
+    input.btn.btn-primary(type="submit" value="Create")

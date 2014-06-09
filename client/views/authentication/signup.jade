@@ -1,0 +1,17 @@
+template(name="signup")
+  +loginIntro
+  +signupForm
+
+template(name="signupForm")
+  form#signup-form.form-horizontal(role="form")
+    .form-group
+      label.col-sm-2.control-label(for="signup-username") Username
+      .col-sm-10
+        input#signup-username.form-control(type="text" placeholder="What's your name, sweetie ?")
+    .form-group
+      label.col-sm-2.control-label(for="signup-password") Password
+      .col-sm-10
+        input#signup-password.form-control(type="password" placeholder="Password")
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        button.btn.btn-primary(type="submit") Sign up
