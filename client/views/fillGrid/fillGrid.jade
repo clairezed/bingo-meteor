@@ -8,9 +8,10 @@ template(name="fillGrid")
     .form-group
       input.btn.btn-primary(type="submit" value="Ok !")
   if ready
-    if userGame
+    if gameIsActive
       a.launch-game.btn.btn-primary.pull-right(href="#") Resume game
     else
+      a.preview-game.btn.btn-primary.pull-right(href="#") Preview
       a.launch-game.btn.btn-primary.pull-right(href="#") Launch a game !
 
   .words-list

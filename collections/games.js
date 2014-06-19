@@ -13,7 +13,7 @@ Games.allow({
 
 Meteor.methods({
   createGame: function(gameAttributes){
-    var game = _.extend(_.pick(gameAttributes, 'gridId', 'creatorId'), {
+    var game = _.extend(_.pick(gameAttributes, 'gridId', 'creatorId', 'preview'), {
       players: [],
       winner: null,
       createdAt: new Date().getTime(),
@@ -24,6 +24,10 @@ Meteor.methods({
 
     return gameId;
   },
+  launchGame: function(gameId){
+    Games.update(gameId, {$set: {preview: false}});
+    return gameId;
+  }
 // 	deleteGame: function(gameId){
 // 		var game = Games.findOne(gameId);
 // 		Games.remove(game._id);

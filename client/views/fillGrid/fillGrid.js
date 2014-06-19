@@ -1,6 +1,7 @@
 Template.fillGrid.helpers({
-  userGame: function() {
-    return Games.findOne({creatorId: Meteor.userId(), gridId: this._id});
+  gameIsActive: function() {
+    game = Games.findOne({creatorId: Meteor.userId(), gridId: this._id});
+    return (game && game.preview == false)  ;
   }
 })
 
@@ -35,11 +36,18 @@ Template.fillGrid.events({
     var game = Games.findOne({creatorId: Meteor.userId(), gridId: gridId});
 
     if (game) {
-      Router.go('playGame', {_id: gridId, gameId: game._id});
+      Meteor.call('launchGame', game._id, function(error, gameId){
+          if (error){
+              throwError(error.reason);
+          }else{
+              Router.go('playGame', {_id: gridId, gameId: gameId});
+          }
+      });
     } else {
       var game = {
           gridId: gridId,
           creatorId: Meteor.userId(),
+          preview: false
       }
       Meteor.call('createGame', game, function(error, gameId){
           if (error){
@@ -50,4 +58,27 @@ Template.fillGrid.events({
       });
     }
   },
+    'click .preview-game': function(e, template) {
+    e.preventDefault();
+    var gridId = template.data._id;
+    // var user = Meteor.user();
+    var game = Games.findOne({creatorId: Meteor.userId(), gridId: gridId});
+
+    if (game) {
+      Router.go('playGame', {_id: gridId, gameId: game._id});
+    } else {
+      var game = {
+          gridId: gridId,
+          creatorId: Meteor.userId(),
+          preview: true
+      }
+      Meteor.call('createGame', game, function(error, gameId){
+          if (error){
+              throwError(error.reason);
+          }else{
+              Router.go('playGame', {_id: gridId, gameId: gameId});
+          }
+      });
+    }
+  }
 })

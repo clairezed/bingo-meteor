@@ -1,7 +1,8 @@
 template(name="playGame")
   .pull-right Game launched by #{gameCreator.username}
-  if ownGame
-    a.btn.btn-primary.pull-right(href="{{pathFor 'fillGrid'}}") Modify
+  if canModifyGame
+    with grid
+      a.btn.btn-primary.pull-right(href="{{pathFor 'fillGrid'}}") Modify
   h1 #{grid.title}
   .row
     .col-md-8.col-md-offset-2

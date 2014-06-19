@@ -4,15 +4,17 @@ Template.playGame.helpers({
       return Meteor.users.findOne({_id: this.game.creatorId});
     }
   },
-  ownGame: function(){
+  canModifyGame: function(){
      if (this.game) {
-      return this.game.creatorId == Meteor.userId();
+      return this.game.creatorId == Meteor.userId() && this.game.preview == true;
     }
   },
   contents: function(){
-    if (this.game) {
+    if (this.game ) {
       pc = PlayerContents.findOne({gameId: this.game._id, playerId: Meteor.userId()});
-      return pc.content;
+      if(pc){
+        return pc.content;
+      }
       // return PlayerContents.find({gameId: this.game._id, playerId: Meteor.userId()}).fetch();
     }
   },
