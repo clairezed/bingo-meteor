@@ -1,0 +1,5 @@
+# Meteor mongo
+
+db.player_contents.find()
+
+db.player_contents.update({_id: "Jra8uNizxddWc9vwx", 'content.position': 1}, {$set: {'content.$':{word: "truc", position: 1, found: "true"}}})

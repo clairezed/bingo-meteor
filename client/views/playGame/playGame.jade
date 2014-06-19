@@ -1,5 +1,5 @@
 template(name="playGame")
-  .pull-right Game launch by #{gameCreator.username}
+  .pull-right Game launched by #{gameCreator.username}
   if ownGame
     a.btn.btn-primary.pull-right(href="{{pathFor 'fillGrid'}}") Modify
   h1 #{grid.title}
@@ -9,5 +9,5 @@ template(name="playGame")
         .grid
           each contents
             .outer-square(class="found-{{found}}")
-              .inner-square(id="{{_id}}")
-                p #{content}
+              .inner-square(id="{{position}}")
+                p #{word}

@@ -49,6 +49,5 @@ Template.fillGrid.events({
           }
       });
     }
-
-  }
+  },
 })

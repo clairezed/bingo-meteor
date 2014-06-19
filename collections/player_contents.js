@@ -18,59 +18,87 @@ Meteor.methods({
       throw new Meteor.Error(401, "You need to login to add a word, sweetie");
 
     var grid = Grids.findOne(gridId);
-    console.log(grid);
 
     if(grid == null)
-      throw new Meteor.Error(422, "Oups, there's a problem wit finding your game...");
+      throw new Meteor.Error(422, "Oups, there's a problem with finding your game...");
 
     var wordsArray = _.shuffle(_.shuffle(grid.words));
-    console.log(wordsArray);
-    // var nb_words = wordsArray.length;
-    // var indexes = [];
-    // for(i=1 ; i<= nb_words; i++){
-    //   indexes.push(i);
-    // }
-    // var randomPos = (indexes);
 
+    // ESSAI avec un PC par game avec array
+    var content = [];
     _.each(wordsArray, function(word, index, list){
-      // add only words that haven't already been added
-      if(!PlayerContents.findOne({gameId: gameId, content: word, playerId: user._id})){
-        PlayerContents.insert({
+      content.push({word: word, found: "false", position: index});
+    });
+
+    if(pcId = PlayerContents.findOne({gameId: gameId, playerId: user._id})){
+       // PlayerContents.update(pcId, {})
+      } else {
+        pcId = PlayerContents.insert({
           playerId: user._id,
           gameId: gameId,
           gridId: gridId,
-          content: word,
-          found: "false",
-          pos: index
+          content: content
         });
       }
-    });
 
-    return gameId;
+
+    // ESSAI avec un PC par mot
+    // _.each(wordsArray, function(word, index, list){
+    //   // add only words that haven't already been added
+    //   if(pcId = PlayerContents.findOne({gameId: gameId, content: word, playerId: user._id})){
+    //    // PlayerContents.update(pcId, {})
+    //   } else {
+    //     PlayerContents.insert({
+    //       playerId: user._id,
+    //       gameId: gameId,
+    //       gridId: gridId,
+    //       content: word,
+    //       found: "false",
+    //       pos: index
+    //     });
+    //   }
+    // });
+    // return gameId;
+
+    return pcId;
   },
   deletePlayerContents: function(gameId){
     console.log("deletePlayerContents");
-    var user = Meteor.user();
+    var userId = Meteor.userId();
+
     PlayerContents.remove({
-      playerId: user._id,
+      playerId: userId,
       gameId: gameId
     });
   },
-  toggleFound: function(contentFound){
+  toggleFound: function(gameId, position){
     console.log("toggleFound");
-    var user = Meteor.user();
-    if(contentFound.found){
-      PlayerContents.update(
-        {_id: contentFound._id},
-        {$set: {found: "false"}}
-        );
-    }else{
-      PlayerContents.update(
-        {_id: contentFound._id},
-        {$set: {found: "true"}}
-        );
-    }
-    return contentFound;
+    var userId = Meteor.userId();
+    var found;
+
+    pc = PlayerContents.findOne({gameId: gameId, playerId: userId});
+    content = pc.content[position];
+    content.found == "false" ? content.found = "true" : content.found = "false"
+
+    pc = PlayerContents.update({_id:pc._id, 'content.position': position},
+      {$set: {'content.$': content}});
+
+    // db.player_contents.update({_id: "Jra8uNizxddWc9vwx", 'content.position': 1}
+    //   , {$set: {'content.$':{word: "truc", position: 1, found: "true"}}})
+
+
+    // if(contentFound.found){
+    //   PlayerContents.update(
+    //     {_id: contentFound._id},
+    //     {$set: {found: "false"}}
+    //     );
+    // }else{
+    //   PlayerContents.update(
+    //     {_id: contentFound._id},
+    //     {$set: {found: "true"}}
+    //     );
+    // }
+    // return contentFound;
   }
 })
 

@@ -11,7 +11,9 @@ Template.playGame.helpers({
   },
   contents: function(){
     if (this.game) {
-      return PlayerContents.find({gameId: this.game._id, playerId: Meteor.userId()}).fetch();
+      pc = PlayerContents.findOne({gameId: this.game._id, playerId: Meteor.userId()});
+      return pc.content;
+      // return PlayerContents.find({gameId: this.game._id, playerId: Meteor.userId()}).fetch();
     }
   },
     // winners: function(){
@@ -30,10 +32,17 @@ Template.playGame.helpers({
 Template.playGame.events({
   'click .outer-square': function(e, template){
     e.preventDefault();
-    content_clicked = PlayerContents.findOne($(e.target).attr('id'));
-    Meteor.call('toggleFound', content_clicked, function(error, contentFound){
+    var pos = parseInt($(e.target).attr('id'));
+    var gameId = template.data.game._id;
+    Meteor.call('toggleFound', gameId, pos, function(error, playerContentId){
       if(error)
         throwError(error.reason);
     })
+
+    // content_clicked = PlayerContents.findOne($(e.target).attr('id'));
+    // Meteor.call('toggleFound', content_clicked, function(error, contentFound){
+    //   if(error)
+    //     throwError(error.reason);
+    // })
   }
 });
