@@ -3,10 +3,15 @@ Template.createGrid.events({
         e.preventDefault();
         var user = Meteor.user();
 
+        var tags = $(e.target).find('[name=tags]').val().split(",");
+        if(tags == '') {
+            tags = null;
+        }
+
         var grid = {
             title: $(e.target).find('[name=title]').val(),
             description: $(e.target).find('[name=description]').val(),
-            tags: $(e.target).find('[name=tags]').val()
+            tags: tags
         }
 
         Meteor.call('createGrid', grid, function(error, currentGridId){
