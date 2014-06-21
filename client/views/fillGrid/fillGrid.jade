@@ -1,7 +1,8 @@
 template(name="fillGrid")
   span.label.label-info.pull-right Grid creation - step 2/2
+  a.btn.btn-info(href="{{pathFor 'updateGrid'}}") Description
   h1 And finally, fill your grid
-  p what would a bingo game be without its grid filled with homemade content ? We need you provide 24 pieces of content before your bingo is ready to be played.
+  p What would a bingo game be without its grid filled with homemade content ? We need you provide 24 pieces of content before your bingo is ready to be played.
   form.form-inline(role="form")
     .form-group
       input#title.form-control(name="word" type="text" placeholder="The content of one of the tile is ...")

@@ -40,6 +40,31 @@ Meteor.methods({
 
     return gridId;
   },
+  updateGrid: function(gridId, gridAttributes) {
+    var user = Meteor.user(),
+    currentGrid = Grids.findOne(gridId);
+    gridWithSameTitle = Grids.findOne({title: gridAttributes.title});
+
+    if(!user)
+      throw new Meteor.Error(401, "You need to login to create a bingo grid");
+
+    if(!gridAttributes.title)
+      throw new Meteor.Error(422, "Please be nice and give a title to your grid, sweetie");
+
+    if(gridAttributes.title && gridWithSameTitle && (gridWithSameTitle =! currentGrid)){
+      throw new Meteor.Error(302,
+        "Sorry Dude, a bingo grid with the same title already exists",
+        gridWithSameTitle._id);
+    }
+
+    var gridId = Grids.update(gridId, {
+      title: gridAttributes.title,
+      description: gridAttributes.description,
+      tags: gridAttributes.tags
+    });
+
+    return gridId;
+  },
   deleteGrid: function(gridId){
     var grid = Grids.findOne(gridId);
     Grids.remove(grid._id);

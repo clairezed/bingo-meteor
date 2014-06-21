@@ -1,4 +1,7 @@
 // GRIDS
+Meteor.publish('grid', function(gridId) {
+    return Grids.find({_id: gridId});
+});
 
 Meteor.publish('grids', function() {
     return Grids.find();

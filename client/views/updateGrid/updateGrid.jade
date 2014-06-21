@@ -1,0 +1,18 @@
+template(name="updateGrid")
+  span.label.label-info.pull-right Bingo grid creation - step 1/2
+  p Happy to see you, #{currentUser.username} !
+  form(role="form")
+    .row
+      .form-group.col-sm-8
+        label(for="title") Title
+        input#title.form-control(name="title" type="text" value="{{title}}")
+    .row
+      .form-group.col-sm-8
+        label(for="description") Description
+        textarea#description.form-control(name="description" rows="4" cols="50" value=" ")=description
+        p.help-block Here comes the description of your bingo, to incitate people playing it.
+    .row
+      .form-group.col-sm-8
+        label(for="tags") Tags
+        input#tags.form-control(name="tags" type="text" value="{{tags}}")
+    input.btn.btn-primary(type="submit")
