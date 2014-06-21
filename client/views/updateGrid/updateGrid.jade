@@ -1,6 +1,6 @@
 template(name="updateGrid")
-  span.label.label-info.pull-right Bingo grid creation - step 1/2
-  p Happy to see you, #{currentUser.username} !
+  +gridCreationBreadcrumb
+  h1 Grid Description
   form(role="form")
     .row
       .form-group.col-sm-8
