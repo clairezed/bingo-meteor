@@ -1,8 +1,9 @@
 Template.updateGrid.helpers({
   tags: function() {
     if(grid = Grids.findOne({_id: this._id})){
-      tags = grid.tags.join(",");
-      return tags;
+      if(grid.tags) {
+        return grid.tags.join(",");
+      }
     };
   }
 })
@@ -17,7 +18,6 @@ Template.updateGrid.events({
         if(tags == '') {
             tags = null;
         }
-        console.log($(e.target).find('[name=title]').val());
         var grid = {
             title: $(e.target).find('[name=title]').val(),
             description: $(e.target).find('[name=description]').val(),
