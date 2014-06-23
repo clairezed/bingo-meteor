@@ -5,8 +5,27 @@ ul{
     list-style: none;
 }
 
+.btn{
+    border-radius: 0;
+}
+
 #main.container-fluid {
     max-width: 80%;
+}
+
+/* GRIDS THUMBNAIL */
+.btn a{
+    color: #fff;
+    text-decoration: none;
+}
+.animated-btn a:not(.join-game) {
+      /*visibility: hidden;*/
+}
+.animated-btn .btn{
+    width: 160px;
+}
+.animated-btn ul {
+    padding: 0;
 }
 
 /* PLAYER GAMES */

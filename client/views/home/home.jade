@@ -16,18 +16,8 @@ template(name="latestGridsList")
       h3 Latest Bingos
       ul.row
         each readyGrids
-          li.col-md-6
-            .grid-thumbnail.well
-              h4= title
-              p= description
-              .row
-                .col-md-12
-                  each tags
-                    span.label.label-info= this
-              br
-              a.btn.btn-primary(href="#") Join !
-              +launchGameBtn
-                span.badge 5
+          +gridThumbnail
         else
           li
             | No bingos for now, sorry !
+

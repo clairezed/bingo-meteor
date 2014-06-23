@@ -1,7 +1,7 @@
 Template.fillGrid.helpers({
   gameIsActive: function() {
     game = Games.findOne({creatorId: Meteor.userId(), gridId: this._id});
-    return (game && game.preview == false)  ;
+    return (game && game.preview == false);
   }
 })
 
