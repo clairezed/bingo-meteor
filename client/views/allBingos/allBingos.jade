@@ -1,0 +1,15 @@
+template(name="allBingos")
+  .row
+    .col-md-8.col-md-offset-2
+      h1 All bingos !
+  +allGridsList
+
+template(name="allGridsList")
+  .row
+    .col-md-8.col-md-offset-2
+      ul.row
+        each readyGrids
+          +gridThumbnail
+        else
+          li
+            | No bingos for now, sorry !

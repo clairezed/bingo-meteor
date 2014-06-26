@@ -1,6 +1,6 @@
 template(name="layout")
   header
-    .navbar.navbar-default.navbar-fixed-top(role="navigation")
+    .navbar.navbar-default(role="navigation")
       .container-fluid
         .navbar-header
           button.navbar-toggle(type="button" data-toggle="collapse" data-target="#collapse-grp")
@@ -12,11 +12,11 @@ template(name="layout")
         #collapse-grp.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
-              a(href="{{#if currentUser}}{{pathFor 'createGrid'}}{{else}}{{pathFor 'authenticate'}}{{/if}}") Create Bingo
+              a.btn(href="{{#if currentUser}}{{pathFor 'createGrid'}}{{else}}{{pathFor 'authenticate'}}{{/if}}") Create Bingo
             li
-              a(href="#") All bingos
+              a.btn(href="{{pathFor 'allBingos'}}") All bingos
             li
-              a(href="#") Info
+              a.btn(href="#") Info
           ul.nav.navbar-nav.navbar-right
             li.dropdown
               a.dropdown-toggle(href="#" data-toggle="dropdown")

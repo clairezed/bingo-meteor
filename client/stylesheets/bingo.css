@@ -1,90 +1,140 @@
+body{
 /* necessary for bootstrap3 navbar-fixed-top */
-body{padding-top: 70px; }
+  /*padding-top: 85px;*/
+  background-color: #e0e4cc;
+}
 
 ul{
-    list-style: none;
+  list-style: none;
 }
 
 .btn{
-    border-radius: 0;
+  border-radius: 0;
+}
+.navbar-default{
+  background-color: transparent;
+  border-color:transparent;
+}
+  .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: #fff;
+    /*margin: 5px 0px;*/
+  }
+  .navbar-default .navbar-nav > li > a {
+    color:#fff;
+    padding: 10px 15px 10px 15px;
+    margin: 5px 5px;
+    border-color: #fff;
+  }
+    .navbar-default .navbar-nav > li > a:hover {
+      color:#fff;
+      background-color: #e23705;
+      padding: 10px 15px 10px 15px;
+      margin: 5px 5px;
+      border-color: #fff;
+    }
+
+
+.btn-primary{
+  background-color: #69D2E7;
+  border-color:#00c3e7;
+}
+  .btn-primary:hover, .btn-primary:active{
+    background-color: #00c3e7;
+    border-color:#00c3e7;
+  }
+
+.btn-info{
+  background-color: #a7dbd8;
+  border-color:#87c4bF;
+}
+  .btn-info:hover, .btn-info:active{
+    background-color: #93C8C4;
+    border-color:#87c4bF;
+  }
+
+.cyan{
+  background-color: #2476A2; /*#0B6190 */
+}
+.red-orange{
+  background-color: #e23705; /*#ff5e2e */
 }
 
 #main.container-fluid {
-    max-width: 80%;
+  max-width: 80%;
 }
 
 /* GRIDS THUMBNAIL */
 .btn a{
-    color: #fff;
-    text-decoration: none;
+  color: #fff;
+  text-decoration: none;
 }
 .animated-btn a:not(.join-game) {
-      /*visibility: hidden;*/
+  /*visibility: hidden;*/
 }
 .animated-btn .btn{
-    width: 160px;
+  width: 160px;
 }
 .animated-btn ul {
-    padding: 0;
+  padding: 0;
 }
 
 /* PLAYER GAMES */
 .player-games .bingo-title{
-    font-size: 16px;
-    margin-right: 1%;
-    font-weight: bold;
+  font-size: 16px;
+  margin-right: 1%;
+  font-weight: bold;
 }
 
 /* ADD WORDS */
 .words-list{
-    margin-top: 2%;
+  margin-top: 2%;
 }
-    .words-list ul{
-        padding-left: 0;
-    }
-        .words-list li{
-            margin-left: 2%;
-            margin-top: 1%;
-        }
-            .words-list span.label{
-                font-size: 100%;
-                margin-right: 1%;
-                font-weight: normal;
-            }
+.words-list ul{
+  padding-left: 0;
+}
+.words-list li{
+  margin-left: 2%;
+  margin-top: 1%;
+}
+.words-list span.label{
+  font-size: 100%;
+  margin-right: 1%;
+  font-weight: normal;
+}
 
 
 /* PLAY BINGO */
 #grid-gen{
 	width: 100%;
 }
-	#grid-gen .grid{
-		width: 100%;
-	}
-	#grid-gen .grid .outer-square{
-		display: inline-block;
-		width: 19%;
-		padding-bottom: 19%;
-		position: relative;
-		background-color: #ccc;
-		cursor: pointer;
-	}
-      #grid-gen .grid .outer-square:hover{
-        background-color: #ddd;
-      }
-            #grid-gen .grid .outer-square.found-true{
-                    background-color: #ff0000 ;
-            }
-            #grid-gen .grid .outer-square.found-true:hover{
-                    background-color: #ff3700 ;
-            }
+#grid-gen .grid{
+  width: 100%;
+}
+#grid-gen .grid .outer-square{
+  display: inline-block;
+  width: 19%;
+  padding-bottom: 19%;
+  position: relative;
+  background-color: #ccc;
+  cursor: pointer;
+}
+#grid-gen .grid .outer-square:hover{
+  background-color: #ddd;
+}
+#grid-gen .grid .outer-square.found-true{
+  background-color: #ff0000 ;
+}
+#grid-gen .grid .outer-square.found-true:hover{
+  background-color: #ff3700 ;
+}
 
-		#grid-gen .grid .outer-square .inner-square{
-			position: absolute;
-		   	left: 5%;
-		   	right: 5%;
-		   	top: 5%;
-		   	bottom: 5%;
-		}
+#grid-gen .grid .outer-square .inner-square{
+ position: absolute;
+ left: 5%;
+ right: 5%;
+ top: 5%;
+ bottom: 5%;
+}
 .play-bingo-info{
   padding-top: 3%;
 }

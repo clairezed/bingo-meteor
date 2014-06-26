@@ -28,7 +28,10 @@ Meteor.methods({
         gridWithSameTitle._id);
     }
     var grid = _.extend(_.pick(gridAttributes, 'title', 'description', 'tags'), {
-      creatorId: user._id,
+      creator: {
+        id: user._id,
+        name: user.username
+      },
       createdAt: new Date().getTime(),
       updatedAt: new Date().getTime(),
       words: [],

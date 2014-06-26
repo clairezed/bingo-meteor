@@ -13,7 +13,13 @@ Games.allow({
 
 Meteor.methods({
   createGame: function(gameAttributes) {
-    var game = _.extend(_.pick(gameAttributes, 'gridId', 'creatorId', 'preview'), {
+    var user = Meteor.user();
+
+    var game = _.extend(_.pick(gameAttributes, 'gridId', 'preview'), {
+      creator: {
+        id: user._id,
+        name: user.username
+      },
       players: [],
       winner: null,
       createdAt: new Date().getTime(),

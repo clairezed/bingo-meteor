@@ -16,7 +16,6 @@ Template.launchGameBtn.events({
     } else {
       var game = {
           gridId: gridId,
-          creatorId: Meteor.userId(),
           preview: false
       }
       Meteor.call('createGame', game, function(error, gameId){
