@@ -1,11 +1,17 @@
+Template.launchGameBtn.helpers({
+  canLaunchGame: function() {
+    return (game = Games.findOne({gridId: this._id, 'creator.id': Meteor.userId()})) ? false : true;
+  }
+})
+
+
+
 Template.launchGameBtn.events({
   'click .launch-game': function(e, template) {
     e.preventDefault();
     var gridId = template.data._id;
-    // var user = Meteor.user();
-    var game = Games.findOne({creatorId: Meteor.userId(), gridId: gridId});
-
-    if (game) {
+    var game;
+    if (game = Games.findOne({'creator.id': Meteor.userId(), gridId: gridId})) {
       Meteor.call('launchGame', game._id, function(error, gameId){
           if (error){
               throwError(error.reason);

@@ -35,21 +35,33 @@ ul{
 
 
 .btn-primary{
-  background-color: #69D2E7;
-  border-color:#00c3e7;
+/*  background-color: #69D2E7;
+  border-color:#00c3e7;*/
+  background-color: #f83f09;
+  border-color:  #e23705;
 }
   .btn-primary:hover, .btn-primary:active{
-    background-color: #00c3e7;
-    border-color:#00c3e7;
+/*    background-color: #00c3e7;
+    border-color:#00c3e7;*/
+    background-color: #e23705;
+    border-color:#e23705;
+  }
+  .btn-primary.disabled{
+    background-color: #fb764f;
+    border-color: #f83f09;
   }
 
 .btn-info{
-  background-color: #a7dbd8;
-  border-color:#87c4bF;
+/*  background-color: #a7dbd8;
+  border-color:#87c4bF;*/
+  background-color: #fa6134;
+  border-color:#f84c19;
 }
   .btn-info:hover, .btn-info:active{
-    background-color: #93C8C4;
-    border-color:#87c4bF;
+/*    background-color: #93C8C4;
+    border-color:#87c4bF;*/
+    background-color: #f84c19;
+    border-color:#f84c19;
   }
 
 .cyan{

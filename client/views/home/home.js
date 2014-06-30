@@ -7,3 +7,4 @@ Template.latestGridsList.helpers({
 Template.home.events({
 
 })
+

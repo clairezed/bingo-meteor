@@ -1,5 +1,6 @@
 template(name="playGame")
-  .pull-right Game launched by #{gameCreator.username}
+  with game
+    .pull-right Game launched by #{creator.name}
   if canModifyGame
     with grid
       a.btn.btn-primary.pull-right(href="{{pathFor 'fillGrid'}}") Modify

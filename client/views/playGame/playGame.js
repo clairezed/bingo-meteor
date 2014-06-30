@@ -1,12 +1,7 @@
 Template.playGame.helpers({
-  gameCreator: function() {
-    if (this.game) {
-      return Meteor.users.findOne({_id: this.game.creatorId});
-    }
-  },
   canModifyGame: function(){
      if (this.game) {
-      return this.game.creatorId == Meteor.userId() && this.game.preview == true;
+      return this.game.creator.id == Meteor.userId() && this.game.preview == true;
     }
   },
   contents: function(){

@@ -35,7 +35,9 @@ Meteor.methods({
     return gameId;
   },
   joinGame: function(gameId) {
-    return Games.update(gameId, {$addToSet: {players: Meteor.userId()}});
+    var game_id = Games.update(gameId, {$addToSet: {players: Meteor.userId()}});
+    console.log(game_id);
+    return gameId;
   }
 // 	deleteGame: function(gameId){
 // 		var game = Games.findOne(gameId);

@@ -10,9 +10,12 @@ template(name="gridThumbnail")
       br
       +launchGameBtn
       .animated-btn
-        a.btn.btn-primary.join-game(href="#") Join !
+        a.btn.btn-primary.join-game-btn(href="#") Join !
           span.badge= games.count
         ul.games-creator-list
           each games
-            li.btn.btn-info
-              a(href="#")=creator.name
+            +gridGamesList
+
+template(name="gridGamesList")
+  li.btn.btn-info
+    a.join-game(href="#")=creator.name

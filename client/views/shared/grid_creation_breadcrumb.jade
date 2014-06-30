@@ -1,5 +1,5 @@
 template(name="gridCreationBreadcrumb")
   .btn-group.pull-right
-    a.btn.btn-info(href="{{#if canUpdatePresentation}}{{pathFor 'updateGrid'}}{{else}}{{pathFor 'createGrid'}}{{/if}}") Description
-    a.btn.btn-info(href="{{pathFor 'fillGrid'}}", class="{{#unless canFillGrid}} disabled {{/unless}}") Fill Grid
+    a.btn.btn-primary(href="{{#if canUpdatePresentation}}{{pathFor 'updateGrid'}}{{else}}{{pathFor 'createGrid'}}{{/if}}") Description
+    a.btn.btn-primary(href="{{pathFor 'fillGrid'}}", class="{{#unless canFillGrid}} disabled {{/unless}}") Fill Grid
 

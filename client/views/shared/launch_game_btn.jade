@@ -1,2 +1,6 @@
 template(name="launchGameBtn")
-  a.launch-game.btn.btn-primary.pull-right(href="#", title="Launch a new game") Launch !
+  a.launch-game.btn.btn-primary.pull-right(href="#", title="Launch a new game")
+    if canLaunchGame
+      | Launch  !
+    else
+      | Resume

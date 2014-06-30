@@ -8,9 +8,31 @@ Template.gridThumbnail.helpers({
 })
 
 Template.gridThumbnail.events({
-  'click .join-game':function(e) {
+  'click .join-game-btn':function(e) {
     e.preventDefault();
-    console.log("join game");
+    console.log("join game btn");
     $('.games-creator-list').slideToggle();
   }
 })
+
+Template.gridGamesList.events({
+  'click .join-game':function(e, template) {
+    e.preventDefault();
+    console.log("join game");
+    var game = Games.findOne(template.data._id);
+    var gridId = game.gridId;
+    console.log(game);
+    console.log(gridId)
+    Meteor.call('joinGame', template.data._id, function(error, gameId){
+      if (error){
+        throwError(error.reason);
+      }else{
+        Router.go('playGame', {_id: gridId, gameId: gameId});
+      }
+    })
+  }
+})
+
+Template.gridThumbnail.created = function() {
+  $(".animated-btn").find(".btn-info").hide();
+}
