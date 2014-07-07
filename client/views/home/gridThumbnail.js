@@ -11,7 +11,7 @@ Template.gridThumbnail.events({
   'click .join-game-btn':function(e) {
     e.preventDefault();
     console.log("join game btn");
-    $('.games-creator-list').slideToggle();
+    $("#"+this._id+"").css('z-index', "10").slideToggle();
   }
 })
 
@@ -33,6 +33,6 @@ Template.gridGamesList.events({
   }
 })
 
-Template.gridThumbnail.created = function() {
-  $(".animated-btn").find(".btn-info").hide();
+Template.gridThumbnail.rendered = function() {
+  $('.games-creator-list').slideUp();
 }

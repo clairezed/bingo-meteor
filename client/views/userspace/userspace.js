@@ -2,7 +2,7 @@ Template.userspace.helpers({
     grids: function(){
         var user = Meteor.user();
         if (user) {
-            return Grids.find({creatorId: user._id});
+            return Grids.find({'creator.id': user._id});
         }
     }
 });

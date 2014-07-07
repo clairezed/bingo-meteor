@@ -1,20 +1,21 @@
 template(name="gridThumbnail")
   li.col-md-6
-    .grid-thumbnail.well
-      h4= title
-      p= description
-      .row
-        .col-md-12
-          each tags
-            span.label.label-info= this
-      br
-      +launchGameBtn
-      .animated-btn
-        a.btn.btn-primary.join-game-btn(href="#") Join !
-          span.badge= games.count
-        ul.games-creator-list
+    .grid-thumbnail-container
+      .grid-thumbnail-inner
+        h4= title
+        p= description
+        .row
+          .col-md-12
+            each tags
+              span.label.label-info= this
+        ul.games-creator-list(id="{{_id}}")
           each games
             +gridGamesList
+      .grid-thumbnail-btn
+        a.btn.btn-primary.join-game-btn(href="#") Current games
+          span.badge= games.count
+        +launchGameBtn
+
 
 template(name="gridGamesList")
   li.btn.btn-info

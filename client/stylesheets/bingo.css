@@ -27,7 +27,7 @@ ul{
   }
     .navbar-default .navbar-nav > li > a:hover {
       color:#fff;
-      background-color: #e23705;
+      background-color: #f83f09;
       padding: 10px 15px 10px 15px;
       margin: 5px 5px;
       border-color: #fff;
@@ -64,6 +64,18 @@ ul{
     border-color:#f84c19;
   }
 
+.btn-default{
+  background-color: #33769A;
+  border-color:#0e6B9D;
+  color: #fff;
+}
+  .btn-default:hover, .btn-default:active{
+    background-color: #0e6B9D;
+    border-color:#0e6B9D;
+    color: #fff;
+  }
+
+
 .cyan{
   background-color: #2476A2; /*#0B6190 */
 }
@@ -71,24 +83,52 @@ ul{
   background-color: #e23705; /*#ff5e2e */
 }
 
+.btn a{
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+
 #main.container-fluid {
   max-width: 80%;
 }
 
+
+
+
 /* GRIDS THUMBNAIL */
-.btn a{
-  color: #fff;
-  text-decoration: none;
+
+.grid-thumbnail-container{
+  background-color: #fff;
 }
+
+.grid-thumbnail-inner{
+  padding: 5%;
+  position: relative;
+}
+  .grid-thumbnail-inner ul.games-creator-list {
+    padding: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+  }
+    .grid-thumbnail-inner .games-creator-list .btn {
+      width: 100%;
+    }
+.grid-thumbnail-btn{
+  font-size: 0;
+}
+  .grid-thumbnail-btn .btn {
+    width: 50%;
+    display: inline-block;
+  }
+
 .animated-btn a:not(.join-game) {
   /*visibility: hidden;*/
 }
-.animated-btn .btn{
-  width: 160px;
-}
-.animated-btn ul {
-  padding: 0;
-}
+
 
 /* PLAYER GAMES */
 .player-games .bingo-title{
