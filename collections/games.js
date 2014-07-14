@@ -60,6 +60,7 @@ Meteor.methods({
       throw new Meteor.Error(422, "You can't delete your game while there are still playing users");
     }
 
+    PlayerContents.remove({gameId: game._id});
     Games.remove(game._id);
   },
   checkBingo: function(playerContent){
