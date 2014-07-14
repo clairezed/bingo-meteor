@@ -24,6 +24,7 @@ Template.launchGameBtn.events({
           gridId: gridId,
           preview: false
       }
+      console.log("createGame from launchGameBtn click launch game, else")
       Meteor.call('createGame', game, function(error, gameId){
           if (error){
               throwError(error.reason);

@@ -100,6 +100,8 @@ ul{
 
 .grid-thumbnail-container{
   background-color: #fff;
+  margin: 5% 0;
+
 }
 
 .grid-thumbnail-inner{
@@ -114,9 +116,71 @@ ul{
     width: 100%;
     z-index: -1;
   }
-    .grid-thumbnail-inner .games-creator-list .btn {
-      width: 100%;
+    ul.games-creator-list li {
+      position: relative;
+      /*margin: 0;*/
     }
+      ul.games-creator-list li .game-wrapper{
+        position: relative;
+        /*display: inline-block;*/
+        width: 100%;
+        overflow: hidden;
+/*        margin: 0;*/
+      }
+        ul.games-creator-list .btn.join-game {
+          width: 100%;
+          position: relative;
+          -webkit-transition: -webkit-transform 0.4s;
+          -moz-transition: -moz-transform 0.4s;
+          transition: transform 0.4s
+        }
+          ul.games-creator-list li .game-wrapper:hover .join-game{
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            -webkit-transform: translateX(-50px);
+            -moz-transform: translateX(-50px);
+            -ms-transform: translateX(-50px);
+          }
+        ul.games-creator-list .join-game-actions{
+        /*width: 100%;*/
+        background-color: #f84c19;
+        width: 100px;
+        height: 100%;
+        padding: 5px;
+        position: absolute;
+        top: 0;
+        left: auto;
+        right: 0;
+        -webkit-transform: translateX(100%);
+        -moz-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+        transform: translateX(100%);
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transition: -webkit-transform 0.4s, opacity 0.1s 0.3s;
+        -moz-transition: -moz-transform 0.4s, opacity 0.1s 0.3s;
+        transition: transform 0.4s, opacity 0.1s 0.3s;
+      }
+      ul.games-creator-list .join-game-actions a {
+          width: 100%;
+          color: #fff;
+          font-weight: bold;
+          border-color: #fff;
+          padding: 3px 7px;
+        }
+        ul.games-creator-list li .game-wrapper:hover .join-game-actions{
+          opacity:1;
+/*          display: inline-block;
+          width: 100%;*/
+          -webkit-transform: translateX(0px);
+          -moz-transform: translateX(0px);
+          -ms-transform: translateX(0px);
+          -webkit-transition: -webkit-transform 0.4s, opacity 0.1s;
+          -moz-transition: -moz-transform 0.4s, opacity 0.1s;;
+          transition: transform 0.4s, opacity 0.1s;
+        }
 .grid-thumbnail-btn{
   font-size: 0;
 }

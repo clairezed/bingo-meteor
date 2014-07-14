@@ -1,0 +1,16 @@
+template(name="gridAside")
+  .well
+    fieldset
+      legend Options
+      with game
+        if canDeleteGame
+          a.btn.btn-primary.delete-game(href="#") Delete Game
+        if canQuitGame
+          a.btn.btn-primary.quit-game(href="#") Quit Game
+    fieldset
+      legend Current players
+      ul
+        each currentPlayers
+          li #{username}
+    fieldset
+      legend Notifications

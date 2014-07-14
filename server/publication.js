@@ -14,6 +14,10 @@ Meteor.publish('games', function() {
     return Games.find();
 });
 
+Meteor.publish('visibleGames', function() {
+    return Games.find({preview: false});
+});
+
 Meteor.publish('game', function(gameId) {
     return Games.find({_id: gameId});
 });
@@ -59,5 +63,8 @@ Meteor.publish('players', function (gameId) {
     return Meteor.users.find({playing: gameId}, {fields: {playing: 1, username: 1,}});
 });
 
+Meteor.publish('gamePlayers', function(userIds) {
+    return Meteor.users.find({_id: {$in: userIds}});
+});
 
 

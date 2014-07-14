@@ -15,6 +15,12 @@ Template.gridThumbnail.events({
   }
 })
 
+Template.gridGamesList.helpers({
+  canResumeGame: function() {
+    return ((game = Games.findOne({gridId: this._id, players: Meteor.userId()})) ? false : true)
+  }
+})
+
 Template.gridGamesList.events({
   'click .join-game':function(e, template) {
     e.preventDefault();

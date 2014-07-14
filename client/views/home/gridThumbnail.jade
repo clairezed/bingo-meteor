@@ -18,5 +18,16 @@ template(name="gridThumbnail")
 
 
 template(name="gridGamesList")
-  li.btn.btn-info
-    a.join-game(href="#")=creator.name
+  li
+    .game-wrapper
+      a.btn.btn-info.join-game(href="#")
+        = creator.name
+        span.badge
+          = players.length
+          span.glyphicon.glyphicon-user
+      .join-game-actions
+        a.btn.btn-sm
+          if canResumeGame
+            | Resume
+          else
+            | Join !

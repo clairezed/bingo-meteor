@@ -13,14 +13,17 @@ Games.allow({
 
 Meteor.methods({
   createGame: function(gameAttributes) {
+    console.log("call createGame");
     var user = Meteor.user();
+
+    var players = (gameAttributes.preview ? [] : [Meteor.userId()]);
 
     var game = _.extend(_.pick(gameAttributes, 'gridId', 'preview'), {
       creator: {
         id: user._id,
         name: user.username
       },
-      players: [],
+      players: players,
       winner: null,
       createdAt: new Date().getTime(),
       updatedAt: new Date().getTime()
@@ -31,18 +34,35 @@ Meteor.methods({
     return gameId;
   },
   launchGame: function(gameId) {
+    console.log("call launchGame");
     Games.update(gameId, {$set: {preview: false}, $addToSet: {players: Meteor.userId()}});
     return gameId;
   },
   joinGame: function(gameId) {
+    console.log("call joinGame");
     var game_id = Games.update(gameId, {$addToSet: {players: Meteor.userId()}});
     console.log(game_id);
     return gameId;
-  }
-// 	deleteGame: function(gameId){
-// 		var game = Games.findOne(gameId);
-// 		Games.remove(game._id);
-// 	},
+  },
+  quitGame: function(gameId) {
+    console.log("call quitGame");
+    var userId = Meteor.userId();
+    Games.update(gameId, {$pull: {players: userId}});
+    PlayerContents.remove({gameId: gameId, playerId: userId});
+  },
+	deleteGame: function(gameId){
+    console.log("call deleteGame");
+		var game = Games.findOne(gameId);
+    var userId = Meteor.userId();
+    console.log(game);
+    if(game.creator.id != userId){
+      throw new Meteor.Error(422, "You can't delete a game you haven't created.");
+    } else if (game.players.count) {
+      throw new Meteor.Error(422, "You can't delete your game while there are still playing users");
+    }
+
+    Games.remove(game._id);
+	}
 // 	// args : game_id / word
 // 	createWord: function(args){
 // 		var user = Meteor.user();
