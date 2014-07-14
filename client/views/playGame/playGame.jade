@@ -1,4 +1,5 @@
 template(name="playGame")
+  +gameNotifications
   .row
     .col-sm-8
       +playerGrid
@@ -7,20 +8,10 @@ template(name="playGame")
         +gridAside
 
 
-template(name="playerGrid")
-  unless previewMode
-    with game
-      .pull-right Game launched by #{creator.name}
-  if canModifyGrid
-    with grid
-      a.btn.btn-primary.pull-right(href="{{pathFor 'fillGrid'}}") Modify
-  h1 #{grid.title}
-  small Grid made by : #{grid.creator.name}
-  //- .row
-  //-   .col-md-8.col-md-offset-2
-  #grid-gen
-    .grid
-      each contents
-        .outer-square(class="found-{{found}}")
-          .inner-square(id="{{position}}")
-            p #{word}
+
+template(name="gameNotifications")
+  with game
+    if winner
+      .row
+        .alert.alert-info
+          | And the winner iiiis... #{winner.username} !

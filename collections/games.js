@@ -1,13 +1,13 @@
 Games = new Meteor.Collection('games');
 
 Games.allow({
-	update: ownsDocument,
-	remove: ownsDocument
+  update: ownsDocument,
+  remove: ownsDocument
 })
 // Games.deny({
-// 	update:function(userId, game, fieldNames) {
-// 		return (_.without(fieldNames, 'title', 'nb_words').length > 0);
-// 	}
+//  update:function(userId, game, fieldNames) {
+//    return (_.without(fieldNames, 'title', 'nb_words').length > 0);
+//  }
 // })
 
 
@@ -50,9 +50,9 @@ Meteor.methods({
     Games.update(gameId, {$pull: {players: userId}});
     PlayerContents.remove({gameId: gameId, playerId: userId});
   },
-	deleteGame: function(gameId){
+  deleteGame: function(gameId){
     console.log("call deleteGame");
-		var game = Games.findOne(gameId);
+    var game = Games.findOne(gameId);
     var userId = Meteor.userId();
     if(game.creator.id != userId){
       throw new Meteor.Error(422, "You can't delete a game you haven't created.");
@@ -61,27 +61,39 @@ Meteor.methods({
     }
 
     Games.remove(game._id);
-	}
-// 	checkBingo: function(foundContents){
-// 		var playerFoundCases = foundContents.founds;
+  },
+  checkBingo: function(playerContent){
+    console.log("call checkBingo");
+    var foundPositions = _.map(_.where(playerContent, {found: "true"}), function(hash, index) {
+      return hash.position + 1;
+    });
 
-// 		var bingo = _.find(winCombinations, function(combi){
-// 		      return (_.intersection(combi, playerFoundCases).length == 5);
-// 		  });
+    var bingo = _.find(winCombinations, function(combi){
+          return (_.intersection(combi, foundPositions).length == 5);
+      });
 
-// 		if (bingo != undefined) {
-// 		  console.log("BIIIIINGO");
-// 		  Games.update(foundContents.game_id, {
-// 	        		$addToSet: {winners: foundContents.player_id}
-// 	        	});
-// 		}
-// 	},
-// 	removeWinnersWhenTheyLeave: function(game_id){
-// 		var user = Meteor.user();
-// 		Games.update(game_id, {
-//         		$pull: {winners: user._id}
-//         	});
-// 	}
+    if (bingo != undefined) {
+      console.log("BIIIIINGO");
+      return true;
+    } else {
+      return false;
+    }
+//  removeWinnersWhenTheyLeave: function(game_id){
+//    var user = Meteor.user();
+//    Games.update(game_id, {
+//            $pull: {winners: user._id}
+//          });
+  },
+  setWinner : function(gameId, playerId) {
+    console.log("call setWinner");
+    console.log(!Games.findOne(gameId).winner);
+    if (!Games.findOne(gameId).winner) {
+      Games.update(gameId, {
+        $set: {winner: playerId}
+      });
+    };
+    return gameId;
+  }
 })
 
 winCombinations = [
@@ -92,3 +104,27 @@ winCombinations = [
 [4, 9, 14, 19, 24],   [5, 10, 15, 20, 25],
 [1, 7, 13, 19, 25],   [5, 9, 13, 17, 21]
 ]
+
+
+// ====== OBSERVERS ====================== //
+
+Games.startObservers = function startObservers(gameId) {
+  Games.observer = Games.find(gameId).observeChanges({
+    changed: function(id, fields) {
+      console.log("FIELDS");
+      console.log(fields);
+      if (fields.winner) {
+        // throw new Meteor.Error(422, "There's a bingo");
+        var winner = Meteor.users.findOne(fields.winner);
+        console.log("winner iiiis : ");
+        console.log(winner);
+      }
+    }
+  })
+}
+
+Games.stopObservers = function stopObservers(gameId) {
+  if(Games.observer) {
+    Games.observer.stop(); // Call the stop
+  }
+};

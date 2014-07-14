@@ -109,13 +109,30 @@ PlayerContents.startObservers = function startObservers(gameId) {
   .observeChanges({
     //change: notifySubscribedUsers // or some other function
     changed: function(id, fields){
-      var content = PlayerContents.findOne(id);
+      console.log("PC observeChanges");
+      console.log("FIELDS : ");
+      console.log(  fields);
+      var playerContent = PlayerContents.findOne(id);
       // create activity only for found contents
-      if(fields.found){
-        Meteor.call('createActivity', content, function(error, activity_id){
-          if(error)
-            console.log("there's a pb");
-        });
+      if(fields.content){
+        // Meteor.call('createActivity', content, function(error, activity_id){
+        //   if(error)
+        //     console.log("there's a pb");
+        // });
+        Meteor.call('checkBingo', fields.content, function(error, result) {
+          if(error) {
+            console.log(error.reason);
+          } else {
+            console.log(result)
+            if (result) {
+              Meteor.call('setWinner', playerContent.gameId, playerContent.playerId, function(error, gameId) {
+                if(error) {
+                  console.log(error.reason);
+                };
+              })
+            }
+          }
+        })
       };
       // update content founds
       // Meteor.call('addFound', content, function(error, player_found_content_id){

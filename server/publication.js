@@ -19,6 +19,12 @@ Meteor.publish('visibleGames', function() {
 });
 
 Meteor.publish('game', function(gameId) {
+    console.log("game startObservers");
+    Games.startObservers(gameId);
+    this.onStop(function() {
+        console.log("game stopObservers");
+        Games.stopObservers(gameId);
+    })
     return Games.find({_id: gameId});
 });
 
@@ -30,8 +36,10 @@ Meteor.publish('userGames', function(userId) {
 // PLAYER CONTENTS
 
 Meteor.publish('playerContents', function(gameId) {
+    console.log("pc startObservers");
     PlayerContents.startObservers(gameId);
     this.onStop(function () {
+        console.log("pc stopObservers");
         PlayerContents.stopObservers(gameId);
     });
     return PlayerContents.find({gameId: gameId});
