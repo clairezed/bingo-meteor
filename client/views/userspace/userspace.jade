@@ -1,15 +1,34 @@
 template(name="userspace")
   h1 Hello #{currentUser.username} !
   h2 Here you can find all your Bingo Games.
-  .well.player-games
+  .player-games
     ul
       each grids
-        li
-          a.bingo-title(href="{{pathFor 'fillGrid'}}") #{title}
-          a.delete-game.btn.btn-danger.btn-xs(href="#") X
+        +gridThumbnail
+        //- li
+        //-   a.bingo-title(href="{{pathFor 'fillGrid'}}") #{title}
+        //-   a.delete-game.btn.btn-danger.btn-xs(href="#") X
       else
         li
           p You don't have any bingo yet, sweetie !
           p.text-center
             a.play-bingo.btn.btn-primary(href="{{pathFor 'createGrid'}}")
               |Let's create one now !
+
+template(name="userspaceGridThumbnail")
+  li.col-md-4
+    .grid-thumbnail-container
+      .grid-thumbnail-inner
+        h4
+          a.bingo-title(href="{{pathFor 'fillGrid'}}") #{title}
+        .row
+          .col-md-12
+            each tags
+              span.label.label-info= this
+        ul.games-creator-list(id="{{_id}}")
+          each games
+            +gridGamesList
+      .grid-thumbnail-btn
+        a.btn.btn-primary.join-game-btn(href="#") Current games
+          span.badge= games.count
+        +launchGameBtn

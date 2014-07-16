@@ -3,7 +3,10 @@ Template.gridThumbnail.helpers({
     var games;
     if (games = Games.find({gridId: this._id})) {
       return games;
-    }
+    };
+  },
+  canModifyGrid: function() {
+    return this.creator.id == Meteor.userId();
   }
 })
 
@@ -17,6 +20,7 @@ Template.gridThumbnail.events({
 
 Template.gridGamesList.helpers({
   canResumeGame: function() {
+    console.log("trololo");
     return ((game = Games.findOne({gridId: this._id, players: Meteor.userId()})) ? false : true)
   }
 })

@@ -1,8 +1,13 @@
 template(name="gridThumbnail")
-  li.col-md-6
+  li.col-md-6.col-sm-6
     .grid-thumbnail-container
       .grid-thumbnail-inner
-        h4= title
+        h4
+          if canModifyGrid
+            a.bingo-title(href="{{pathFor 'fillGrid'}}") #{title}
+          else
+            = title
+        //- h4
         p= description
         .row
           .col-md-12
@@ -11,10 +16,11 @@ template(name="gridThumbnail")
         ul.games-creator-list(id="{{_id}}")
           each games
             +gridGamesList
-      .grid-thumbnail-btn
-        a.btn.btn-primary.join-game-btn(href="#") Current games
-          span.badge= games.count
-        +launchGameBtn
+      if ready
+        .grid-thumbnail-btn
+          a.btn.btn-primary.join-game-btn(href="#") Current games
+            span.badge= games.count
+          +launchGameBtn
 
 
 template(name="gridGamesList")

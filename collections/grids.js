@@ -35,7 +35,7 @@ Meteor.methods({
       createdAt: new Date().getTime(),
       updatedAt: new Date().getTime(),
       words: [],
-      nbWordsRequired: 5,
+      nbWordsRequired: 25,
       ready: false
     });
 
