@@ -20,7 +20,6 @@ Template.gridThumbnail.events({
 
 Template.gridGamesList.helpers({
   canResumeGame: function() {
-    console.log("trololo");
     return ((game = Games.findOne({gridId: this._id, players: Meteor.userId()})) ? false : true)
   }
 })

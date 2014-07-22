@@ -23,15 +23,19 @@ Meteor.methods({
       throw new Meteor.Error(422, "Oups, there's a problem with finding your game...");
 
     var wordsArray = _.shuffle(_.shuffle(grid.words));
+    wordsArray = wordsArray.slice(0, grid.nbWordsRequired);
 
     // ESSAI avec un PC par game avec array
     var content = [];
     _.each(wordsArray, function(word, index, list){
       content.push({word: word, found: "false", position: index});
+      // if(index == grid.nbWordsRequired) {
+      //   return;
+      // }
     });
 
     if(pcId = PlayerContents.findOne({gameId: gameId, playerId: user._id})){
-       // PlayerContents.update(pcId, {})
+       console.log("pc already exists");
       } else {
         pcId = PlayerContents.insert({
           playerId: user._id,
@@ -40,25 +44,6 @@ Meteor.methods({
           content: content
         });
       }
-
-
-    // ESSAI avec un PC par mot
-    // _.each(wordsArray, function(word, index, list){
-    //   // add only words that haven't already been added
-    //   if(pcId = PlayerContents.findOne({gameId: gameId, content: word, playerId: user._id})){
-    //    // PlayerContents.update(pcId, {})
-    //   } else {
-    //     PlayerContents.insert({
-    //       playerId: user._id,
-    //       gameId: gameId,
-    //       gridId: gridId,
-    //       content: word,
-    //       found: "false",
-    //       pos: index
-    //     });
-    //   }
-    // });
-    // return gameId;
 
     return pcId;
   },
@@ -77,28 +62,19 @@ Meteor.methods({
     var found;
 
     pc = PlayerContents.findOne({gameId: gameId, playerId: userId});
-    content = pc.content[position];
-    content.found == "false" ? content.found = "true" : content.found = "false"
+    console.log(pc);
+    if (pc) {
+      content = pc.content[position];
+      console.log(content);
+      if(content) {
+        var found = content.found;
+        found == "false" ? content.found = "true" : content.found = "false"
 
-    pc = PlayerContents.update({_id:pc._id, 'content.position': position},
-      {$set: {'content.$': content}});
-
-    // db.player_contents.update({_id: "Jra8uNizxddWc9vwx", 'content.position': 1}
-    //   , {$set: {'content.$':{word: "truc", position: 1, found: "true"}}})
-
-
-    // if(contentFound.found){
-    //   PlayerContents.update(
-    //     {_id: contentFound._id},
-    //     {$set: {found: "false"}}
-    //     );
-    // }else{
-    //   PlayerContents.update(
-    //     {_id: contentFound._id},
-    //     {$set: {found: "true"}}
-    //     );
-    // }
-    // return contentFound;
+        pc = PlayerContents.update({_id:pc._id, 'content.position': position},
+          {$set: {'content.$': content}});
+      }
+      return pc;
+    }
   }
 })
 

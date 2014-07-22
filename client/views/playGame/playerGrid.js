@@ -29,11 +29,5 @@ Template.playerGrid.events({
       if(error)
         throwError(error.reason);
     })
-
-    // content_clicked = PlayerContents.findOne($(e.target).attr('id'));
-    // Meteor.call('toggleFound', content_clicked, function(error, contentFound){
-    //   if(error)
-    //     throwError(error.reason);
-    // })
   }
 });
