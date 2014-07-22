@@ -1,6 +1,7 @@
 template(name="signup")
   +loginIntro
-  +signupForm
+  .col-md-6.col-md-offset-3
+    +signupForm
 
 template(name="signupForm")
   form#signup-form.form-horizontal(role="form")
@@ -12,6 +13,10 @@ template(name="signupForm")
       label.col-sm-2.control-label(for="signup-password") Password
       .col-sm-10
         input#signup-password.form-control(type="password" placeholder="Password")
+    .form-group
+      label.col-sm-2.control-label(for="signup-password") Password confirmation
+      .col-sm-10
+        input#signup-password-confirmation.form-control(type="password" placeholder="Simply repeat your password, please !")
     .form-group
       .col-sm-offset-2.col-sm-10
         button.btn.btn-primary(type="submit") Sign up

@@ -1,8 +1,5 @@
 Template.layout.helpers({
-    //words: wordsData
-    // currentPlayer: function(){
-    //     return Session.get('currentPlayer');
-    // }   
+
 });
 
 Template.layout.events({
@@ -10,7 +7,8 @@ Template.layout.events({
         e.preventDefault();
         Meteor.logout(function(error) {
             if (error) {
-        // Display the logout error to the user however you want
+                console.log("error while disconnecting");
+                throwError(error.reason);
             }else{
                 Router.go('home');
             }
