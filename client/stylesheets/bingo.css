@@ -8,6 +8,10 @@ ul{
   list-style: none;
 }
 
+.pull-down-15 {
+  margin-top: 15px;
+}
+
 .btn{
   border-radius: 0;
 }
@@ -32,7 +36,6 @@ ul{
       margin: 5px 5px;
       border-color: #fff;
     }
-
 
 .btn-primary{
 /*  background-color: #69D2E7;
@@ -74,6 +77,16 @@ ul{
     border-color:#0e6B9D;
     color: #fff;
   }
+.btn-ghost {
+  color: #fff;
+  background-color: transparent;
+  border-color: #fff;
+  font-size: 14px
+}
+  .btn-ghost:hover, .btn-ghost:focus {
+    color: #fff;
+    background-color: #f83f09;
+  }
 
 
 .cyan{
@@ -97,7 +110,9 @@ ul{
 
 
 /* GRIDS THUMBNAIL */
-
+ul.row.grid-ul {
+  padding-left: 0;
+}
 .grid-thumbnail-container{
   background-color: #fff;
   margin: 5% 0;

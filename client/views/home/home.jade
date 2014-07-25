@@ -13,8 +13,10 @@ template(name="home")
 template(name="latestGridsList")
   .row
     .col-md-8.col-md-offset-2
+      if moreGrids
+        a.btn.btn-ghost.pull-right.pull-down-15(href="{{pathFor 'allBingos'}}", title="I want to see all bingos !") Show me more !
       h3 Latest Bingos
-      ul.row
+      ul.row.grid-ul
         each readyGrids
           +gridThumbnail
         else
