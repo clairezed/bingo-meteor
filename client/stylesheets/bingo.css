@@ -1,6 +1,4 @@
 body{
-/* necessary for bootstrap3 navbar-fixed-top */
-  /*padding-top: 85px;*/
   background-color: #e0e4cc;
 }
 
@@ -21,7 +19,6 @@ ul{
 }
   .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
     color: #fff;
-    /*margin: 5px 0px;*/
   }
   .navbar-default .navbar-nav > li > a {
     color:#fff;
@@ -38,14 +35,10 @@ ul{
     }
 
 .btn-primary{
-/*  background-color: #69D2E7;
-  border-color:#00c3e7;*/
   background-color: #f83f09;
   border-color:  #e23705;
 }
   .btn-primary:hover, .btn-primary:active{
-/*    background-color: #00c3e7;
-    border-color:#00c3e7;*/
     background-color: #e23705;
     border-color:#e23705;
   }
@@ -55,14 +48,10 @@ ul{
   }
 
 .btn-info{
-/*  background-color: #a7dbd8;
-  border-color:#87c4bF;*/
   background-color: #fa6134;
   border-color:#f84c19;
 }
   .btn-info:hover, .btn-info:active{
-/*    background-color: #93C8C4;
-    border-color:#87c4bF;*/
     background-color: #f84c19;
     border-color:#f84c19;
   }
@@ -90,10 +79,10 @@ ul{
 
 
 .cyan{
-  background-color: #2476A2; /*#0B6190 */
+  background-color: #2476A2;
 }
 .red-orange{
-  background-color: #e23705; /*#ff5e2e */
+  background-color: #e23705;
 }
 
 .btn a{
@@ -133,14 +122,11 @@ ul.row.grid-ul {
   }
     ul.games-creator-list li {
       position: relative;
-      /*margin: 0;*/
     }
       ul.games-creator-list li .game-wrapper{
         position: relative;
-        /*display: inline-block;*/
         width: 100%;
         overflow: hidden;
-/*        margin: 0;*/
       }
         ul.games-creator-list .btn.join-game {
           width: 100%;
@@ -158,7 +144,6 @@ ul.row.grid-ul {
             -ms-transform: translateX(-50px);
           }
         ul.games-creator-list .join-game-actions{
-        /*width: 100%;*/
         background-color: #f84c19;
         width: 100px;
         height: 100%;
@@ -187,8 +172,6 @@ ul.row.grid-ul {
         }
         ul.games-creator-list li .game-wrapper:hover .join-game-actions{
           opacity:1;
-/*          display: inline-block;
-          width: 100%;*/
           -webkit-transform: translateX(0px);
           -moz-transform: translateX(0px);
           -ms-transform: translateX(0px);
@@ -203,10 +186,6 @@ ul.row.grid-ul {
     width: 50%;
     display: inline-block;
   }
-
-.animated-btn a:not(.join-game) {
-  /*visibility: hidden;*/
-}
 
 
 /* PLAYER GAMES */
@@ -242,6 +221,7 @@ ul.row.grid-ul {
 /* PLAY BINGO */
 #grid-gen{
 	width: 100%;
+  line-height: 0;
 }
 #grid-gen .grid{
   width: 100%;
@@ -253,6 +233,7 @@ ul.row.grid-ul {
   position: relative;
   background-color: #ccc;
   cursor: pointer;
+  border: 1px solid #ddd;
 }
 #grid-gen .grid .outer-square:hover{
   background-color: #ddd;
@@ -265,11 +246,12 @@ ul.row.grid-ul {
 }
 
 #grid-gen .grid .outer-square .inner-square{
- position: absolute;
- left: 5%;
- right: 5%;
- top: 5%;
- bottom: 5%;
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: 5%;
+  bottom: 5%;
+  line-height: 1.42857143;
 }
 .play-bingo-info{
   padding-top: 3%;
