@@ -7,6 +7,9 @@ Template.gridThumbnail.helpers({
   },
   canModifyGrid: function() {
     return this.creator.id == Meteor.userId();
+  },
+  positionIsOdd: function() {
+    return this.position % 2 == 0;
   }
 })
 
