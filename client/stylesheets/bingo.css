@@ -217,6 +217,11 @@ ul{
   margin-right: 1%;
   font-weight: normal;
 }
+.words-counter{
+  margin-left: 10px;
+  color: #888;
+  font-weight: bold;
+}
 
 
 /* PLAY BINGO */
