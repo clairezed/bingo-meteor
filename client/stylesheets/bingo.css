@@ -14,8 +14,9 @@ ul{
   color: #fff;
 }
 
-legend {
-  border-bottom: 1px solid #b0a97d
+.well legend {
+  border-bottom: 1px solid #b0a97d;
+  color: #fff;
 }
 
 .pull-down-15 {
@@ -117,7 +118,7 @@ h3.config-title {
 
 
 
-/* GRIDS THUMBNAIL */
+/*====== GRIDS THUMBNAIL ========================================================*/
 ul.row.grid-ul {
   padding-left: 0;
 }
@@ -238,7 +239,7 @@ a.link-config {
   font-weight: bold;
 }
 
-/* FILL GRID */
+/*===== FILL GRID ==============================================================*/
 .input-row {
   margin: 25px 0;
 }
@@ -293,18 +294,19 @@ a.link-config {
 }
 
 
-/* PLAY BINGO */
+/*===== PLAY BINGO =====================================================================*/
 #grid-gen{
-	width: 100%;
+  width: 100%;
   line-height: 0;
+  margin-bottom: 20px;
 }
 #grid-gen .grid{
   width: 100%;
 }
 #grid-gen .grid .outer-square{
   display: inline-block;
-  width: 19%;
-  padding-bottom: 19%;
+  width: 20%;
+  padding-bottom: 20%;
   position: relative;
   background-color: #ccc;
   cursor: pointer;
@@ -331,3 +333,45 @@ a.link-config {
 .play-bingo-info{
   padding-top: 3%;
 }
+
+
+/* SHOUTS */
+
+.shout-form {
+  background-color: #b0a97d;
+  color: #fff;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+}
+
+.shout-form:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.shout-form .form-control{
+  width: 85%;
+  margin-left:10px;
+  border-color: #d0cbac;
+  display: inline-block;
+}
+@media(min-width: 992px) {
+  .shout-form .form-control{
+    width: 92%;
+  }
+}
+@media(max-width: 767px) {
+  .shout-form .form-control{
+    width: 80%;
+  }
+}
+
+.shout-display-box{
+  background-color: #d0cbac;
+  color: #fff;
+  padding: 8px 16px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+

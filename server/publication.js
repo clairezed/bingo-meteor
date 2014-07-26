@@ -32,6 +32,13 @@ Meteor.publish('userGames', function(userId) {
   return Games.find({creatorId: userId});
 })
 
+// SHOUTS
+
+Meteor.publish('gameShouts', function(gameId) {
+  return Shouts.find({gameId: gameId});
+});
+
+
 
 // PLAYER CONTENTS
 
@@ -44,14 +51,6 @@ Meteor.publish('playerContents', function(gameId) {
   });
   return PlayerContents.find({gameId: gameId});
 });
-
-// Meteor.publish('player_found_contents', function () {
-//     PlayerFoundContents.startObservers();
-//     this.onStop(function () {
-//         PlayerFoundContents.stopObservers();
-//     });
-//     return PlayerFoundContents.find();
-// });
 
 // BINGO ACTIVITIES
 

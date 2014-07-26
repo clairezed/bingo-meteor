@@ -1,12 +1,11 @@
 template(name="playGame")
   +gameNotifications
   .row
-    .col-sm-8
+    .col-md-8
       +playerGrid
-    .col-sm-4
+    .col-md-4
       unless previewMode
         +gridAside
-
 
 
 template(name="gameNotifications")
@@ -15,3 +14,4 @@ template(name="gameNotifications")
       .row
         .alert.alert-info
           | And the winner iiiis... #{winner.username} !
+

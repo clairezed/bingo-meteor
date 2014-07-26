@@ -2,7 +2,6 @@
 Messages = new Meteor.Collection(null);
 
 throwMessage = function(message, type) {
-  console.log(message);
     var messageId = Messages.insert({message: message, seen: false, type: type});
     setTimeout(function() {
        deleteMessage(messageId);
