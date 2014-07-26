@@ -18,7 +18,7 @@ ul{
   border-bottom: 1px solid #b0a97d;
   color: #fff;
   margin-bottom: 10px;
-  margin-top: 15px;
+  margin-top: 25px;
 }
 
 .pull-down-15 {
@@ -353,6 +353,7 @@ a.link-config {
   background-color: #b0a97d;
   color: #fff;
   padding: 10px 20px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -380,7 +381,7 @@ a.link-config {
 }
 
 .shout-display-box{
-  background-color: #d0cbac;
+  background-color: #33769A;
   color: #fff;
   padding: 8px 16px;
   margin-bottom: 15px;

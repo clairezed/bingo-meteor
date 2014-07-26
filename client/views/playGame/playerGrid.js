@@ -1,14 +1,4 @@
 Template.playerGrid.helpers({
-    previewMode: function() {
-    if (this.game) {
-      return this.game.preview == true;
-    }
-  },
-  canModifyGrid: function() {
-     if (this.grid && this.game) {
-      return this.grid.creator.id == Meteor.userId() && this.game.preview == true;
-    }
-  },
   contents: function() {
     if (this.game ) {
       pc = PlayerContents.findOne({gameId: this.game._id, playerId: Meteor.userId()});
@@ -18,6 +8,19 @@ Template.playerGrid.helpers({
       // return PlayerContents.find({gameId: this.game._id, playerId: Meteor.userId()}).fetch();
     }
   },
+});
+
+Template.playerGridHeader.helpers({
+    previewMode: function() {
+    if (this.game) {
+      return this.game.preview == true;
+    }
+  },
+  canModifyGrid: function() {
+     if (this.grid && this.game) {
+      return this.grid.creator.id == Meteor.userId() && this.game.preview == true;
+    }
+  }
 });
 
 Template.playerGrid.events({

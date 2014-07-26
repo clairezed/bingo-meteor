@@ -13,13 +13,15 @@ Meteor.methods({
       createdAt: new Date().getTime()
     });
 
-    Meteor.setTimeout(function() {
-      Meteor.call('deleteLastShout', function(error){
-        if (error) {
-          console.log(error.reason, 'danger');
-        }
-      })
-    }, 10000);
+    if (!this.isSimulation) {
+      Meteor.setTimeout(function() {
+        Meteor.call('deleteLastShout', function(error){
+          if (error) {
+            console.log(error.reason, 'danger');
+          }
+        })
+      }, 10000);
+    }
 
   },
   deleteShout: function(shoutId) {
