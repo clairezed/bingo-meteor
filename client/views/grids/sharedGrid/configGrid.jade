@@ -12,3 +12,6 @@ template(name="configGrid")
       label.radio-inline
         input(type="radio" name="visibility" value="private" checked="{{hasPrivateVisibility}}")
         | Private
+    if onUpdatePage
+      hr
+      a.btn.btn-primary.delete-grid(href="#" onClick="return confirm('Do you really want to delete your bingo ?')") Delete grid
