@@ -6,7 +6,9 @@ template(name="gridThumbnail")
       .grid-thumbnail-inner
         h4
           if canModifyGrid
-            a.bingo-title(href="{{pathFor 'fillGrid'}}") #{title}
+            a.link-config.icon-config.pull-right(href="{{pathFor 'updateGrid'}}" title="Let's change my bingo !")
+              span.glyphicon.glyphicon-cog
+            a.link-config(href="{{pathFor 'updateGrid'}}" title="I want to modify my bingo !") #{title}
           else
             = title
         //- h4
@@ -14,7 +16,7 @@ template(name="gridThumbnail")
         .row
           .col-md-12
             each tags
-              span.label.label-info= this
+              span.tag-label= this
         ul.games-creator-list(id="{{_id}}")
           each games
             +gridGamesList

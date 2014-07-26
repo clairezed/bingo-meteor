@@ -41,12 +41,16 @@ legend {
     margin: 5px 5px;
     border-color: #fff;
   }
-    .navbar-default .navbar-nav > li > a:hover {
+    .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
       color:#fff;
       background-color: #f83f09;
       padding: 10px 15px 10px 15px;
       margin: 5px 5px;
       border-color: #fff;
+    }
+    .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+      color:#fff;
+      background-color: #f83f09;
     }
 
 .btn-primary{
@@ -201,6 +205,30 @@ ul.row.grid-ul {
     width: 50%;
     display: inline-block;
   }
+a.icon-config {
+  font-size: 20px;
+}
+a.link-config {
+  color: #f83f09;
+}
+  a.link-config:hover, a.icon-config:focus {
+    color: #e23705;
+    text-decoration: none;
+  }
+
+.tag-label {
+  display: inline;
+  padding: .2em .6em .3em;
+  margin: 0px 3px 3px 0px;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  background-color: #d0cbac;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
 
 
 /* PLAYER GAMES */
