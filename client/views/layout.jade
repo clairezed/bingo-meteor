@@ -20,8 +20,8 @@ template(name="layout")
           ul.nav.navbar-nav.navbar-right
             li.dropdown
               a.dropdown-toggle(href="#" data-toggle="dropdown")
-                span.glyphicon.glyphicon-user
-                  | #{currentUser.username}
+                span.glyphicon.glyphicon-home
+                | #{currentUser.username}
                 b.caret
               ul.dropdown-menu
                 if currentUser

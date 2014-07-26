@@ -17,6 +17,8 @@ ul{
 .well legend {
   border-bottom: 1px solid #b0a97d;
   color: #fff;
+  margin-bottom: 10px;
+  margin-top: 15px;
 }
 
 .pull-down-15 {
@@ -230,6 +232,10 @@ a.link-config {
   white-space: nowrap;
   vertical-align: baseline;
 }
+.tag-label-reversed {
+  background-color: #fff;
+  color: #d0cbac;
+}
 
 
 /* PLAYER GAMES */
@@ -332,6 +338,12 @@ a.link-config {
 }
 .play-bingo-info{
   padding-top: 3%;
+}
+.grid-aside-content {
+  padding-left: 10px;
+}
+.grid-aside-content p {
+  margin-bottom: 0;
 }
 
 

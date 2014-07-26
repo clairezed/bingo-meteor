@@ -6,7 +6,6 @@ template(name="playerGrid")
     with grid
       a.btn.btn-primary.pull-right(href="{{pathFor 'fillGrid'}}") Modify
   h1 #{grid.title}
-  small Grid made by : #{grid.creator.name}
   +shoutOut
   #grid-gen
     .grid

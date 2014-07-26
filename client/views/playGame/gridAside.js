@@ -12,6 +12,11 @@ Template.gridAside.helpers({
       return this.creator.id == Meteor.userId() && this.players.length == 1;
     }
   },
+  ownsButCanteleteGame: function() {
+    if (this) {
+      return this.creator.id == Meteor.userId() && this.players.length > 1;
+    }
+  },
   canQuitGame: function() {
     if (this) {
       return this.creator.id != Meteor.userId();

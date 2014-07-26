@@ -3,15 +3,29 @@ template(name="gridAside")
     with game
       if canDeleteGame
         a.btn.btn-primary.delete-game(href="#") Delete Game
-      else
+      if ownsButCanteleteGame
         a.btn.btn-primary.delete-game.disabled(href="#") Delete Game
         p.help-block.small You can't delete your game while there are other players
       if canQuitGame
         a.btn.btn-primary.quit-game(href="#") Quit Game
     fieldset
       legend Current players
-      ul
+      ul.grid-aside-content
         each currentPlayers
-          li #{username}
+          li
+            span.glyphicon.glyphicon-user
+            | #{username}
     fieldset
-      legend Notifications
+      legend
+        span.glyphicon.glyphicon-info-sign
+        | #{grid.title}
+      dl.grid-aside-content
+        p
+          strong Bingo author :
+          | #{grid.creator.name}
+        dt Description :
+        dd #{grid.description}
+        dt Tags :
+        dd
+          each grid.tags
+            span.tag-label.tag-label-reversed= this
