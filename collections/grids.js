@@ -22,12 +22,15 @@ Meteor.methods({
     if(!gridAttributes.title)
       throw new Meteor.Error(422, "Please be nice and give a title to your grid, sweetie");
 
+    if(!gridAttributes.visibility)
+      throw new Meteor.Error(422, "Haven't you forgotten to check the visibility of your grid, dear ?");
+
     if(gridAttributes.title && gridWithSameTitle){
       throw new Meteor.Error(302,
         "Sorry Dude, a bingo grid with the same title already exists",
         gridWithSameTitle._id);
     }
-    var grid = _.extend(_.pick(gridAttributes, 'title', 'description', 'tags'), {
+    var grid = _.extend(_.pick(gridAttributes, 'title', 'description', 'tags', 'visibility'), {
       creator: {
         id: user._id,
         name: user.username
@@ -54,6 +57,9 @@ Meteor.methods({
     if(!gridAttributes.title)
       throw new Meteor.Error(422, "Please be nice and give a title to your grid, sweetie");
 
+    if(!gridAttributes.visibility)
+      throw new Meteor.Error(422, "Haven't you forgotten to check the visibility of your grid, dear ?");
+
     if(gridAttributes.title && gridWithSameTitle && (gridWithSameTitle =! currentGrid)){
       throw new Meteor.Error(302,
         "Sorry Dude, a bingo grid with the same title already exists",
@@ -61,9 +67,12 @@ Meteor.methods({
     }
 
     var gridId = Grids.update(gridId, {
-      title: gridAttributes.title,
-      description: gridAttributes.description,
-      tags: gridAttributes.tags
+      $set: {
+          title: gridAttributes.title,
+          description: gridAttributes.description,
+          tags: gridAttributes.tags,
+          visibility: gridAttributes.visibility
+        }
     });
 
     return gridId;

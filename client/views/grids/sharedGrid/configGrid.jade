@@ -1,0 +1,14 @@
+template(name="configGrid")
+  .well
+    h3.config-title
+      span.glyphicon.glyphicon-cog
+      | Configuration
+    hr
+    label(for="visibility") Visibility of my bingo
+    .form-group
+      label.radio-inline
+        input(type="radio" name="visibility" value="public" checked="{{hasPublicVisibility}}")
+        | Public
+      label.radio-inline
+        input(type="radio" name="visibility" value="private" checked="{{hasPrivateVisibility}}")
+        | Private

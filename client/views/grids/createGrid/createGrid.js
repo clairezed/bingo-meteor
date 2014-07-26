@@ -7,10 +7,12 @@ Template.createGrid.events({
         if(tags == '') {
             tags = null;
         }
+        var visibility = $(e.target).find('[name=visibility]:checked').val();
 
         var grid = {
             title: $(e.target).find('[name=title]').val(),
             description: $(e.target).find('[name=description]').val(),
+            visibility: visibility,
             tags: tags
         }
 

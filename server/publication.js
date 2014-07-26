@@ -3,8 +3,8 @@ Meteor.publish('grid', function(gridId) {
   return Grids.find({_id: gridId});
 });
 
-Meteor.publish('readyGrids', function() {
-  return Grids.find({ready: true});
+Meteor.publish('visibleGrids', function() {
+  return Grids.find({ready: true, visibility: 'public'});
 });
 
 Meteor.publish('userGrids', function(userId) {

@@ -3,16 +3,22 @@ template(name="updateGrid")
   h1 Grid Description
   form(role="form")
     .row
-      .form-group.col-sm-8
-        label(for="title") Title
-        input#title.form-control(name="title" type="text" value="{{title}}")
+      .col-sm-8
+        .row
+          .form-group.col-sm-8
+            label(for="title") Title
+            input#title.form-control(name="title" type="text" value="{{title}}")
+        .row
+          .form-group.col-sm-8
+            label(for="description") Description
+            textarea#description.form-control(name="description" rows="4" cols="50" value=" ")=description
+            p.help-block Here comes the description of your bingo, to incitate people playing it.
+        .row
+          .form-group.col-sm-8
+            label(for="tags") Tags
+            input#tags.form-control(name="tags" type="text" value="{{tags}}")
+      .col-sm-4
+        +configGrid
     .row
-      .form-group.col-sm-8
-        label(for="description") Description
-        textarea#description.form-control(name="description" rows="4" cols="50" value=" ")=description
-        p.help-block Here comes the description of your bingo, to incitate people playing it.
-    .row
-      .form-group.col-sm-8
-        label(for="tags") Tags
-        input#tags.form-control(name="tags" type="text" value="{{tags}}")
-    input.btn.btn-primary(type="submit")
+      .col-sm-12
+        input.btn.btn-primary(type="submit")

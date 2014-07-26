@@ -7,12 +7,26 @@ ul{
   list-style: none;
 }
 
+.well {
+  background-color: #d0cbac;
+  border-radius: 0;
+  border: 1px solid #b0a97d;
+  color: #fff;
+}
+
+legend {
+  border-bottom: 1px solid #b0a97d
+}
+
 .pull-down-15 {
   margin-top: 15px;
 }
 
 .btn{
   border-radius: 0;
+}
+#main.container-fluid {
+  max-width: 80%;
 }
 .navbar-default{
   background-color: transparent;
@@ -78,7 +92,10 @@ ul{
     background-color: #f83f09;
   }
 
-
+h3.config-title {
+  margin-top: 0px;
+  color: #fff;
+}
 .cyan{
   background-color: #2476A2;
 }
@@ -92,9 +109,6 @@ ul{
   display: block;
 }
 
-#main.container-fluid {
-  max-width: 80%;
-}
 
 
 
