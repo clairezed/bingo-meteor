@@ -19,7 +19,7 @@ Template.fillGrid.events({
       $(e.target).find('[name=word]').val("");
     })
   },
-  'click .delete': function(e, template) {
+  'click .delete-word': function(e, template) {
     e.preventDefault();
     var gridId = template.data._id;
     var word = $(e.target).prev().html();

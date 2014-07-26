@@ -1,5 +1,6 @@
 body{
-  background-color: #e0e4cc;
+  /*background-color: #e0e4cc;*/
+  background-color: #f4f1de;
 }
 
 ul{
@@ -195,26 +196,58 @@ ul.row.grid-ul {
   font-weight: bold;
 }
 
-/* ADD WORDS */
-.words-list{
-  margin-top: 2%;
+/* FILL GRID */
+.input-row {
+  margin: 25px 0;
 }
-.words-list ul{
-  padding-left: 0;
-}
-.words-list li{
-  margin-left: 2%;
-  margin-top: 1%;
-}
-.words-list span.label{
-  font-size: 100%;
-  margin-right: 1%;
-  font-weight: normal;
+.fill-grid-form {
+  margin-bottom: 10px;
 }
 .words-counter{
   margin-left: 10px;
   color: #888;
   font-weight: bold;
+}
+
+.play-game-btns {
+  display: inline-block;
+}
+  .preview-game {
+    margin-left: 10px;
+  }
+
+.words-list ul{
+  padding-left: 0;
+}
+.words-list li{
+  margin-left: 2%;
+  margin-bottom: 1%;
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #ccc;
+}
+  span.word-label {
+    background-color: #ccc;
+    padding: 2px 12px;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+    position: relative;
+    float: left;
+  }
+  a.delete-word {
+    padding: 2px 5px;
+    position: relative;
+    float: left;
+    border:none;
+  }
+.words-list span.label{
+  font-size: 100%;
+  margin-right: 1%;
+  font-weight: normal;
 }
 
 
