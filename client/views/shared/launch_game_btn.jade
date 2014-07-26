@@ -1,6 +1,7 @@
 template(name="launchGameBtn")
-  a.launch-game.btn.btn-default(href="#", title="Launch a new game")
     if canLaunchGame
-      | Launch  !
+      a.launch-game.btn.btn-default(href="#", title="I want to launch a new game !")
+        | Launch  !
     else
-      | Resume
+      a.launch-game.btn.btn-default(href="#", title="Let's resume my game in progress !")
+        | Resume
