@@ -22,9 +22,9 @@ Template.configGrid.events({
 
     Meteor.call('deleteGrid', gridId, function(error){
       if(error) {
-        throwError(error.reason);
+        throwMessage(error.reason, 'danger');
       } else {
-        console.log("grid deleted");
+        throwMessage("Ok then, your bingo's been deleted !", 'success');
         Router.go('home');
       }
     });

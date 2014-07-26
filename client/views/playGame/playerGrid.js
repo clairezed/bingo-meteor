@@ -27,7 +27,7 @@ Template.playerGrid.events({
     var gameId = template.data.game._id;
     Meteor.call('toggleFound', gameId, pos, function(error, playerContentId){
       if(error)
-        throwError(error.reason);
+        throwMessage(error.reason, 'danger');
     })
   }
 });

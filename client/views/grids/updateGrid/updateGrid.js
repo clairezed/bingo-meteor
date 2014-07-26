@@ -30,9 +30,9 @@ Template.updateGrid.events({
 
     Meteor.call('updateGrid', gridId, grid, function(error, currentGridId){
       if (error){
-        throwError(error.reason);
+        throwMessage(error.reason, 'danger');
       } else {
-        console.log("Update grid succesful");
+        throwMessage("Bingo updated !", 'success');
       }
     });
   }

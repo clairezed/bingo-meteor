@@ -8,7 +8,7 @@ Template.layout.events({
         Meteor.logout(function(error) {
             if (error) {
                 console.log("error while disconnecting");
-                throwError(error.reason);
+                throwMessage(error.reason, 'danger');
             }else{
                 Router.go('home');
             }

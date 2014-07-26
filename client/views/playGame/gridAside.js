@@ -26,7 +26,7 @@ Template.gridAside.events({
 
     Meteor.call('quitGame', gameId, function(error) {
       if(error) {
-        throwError(error.reason);
+        throwMessage(error.reason, 'danger');
       }else {
         Router.go('home');
       }
@@ -38,7 +38,7 @@ Template.gridAside.events({
 
     Meteor.call('deleteGame', gameId, function(error) {
       if(error) {
-        throwError(error.reason);
+        throwMessage(error.reason, 'danger');
       }else {
         Router.go('home');
       }

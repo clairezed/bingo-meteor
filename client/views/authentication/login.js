@@ -18,23 +18,24 @@ Template.loginForm.events({
     var errors = [];
     if(username.length < 1) {
       errors.push("Please fill in your name !");
-       // throwError("Please fill in your name !");
     };
     if(password.length < 1) {
       errors.push("Your password is empty, dear");
-      // throwError("Your password is empty, dear");
     };
 
     if(errors.length > 0) {
-      _.each(errors, throwError);
+      for(index in errors) {
+        throwMessage(errors[index], 'danger');
+      };
     } else {
       Meteor.loginWithPassword(
         username,
         password,
         function(error) {
           if (error) {
-            throwError(error.reason);
+            throwMessage(error.reason, 'danger');
           }else{
+            throwMessage("Happy to see you again !", 'success');
             Router.go('userspace');
           }
         }

@@ -13,7 +13,7 @@ Template.fillGrid.events({
 
     Meteor.call('addWord', gridId, word, function(error, currentGridId){
       if (error) {
-        throwError(error.reason);
+        throwMessage(error.reason, 'danger');
       }
             //// clear input text
       $(e.target).find('[name=word]').val("");
@@ -26,40 +26,9 @@ Template.fillGrid.events({
 
     Meteor.call('removeWord', gridId, word, function(error){
       if(error)
-        throwError(error.reason);
+        throwMessage(error.reason, 'danger');
     });
   },
-  // 'click .launch-game': function(e, template) {
-  //   console.log("click on launch game");
-  //   e.preventDefault();
-  //   var gridId = template.data._id;
-  //   var game = Games.findOne({creatorId: Meteor.userId(), gridId: gridId});
-
-  //   if (game) {
-  //     Meteor.call('launchGame', game._id, function(error, gameId){
-  //         if (error){
-  //             throwError(error.reason);
-  //         }else{
-  //           console.log("go to game after launch");
-  //           Router.go('playGame', {_id: gridId, gameId: gameId});
-  //         }
-  //     });
-  //   } else {
-  //     var game = {
-  //         gridId: gridId,
-  //         preview: false
-  //     }
-  //     console.log("createGame from fillGrid click launch game, else")
-  //     Meteor.call('createGame', game, function(error, gameId){
-  //         if (error){
-  //             throwError(error.reason);
-  //         }else{
-  //           console.log("go to game after create");
-  //             Router.go('playGame', {_id: gridId, gameId: gameId});
-  //         }
-  //     });
-  //   }
-  // },
     'click .preview-game': function(e, template) {
     e.preventDefault();
     var gridId = template.data._id;
@@ -76,7 +45,7 @@ Template.fillGrid.events({
       console.log("createGame from preview-game")
       Meteor.call('createGame', game, function(error, gameId){
           if (error){
-              throwError(error.reason);
+              throwMessage(error.reason, 'danger');
           }else{
               Router.go('playGame', {_id: gridId, gameId: gameId});
           }

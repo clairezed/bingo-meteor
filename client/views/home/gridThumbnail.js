@@ -40,7 +40,7 @@ Template.gridGamesList.events({
       console.log(gridId)
       Meteor.call('joinGame', template.data._id, function(error, gameId){
         if (error){
-          throwError(error.reason);
+          throwMessage(error.reason, 'danger');
         }else{
           Router.go('playGame', {_id: gridId, gameId: gameId});
         }

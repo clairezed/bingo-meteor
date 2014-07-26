@@ -14,7 +14,7 @@ Template.launchGameBtn.events({
     if (game = Games.findOne({'creator.id': Meteor.userId(), gridId: gridId})) {
       Meteor.call('launchGame', game._id, function(error, gameId){
           if (error){
-              throwError(error.reason);
+              throwMessage(error.reason, 'danger');
           }else{
               Router.go('playGame', {_id: gridId, gameId: gameId});
           }
@@ -27,7 +27,7 @@ Template.launchGameBtn.events({
       console.log("createGame from launchGameBtn click launch game, else")
       Meteor.call('createGame', game, function(error, gameId){
           if (error){
-              throwError(error.reason);
+              throwMessage(error.reason, 'danger');
           }else{
               Router.go('playGame', {_id: gridId, gameId: gameId});
           }

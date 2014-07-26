@@ -5,9 +5,6 @@ template(name="userspace")
     ul
       each grids
         +gridThumbnail
-        //- li
-        //-   a.bingo-title(href="{{pathFor 'fillGrid'}}") #{title}
-        //-   a.delete-game.btn.btn-danger.btn-xs(href="#") X
       else
         li
           p You don't have any bingo yet, sweetie !

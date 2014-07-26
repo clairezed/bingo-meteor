@@ -18,8 +18,9 @@ Template.createGrid.events({
 
         Meteor.call('createGrid', grid, function(error, currentGridId){
             if (error){
-                throwError(error.reason);
+                throwMessage(error.reason, 'danger');
             }else{
+                throwMessage("Congrats for creating a new grid !", 'success');
                 Router.go('fillGrid', {_id: currentGridId});
             }
         });
