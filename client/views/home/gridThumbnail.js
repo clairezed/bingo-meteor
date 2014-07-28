@@ -28,7 +28,7 @@ Template.gridGamesList.helpers({
 })
 
 Template.gridGamesList.events({
-  'click .join-game':function(e, template) {
+  'click .join-game-btn':function(e, template) {
     e.preventDefault();
     console.log("join game");
     if(!Meteor.user()) {
