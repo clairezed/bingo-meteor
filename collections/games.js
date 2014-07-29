@@ -25,8 +25,8 @@ Meteor.methods({
       },
       players: players,
       winner: null,
-      createdAt: new Date().getTime(),
-      updatedAt: new Date().getTime()
+      createdAt: new Date(),
+      updatedAt: new Date()
     });
 
     var gameId = Games.insert(game);
@@ -35,22 +35,34 @@ Meteor.methods({
   },
   launchGame: function(gameId) {
     console.log("call launchGame");
-    Games.update(gameId, {$set: {preview: false}, $addToSet: {players: Meteor.userId()}});
+    Games.update(gameId, {
+      $set: {
+        preview: false,
+        updatedAt: new Date()
+      },
+      $addToSet: {players: Meteor.userId()}
+    });
     return gameId;
   },
   joinGame: function(gameId) {
     console.log("call joinGame");
-    var game_id = Games.update(gameId, {$addToSet: {players: Meteor.userId()}});
+    var game_id = Games.update(gameId, {
+      $set: { updatedAt: new Date() },
+      $addToSet: {players: Meteor.userId()}
+    });
     console.log(game_id);
     return gameId;
   },
   quitGame: function(gameId) {
     console.log("call quitGame");
     var userId = Meteor.userId();
-    Games.update(gameId, {$pull: {players: userId}});
+    Games.update(gameId, {
+      $set: { updatedAt: new Date() },
+      $pull: {players: userId}
+    });
     PlayerContents.remove({gameId: gameId, playerId: userId});
   },
-  deleteGame: function(gameId){
+  deleteGame: function(gameId) {
     console.log("call deleteGame");
     var game = Games.findOne(gameId);
     var userId = Meteor.userId();
@@ -63,7 +75,15 @@ Meteor.methods({
     PlayerContents.remove({gameId: game._id});
     Games.remove(game._id);
   },
-  checkBingo: function(playerContent){
+  deleteUnactiveGames: function() {
+    var unactiveDelay = moment().subtract({ h:2})._d;
+    console.log(unactiveDelay);
+    console.log(Games.find({updatedAt: {$lt: unactiveDelay}}).fetch());
+    nbGamesDeleted = Games.remove({updatedAt: {$lt: unactiveDelay}});
+    return nbGamesDeleted;
+  },
+
+  checkBingo: function(playerContent) {
     console.log("call checkBingo");
     var foundPositions = _.map(_.where(playerContent, {found: "true"}), function(hash, index) {
       return hash.position + 1;
@@ -79,18 +99,16 @@ Meteor.methods({
     } else {
       return false;
     }
-//  removeWinnersWhenTheyLeave: function(game_id){
-//    var user = Meteor.user();
-//    Games.update(game_id, {
-//            $pull: {winners: user._id}
-//          });
   },
   setWinner : function(gameId, playerId) {
     console.log("call setWinner");
     console.log(!Games.findOne(gameId).winner);
     if (!Games.findOne(gameId).winner) {
       Games.update(gameId, {
-        $set: {winner: playerId}
+        $set: {
+          winner: playerId,
+          updatedAt: new Date()
+        }
       });
     };
     return gameId;
@@ -110,16 +128,29 @@ winCombinations = [
 // ====== OBSERVERS ====================== //
 
 Games.startObservers = function startObservers(gameId) {
-  Games.observer = Games.find(gameId).observeChanges({
-    changed: function(id, fields) {
-      console.log("FIELDS");
-      console.log(fields);
-      if (fields.winner) {
-        // throw new Meteor.Error(422, "There's a bingo");
-        var winner = Meteor.users.findOne(fields.winner);
-        console.log("winner iiiis : ");
-        console.log(winner);
-      }
+  // Games.observer = Games.find(gameId).observeChanges({
+  //   changed: function(id, fields) {
+  //     console.log("FIELDS");
+  //     console.log(fields);
+  //     if (fields.winner) {
+  //       // throw new Meteor.Error(422, "There's a bingo");
+  //       var winner = Meteor.users.findOne(fields.winner);
+  //       console.log("winner iiiis : ");
+  //       console.log(winner);
+  //     }
+  //   }
+  // })
+  Games.observer = Games.find(gameId).observe({
+    removed: function(oldGame) {
+      console.log('GAME REMOVED');
+      console.log(oldGame);
+      Meteor.call('deleteUnactivePlayerContents', oldGame._id, function(error, nbPlayerContentsDeleted) {
+        if(error) {
+          console.log(error.reason);
+        } else {
+          console.log("nbPlayerContentsDeleted : "+nbPlayerContentsDeleted);
+        }
+      })
     }
   })
 }

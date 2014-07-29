@@ -7,7 +7,9 @@
       "bootstrap-3": {},
       "accounts-ui-bootstrap-3": {},
       "jade": {},
-      "kadira": {}
+      "kadira": {},
+      "synced-cron": {},
+      "moment": {}
     },
     "packages": {
       "iron-router": {
@@ -17,8 +19,8 @@
       },
       "spin": {
         "git": "https://github.com/SachaG/meteor-spin.git",
-        "tag": "v0.2.2",
-        "commit": "3f655f0016228e4195acc784c45d3e3a247dc39f"
+        "tag": "v2.0.3",
+        "commit": "23c1145472a710d5c93fa4beaca4e576caeb2f24"
       },
       "bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
@@ -39,6 +41,16 @@
         "git": "https://github.com/meteorhacks/kadira.git",
         "tag": "v2.4.9",
         "commit": "8bb902989917522822a0897117672ae858c23427"
+      },
+      "synced-cron": {
+        "git": "https://github.com/percolatestudio/meteor-synced-cron.git",
+        "tag": "v0.1.1",
+        "commit": "c731ab04e7bf2b0aa7a7e3c4f4750c8c648b791d"
+      },
+      "moment": {
+        "git": "https://github.com/acreeger/meteor-moment.git",
+        "tag": "v2.6.0",
+        "commit": "26156df681750fd6e6ed77043eef32b6653ebbdf"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

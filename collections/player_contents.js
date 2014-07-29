@@ -47,7 +47,7 @@ Meteor.methods({
 
     return pcId;
   },
-  deletePlayerContents: function(gameId){
+  deletePlayerContents: function(gameId) {
     console.log("deletePlayerContents");
     var userId = Meteor.userId();
 
@@ -56,7 +56,14 @@ Meteor.methods({
       gameId: gameId
     });
   },
-  toggleFound: function(gameId, position){
+  deleteUnactivePlayerContents: function(gameId) {
+    console.log("deleteUnactivePlayerContents");
+    nbPCRemoved = PlayerContents.remove({
+      gameId: gameId
+    });
+    return nbPCRemoved;
+  },
+  toggleFound: function(gameId, position) {
     console.log("toggleFound");
     var userId = Meteor.userId();
     var found;
