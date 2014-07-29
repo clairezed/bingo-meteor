@@ -75,7 +75,9 @@ Meteor.methods({
     PlayerContents.remove({gameId: game._id});
     Games.remove(game._id);
   },
+  // Cron job
   deleteUnactiveGames: function() {
+    // TODO : set good unactiveDelay
     var unactiveDelay = moment().subtract({ h:2})._d;
     console.log(unactiveDelay);
     console.log(Games.find({updatedAt: {$lt: unactiveDelay}}).fetch());
@@ -157,6 +159,6 @@ Games.startObservers = function startObservers(gameId) {
 
 Games.stopObservers = function stopObservers(gameId) {
   if(Games.observer) {
-    Games.observer.stop(); // Call the stop
+    Games.observer.stop();
   }
 };

@@ -1,5 +1,6 @@
 SyncedCron.add({
-  name: 'Delete inactive games',
+  // Deletes unactive games and, as observers are set up, unactive player contents
+  name: 'Delete unactive games',
   schedule: function(parser) {
     return parser.text('at 01:00 pm');
   },

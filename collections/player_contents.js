@@ -56,6 +56,7 @@ Meteor.methods({
       gameId: gameId
     });
   },
+  // Cron job
   deleteUnactivePlayerContents: function(gameId) {
     console.log("deleteUnactivePlayerContents");
     nbPCRemoved = PlayerContents.remove({
