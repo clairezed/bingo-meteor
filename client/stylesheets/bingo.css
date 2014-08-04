@@ -388,3 +388,25 @@ a.link-config {
   border-radius: 4px;
 }
 
+/*===== INFORMATION PAGE ========================================== */
+
+.information h1 {
+  margin-bottom: 30px;
+  margin-top: 25px;
+}
+.information .teasing {
+  margin-bottom: 35px;
+}
+
+.information .thumb-row {
+  margin-top: 0px;
+  margin-bottom: 35px;
+}
+
+
+.info-thumb {
+  border: 5px solid #fff;
+  padding: 20px;
+  height: 100%;
+  margin-bottom: 15px;
+}
