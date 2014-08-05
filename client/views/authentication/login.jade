@@ -1,6 +1,8 @@
 template(name="login")
   +loginIntro
-  +loginForm
+  .row
+    .col-md-6.col-md-offset-3
+      +loginForm
 
 template(name="loginForm")
   form#login-form.form-horizontal(role="form")
