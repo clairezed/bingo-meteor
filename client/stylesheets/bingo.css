@@ -51,16 +51,23 @@ ul{
       margin: 5px 5px;
       border-color: #fff;
     }
-    .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    .navbar-default .navbar-nav > .open > a, 
+    .navbar-default .navbar-nav > .open > a:hover, 
+    .navbar-default .navbar-nav > .open > a:focus,
+    .navbar-default .navbar-nav > .active > a,
+    .navbar-default .navbar-nav > .active > a:hover, 
+    .navbar-default .navbar-nav > .active > a:focus {
       color:#fff;
       background-color: #f83f09;
     }
+
+
 
 .btn-primary{
   background-color: #f83f09;
   border-color:  #e23705;
 }
-  .btn-primary:hover, .btn-primary:active{
+  .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary{
     background-color: #e23705;
     border-color:#e23705;
   }

@@ -11,11 +11,11 @@ template(name="layout")
           a.navbar-brand(href="{{pathFor 'home'}}") Bullshit Bingo
         #collapse-grp.collapse.navbar-collapse
           ul.nav.navbar-nav
-            li
+            li(class="{{ activeIfTemplateIs 'createGrid' }}")
               a.btn(href="{{#if currentUser}}{{pathFor 'createGrid'}}{{else}}{{pathFor 'authenticate'}}{{/if}}") Create Bingo
-            li
+            li(class="{{ activeIfTemplateIs 'allBingos' }}")
               a.btn(href="{{pathFor 'allBingos'}}") All bingos
-            li
+            li(class="{{ activeIfTemplateIs 'information' }}")
               a.btn(href="{{pathFor 'information'}}") Info
           ul.nav.navbar-nav.navbar-right
             li.dropdown
