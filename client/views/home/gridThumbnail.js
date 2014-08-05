@@ -18,6 +18,7 @@ Template.gridThumbnail.events({
     e.preventDefault();
     console.log("join game btn");
     $("#"+this._id+"").css('z-index', "10").slideToggle();
+    $(".games-creator-list").not($("#"+this._id+"")).slideUp();
   }
 })
 
