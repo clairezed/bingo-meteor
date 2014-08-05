@@ -1,13 +1,14 @@
 template(name="fillGrid")
-  +gridCreationBreadcrumb
-  h1 Grid Content
-  h2 And finally, fill your grid
-  p What would a bingo game be without its grid filled with homemade content ? We need you provide 24 pieces of content before your bingo is ready to be played.
+  .row
+    .col-sm-12
+      +gridCreationBreadcrumb
+      h1 Grid Content
+      p.teaser.teaser-small What would a bingo game be without its grid filled with homemade content ? We need you provide 24 pieces of content before your bingo is ready to be played.
   .row.input-row
     .col-xs-6
       form.form-inline.fill-grid-form(role="form")
         .form-group
-          input#title.form-control(name="word" type="text" placeholder="The content of one of the tile is ...")
+          input#title.form-control(name="word" type="text" placeholder="Your best content")
         .form-group
           input.btn.btn-primary(type="submit" value="Ok !")
         .form-group
@@ -22,8 +23,9 @@ template(name="fillGrid")
             +launchGameBtn
 
 
-  .words-list
-    +wordsList
+  .row
+    .col-sm-12.words-list
+      +wordsList
 
 template(name="wordsList")
   ul.list-inline
@@ -31,6 +33,3 @@ template(name="wordsList")
       li
         span.word-label #{.}
         a.delete-word.btn.btn-info.btn-xs(href="#") X
-        //- span.label.label-info
-        //-   span #{.}
-        //-   a.delete.btn.btn-info.btn-xs(href="#") X

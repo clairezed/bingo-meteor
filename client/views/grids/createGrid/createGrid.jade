@@ -1,26 +1,25 @@
 template(name="createGrid")
-  p Happy to see you, #{currentUser.username} !
-  +gridCreationBreadcrumb
-  h1 Now let's describe your grid.
-  p It's always good to let people know a bit more about the game you offer them. A title is the minimum !
+  .row-fluid
+    .col-sm-12
+      +gridCreationBreadcrumb
+      h1 Now let's describe your grid.
+      p.teaser.teaser-small It's always good to let people know a bit more about the bingo you propose them. A title is the minimum !
   form(role="form")
-    .row
-      .col-sm-8
-        .row
-          .form-group.col-sm-8
-            label(for="title") Title
-            input#title.form-control(name="title" type="text" placeholder="What's the title of your new bingo game ?")
-        .row
-          .form-group.col-sm-8
-            label(for="description") Description
-            textarea#description.form-control(name="description" rows="4" cols="50" placeholder="slideshow description")
-            p.help-block Here comes the description of your bingo, to incitate people playing it.
-        .row
-          .form-group.col-sm-8
-            label(for="tags") Tags
-            input#tags.form-control(name="tags" type="text" placeholder="tags, separated with commas")
-      .col-sm-4
+    .row-fluid
+      .col-sm-7
+        .form-group
+          label(for="title") Title
+          input#title.form-control(name="title" type="text" placeholder="What's the title of your new bingo game ?")
+        .form-group
+          label(for="description") Description
+          textarea#description.form-control(name="description" rows="4" cols="50" placeholder="Sweet description")
+          p.help-block.small
+            em Here comes the description of your bingo, to incitate people playing it.
+        .form-group
+          label(for="tags") Tags
+          input#tags.form-control(name="tags" type="text" placeholder="Tags, separated with commas")
+      .col-sm-5
         +configGrid
-    .row
-      .col-sm-12
-        input.btn.btn-primary(type="submit" value="Create")
+    .row-fluid
+      .col-sm-5.col-sm-offset-7
+        input.btn.btn-primary.pull-left(type="submit" value="Create")

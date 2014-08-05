@@ -18,7 +18,7 @@ template(name="layout")
             li(class="{{ activeIfTemplateIs 'information' }}")
               a.btn(href="{{pathFor 'information'}}") Info
           ul.nav.navbar-nav.navbar-right
-            li.dropdown
+            li.dropdown(class="{{ activeIfTemplateIs 'userspace' }}")
               a.dropdown-toggle(href="#" data-toggle="dropdown")
                 span.glyphicon.glyphicon-home
                 | #{currentUser.username}

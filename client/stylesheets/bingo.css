@@ -7,6 +7,7 @@ ul{
   list-style: none;
 }
 
+
 .well {
   background-color: #d0cbac;
   border-radius: 0;
@@ -51,11 +52,11 @@ ul{
       margin: 5px 5px;
       border-color: #fff;
     }
-    .navbar-default .navbar-nav > .open > a, 
-    .navbar-default .navbar-nav > .open > a:hover, 
+    .navbar-default .navbar-nav > .open > a,
+    .navbar-default .navbar-nav > .open > a:hover,
     .navbar-default .navbar-nav > .open > a:focus,
     .navbar-default .navbar-nav > .active > a,
-    .navbar-default .navbar-nav > .active > a:hover, 
+    .navbar-default .navbar-nav > .active > a:hover,
     .navbar-default .navbar-nav > .active > a:focus {
       color:#fff;
       background-color: #f83f09;
@@ -123,7 +124,25 @@ h3.config-title {
   display: block;
 }
 
+h1, .teaser, h2, h3, h4, .navbar-brand {
+  font-family: 'Montserrat', Arial, sans-serif; font-weight: 400;
+}
 
+.teaser {
+  font-style: italic;
+  color: #888;
+  font-size: 16px;
+  margin-bottom: 30px;
+  margin-top: 25px;
+  text-align: center;
+}
+
+.teaser.teaser-small {
+  font-size: 14px;
+  margin-bottom: 30px;
+  margin-top: 15px;
+  text-align: left;
+}
 
 
 
@@ -254,7 +273,8 @@ a.link-config {
 
 /*===== FILL GRID ==============================================================*/
 .input-row {
-  margin: 25px 0;
+  margin-top: 10px;
+  margin-bottom: 25px;
 }
 .fill-grid-form {
   margin-bottom: 10px;
@@ -274,10 +294,11 @@ a.link-config {
 
 .words-list ul{
   padding-left: 0;
+  margin-left: 0;
 }
 .words-list li{
-  margin-left: 2%;
-  margin-bottom: 1%;
+  margin-right: 2%;
+  margin-bottom: 2%;
   padding-left: 0;
   padding-right: 0;
   position: relative;
