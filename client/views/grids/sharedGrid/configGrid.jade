@@ -4,7 +4,8 @@ template(name="configGrid")
       span.glyphicon.glyphicon-cog
       | Configuration
     hr
-    label(for="visibility") Visibility of my bingo
+    label(for="visibility") Visibility of my bingo 
+      +showHelp 'help-name'
     .form-group
       label.radio-inline
         input(type="radio" name="visibility" value="public" checked="{{hasPublicVisibility}}")
