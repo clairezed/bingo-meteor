@@ -148,7 +148,6 @@ h1, h2, h3, h4, p, legend, label{
   }
 }
 
-
 .well {
   background-color: $medium_brown;
   border-radius: 0;
@@ -167,8 +166,6 @@ h1, h2, h3, h4, p, legend, label{
     margin-top: 0px;
   }
 }
-
-
 
 .teaser {
   font-style: italic;
@@ -453,6 +450,12 @@ ul.grid-ul {
   margin-bottom: 30px;
   margin-top: 25px;
   }
+  .info-block h2 {
+    color: $primary_color;
+  }
+  .even-block{
+    // background-color: $medium_brown;
+  }
   .thumb-row {
     margin-top: 0px;
     margin-bottom: 35px;
@@ -461,6 +464,14 @@ ul.grid-ul {
       padding: 20px;
       height: 100%;
       margin-bottom: 15px;
+      background-color: lighten($primary_color, 0%);
+      color: $white;
+      legend, p {
+        color: $white;
+      }
+      legend {
+        padding-bottom: 5px;
+      }
     }
   }
 }
