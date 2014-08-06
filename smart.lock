@@ -10,7 +10,8 @@
       "kadira": {},
       "synced-cron": {},
       "moment": {},
-      "inline-help": {}
+      "inline-help": {},
+      "sass": {}
     },
     "packages": {
       "iron-router": {
@@ -57,6 +58,11 @@
         "git": "https://github.com/pahans/meteor-inline-help.git",
         "tag": "v0.2.1",
         "commit": "c85f6647177509d8531d67ebafd9ec0dd8c73589"
+      },
+      "sass": {
+        "git": "https://github.com/particle4dev/meteor-sass.git",
+        "tag": "v0.1.7",
+        "commit": "b41757f87475186b1485ec54a819d6e027ee3d88"
       },
       "iron-layout": {
         "git": "https://github.com/EventedMind/iron-layout.git",

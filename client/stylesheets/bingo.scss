@@ -1,0 +1,459 @@
+$body_color: #f4f1de;
+$medium_brown: #d0cbac;
+// $dark_brown: #b0a97d;
+
+$primary_color: #f83f09;
+// $primary_color_dark: #e23705;
+// $primary_color_light: #fb764f
+
+$info_color: #fa6134;
+
+$default_color: #33769A;
+// $default_color_dark: #0e6B9D;
+
+
+body {
+  background-color: $body_color;
+}
+
+#main.container-fluid {
+  max-width: 80%;
+}
+
+ul{
+  list-style: none;
+}
+
+
+.well {
+  background-color: $medium_brown;
+  border-radius: 0;
+  border: 1px solid darken($medium_brown, 15%);
+  color: #fff;
+  legend {
+    border-bottom: 1px solid darken($medium_brown, 15%);
+    color: #fff;
+    margin-bottom: 10px;
+    margin-top: 25px;
+  }
+}
+
+.pull-down-15 {
+  margin-top: 15px;
+}
+
+.navbar-default{
+  background-color: transparent;
+  border-color:transparent;
+  .navbar-brand, .navbar-brand:hover, .navbar-brand:focus {
+    color: darken($medium_brown, 15%);
+  }
+  .navbar-nav > li > a {
+    color: darken($medium_brown, 15%);
+    padding: 10px 15px 10px 15px;
+    margin: 5px 5px;
+    border-color: darken($medium_brown, 10%);
+  }
+  .navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
+    color:#fff;
+    background-color: $primary_color;
+    padding: 10px 15px 10px 15px;
+    margin: 5px 5px;
+    border-color: #fff;
+  }
+  .navbar-nav > .open > a,
+  .navbar-nav > .open > a:hover,
+  .navbar-nav > .open > a:focus,
+  .navbar-nav > .active > a,
+  .navbar-nav > .active > a:hover,
+  .navbar-nav > .active > a:focus {
+    color:#fff;
+    background-color: $primary_color;
+    border-color: #fff;
+  }
+}
+
+.open > .dropdown-toggle.btn-primary{
+  background-color: darken($primary_color, 7%);
+  border-color:#e23705;
+}
+
+
+.btn{
+  border-radius: 0;
+  a{
+    color: #fff;
+    text-decoration: none;
+    display: block;
+  }
+}
+
+.btn-primary{
+  background-color: $primary_color;
+  border-color:  darken($primary_color, 7%);
+  &:hover, &:focus, &:active, &.active{
+    background-color: darken($primary_color, 7%);
+    border-color: darken($primary_color, 10%);
+  }
+  &.disabled{
+    background-color: #fb764f;
+    border-color: $primary_color;
+  }
+}
+
+.btn-info{
+  background-color: $info_color;
+  border-color:#f84c19;
+  &:hover, &:active{
+    background-color: #f84c19;
+    border-color:#f84c19;
+  }
+}
+
+.btn-default{
+  background-color: $default_color;
+  border-color: darken($default_color, 7%);
+  color: #fff;
+  &:hover, &:active, &.active{
+    background-color: darken($default_color, 7%);
+    border-color:darken($default_color, 10%);
+    color: #fff;
+  }
+}
+
+.btn-ghost {
+  color: #fff;
+  background-color: transparent;
+  border-color: #fff;
+  font-size: 14px;
+  &:hover, &:focus {
+    color: #fff;
+    background-color: $primary_color;
+  }
+}
+
+// h3.config-title {
+//   margin-top: 0px;
+//   color: #fff;
+// }
+
+
+// h1, .teaser, h2, h3, h4, .navbar-brand {
+//   font-family: 'Montserrat', Arial, sans-serif; font-weight: 400;
+// }
+
+// .teaser {
+//   font-style: italic;
+//   color: #9b956f;
+//   font-size: 16px;
+//   margin-bottom: 30px;
+//   margin-top: 25px;
+//   text-align: center;
+// }
+
+// .teaser.teaser-small {
+//   font-size: 14px;
+//   margin-bottom: 30px;
+//   margin-top: 15px;
+//   text-align: left;
+// }
+
+/* Help popover */
+// a.show-help-link {
+//   color: $default_color;
+// }
+
+
+
+/*====== GRIDS THUMBNAIL ========================================================*/
+// ul.row.grid-ul {
+//   padding-left: 0;
+// }
+// .grid-thumbnail-container{
+//   background-color: #fff;
+//   margin: 5% 0;
+
+// }
+
+// .grid-thumbnail-inner{
+//   padding: 5%;
+//   position: relative;
+// }
+//   .grid-thumbnail-inner ul.games-creator-list {
+//     padding: 0;
+//     position: absolute;
+//     left: 0;
+//     bottom: 0;
+//     width: 100%;
+//     z-index: -1;
+//   }
+//     ul.games-creator-list li {
+//       position: relative;
+//     }
+//       ul.games-creator-list li .game-wrapper{
+//         position: relative;
+//         width: 100%;
+//         overflow: hidden;
+//       }
+//         ul.games-creator-list .btn.join-game {
+//           width: 100%;
+//           position: relative;
+//           -webkit-transition: -webkit-transform 0.4s;
+//           -moz-transition: -moz-transform 0.4s;
+//           transition: transform 0.4s
+//         }
+//           ul.games-creator-list li .game-wrapper:hover .join-game{
+//             position: relative;
+//             display: inline-block;
+//             width: 100%;
+//             -webkit-transform: translateX(-50px);
+//             -moz-transform: translateX(-50px);
+//             -ms-transform: translateX(-50px);
+//           }
+//         ul.games-creator-list .join-game-actions{
+//         background-color: #f84c19;
+//         width: 100px;
+//         height: 100%;
+//         padding: 5px;
+//         position: absolute;
+//         top: 0;
+//         left: auto;
+//         right: 0;
+//         -webkit-transform: translateX(100%);
+//         -moz-transform: translateX(100%);
+//         -ms-transform: translateX(100%);
+//         transform: translateX(100%);
+//         -webkit-backface-visibility: hidden;
+//         -moz-backface-visibility: hidden;
+//         backface-visibility: hidden;
+//         -webkit-transition: -webkit-transform 0.4s, opacity 0.1s 0.3s;
+//         -moz-transition: -moz-transform 0.4s, opacity 0.1s 0.3s;
+//         transition: transform 0.4s, opacity 0.1s 0.3s;
+//       }
+//       ul.games-creator-list .join-game-actions a {
+//           width: 100%;
+//           color: #fff;
+//           font-weight: bold;
+//           border-color: #fff;
+//           padding: 3px 7px;
+//         }
+//         ul.games-creator-list li .game-wrapper:hover .join-game-actions{
+//           opacity:1;
+//           -webkit-transform: translateX(0px);
+//           -moz-transform: translateX(0px);
+//           -ms-transform: translateX(0px);
+//           -webkit-transition: -webkit-transform 0.4s, opacity 0.1s;
+//           -moz-transition: -moz-transform 0.4s, opacity 0.1s;;
+//           transition: transform 0.4s, opacity 0.1s;
+//         }
+// .grid-thumbnail-btn{
+//   font-size: 0;
+// }
+//   .grid-thumbnail-btn .btn {
+//     width: 50%;
+//     display: inline-block;
+//   }
+// a.icon-config {
+//   font-size: 20px;
+// }
+// a.link-config {
+//   color: $primary_color;
+// }
+//   a.link-config:hover, a.icon-config:focus {
+//     color: #e23705;
+//     text-decoration: none;
+//   }
+
+// .tag-label {
+//   display: inline;
+//   padding: .2em .6em .3em;
+//   margin: 0px 3px 3px 0px;
+//   font-size: 75%;
+//   font-weight: bold;
+//   line-height: 1;
+//   background-color: #d0cbac;
+//   color: #fff;
+//   text-align: center;
+//   white-space: nowrap;
+//   vertical-align: baseline;
+// }
+// .tag-label-reversed {
+//   background-color: #fff;
+//   color: #d0cbac;
+// }
+
+
+/* PLAYER GAMES */
+// .player-games .bingo-title{
+//   font-size: 16px;
+//   margin-right: 1%;
+//   font-weight: bold;
+// }
+
+/*===== FILL GRID ==============================================================*/
+// .input-row {
+//   margin-top: 10px;
+//   margin-bottom: 25px;
+// }
+// .fill-grid-form {
+//   margin-bottom: 10px;
+// }
+// .words-counter{
+//   margin-left: 10px;
+//   color: #888;
+//   font-weight: bold;
+// }
+
+// .play-game-btns {
+//   display: inline-block;
+// }
+//   .preview-game {
+//     margin-left: 10px;
+//   }
+
+// .words-list ul{
+//   padding-left: 0;
+//   margin-left: 0;
+// }
+// .words-list li{
+//   margin-right: 2%;
+//   margin-bottom: 2%;
+//   padding-left: 0;
+//   padding-right: 0;
+//   position: relative;
+//   display: inline-block;
+//   vertical-align: middle;
+//   background-color: #ccc;
+// }
+//   span.word-label {
+//     background-color: #ccc;
+//     padding: 2px 12px;
+//     font-size: 12px;
+//     line-height: 1.5;
+//     margin: 0;
+//     position: relative;
+//     float: left;
+//   }
+//   a.delete-word {
+//     padding: 2px 5px;
+//     position: relative;
+//     float: left;
+//     border:none;
+//   }
+// .words-list span.label{
+//   font-size: 100%;
+//   margin-right: 1%;
+//   font-weight: normal;
+// }
+
+
+/*===== PLAY BINGO =====================================================================*/
+// #grid-gen{
+//   width: 100%;
+//   line-height: 0;
+//   margin-bottom: 20px;
+// }
+// #grid-gen .grid{
+//   width: 100%;
+// }
+// #grid-gen .grid .outer-square{
+//   display: inline-block;
+//   width: 20%;
+//   padding-bottom: 20%;
+//   position: relative;
+//   background-color: #ccc;
+//   cursor: pointer;
+//   border: 1px solid #ddd;
+// }
+// #grid-gen .grid .outer-square:hover{
+//   background-color: #ddd;
+// }
+// #grid-gen .grid .outer-square.found-true{
+//   background-color: #ff0000 ;
+// }
+// #grid-gen .grid .outer-square.found-true:hover{
+//   background-color: #ff3700 ;
+// }
+
+// #grid-gen .grid .outer-square .inner-square{
+//   position: absolute;
+//   left: 5%;
+//   right: 5%;
+//   top: 5%;
+//   bottom: 5%;
+//   line-height: 1.42857143;
+// }
+// .play-bingo-info{
+//   padding-top: 3%;
+// }
+// .grid-aside-content {
+//   padding-left: 10px;
+// }
+// .grid-aside-content p {
+//   margin-bottom: 0;
+// }
+
+
+/* SHOUTS */
+
+// .shout-form {
+//   background-color: #b0a97d;
+//   color: #fff;
+//   padding: 10px 20px;
+//   margin-top: 20px;
+//   margin-bottom: 20px;
+// }
+
+// .shout-form:after {
+//   content: '';
+//   display: block;
+//   clear: both;
+// }
+
+// .shout-form .form-control{
+//   width: 85%;
+//   margin-left:10px;
+//   border-color: #d0cbac;
+//   display: inline-block;
+// }
+// @media(min-width: 992px) {
+//   .shout-form .form-control{
+//     width: 92%;
+//   }
+// }
+// @media(max-width: 767px) {
+//   .shout-form .form-control{
+//     width: 80%;
+//   }
+// }
+
+// .shout-display-box{
+//   background-color: $default_color;
+//   color: #fff;
+//   padding: 8px 16px;
+//   margin-bottom: 15px;
+//   border-radius: 4px;
+// }
+
+/*===== INFORMATION PAGE ========================================== */
+
+// .information h1 {
+//   margin-bottom: 30px;
+//   margin-top: 25px;
+// }
+// .information .teasing {
+//   margin-bottom: 35px;
+// }
+
+// .information .thumb-row {
+//   margin-top: 0px;
+//   margin-bottom: 35px;
+// }
+
+
+// .info-thumb {
+//   border: 5px solid #fff;
+//   padding: 20px;
+//   height: 100%;
+//   margin-bottom: 15px;
+// }
