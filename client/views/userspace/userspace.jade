@@ -11,21 +11,3 @@ template(name="userspace")
           p.text-center
             a.play-bingo.btn.btn-primary(href="{{pathFor 'createGrid'}}")
               |Let's create one now !
-
-template(name="userspaceGridThumbnail")
-  li.col-md-4
-    .grid-thumbnail-container
-      .grid-thumbnail-inner
-        h4
-          a.bingo-title(href="{{pathFor 'fillGrid'}}") #{title}
-        .row
-          .col-md-12
-            each tags
-              span.label.label-info= this
-        ul.games-creator-list(id="{{_id}}")
-          each games
-            +gridGamesList
-      .grid-thumbnail-btn
-        a.btn.btn-primary.join-game-btn(href="#") Current games
-          span.badge= games.count
-        +launchGameBtn
