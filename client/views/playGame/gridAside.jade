@@ -1,31 +1,39 @@
 template(name="gridAside")
   .well
-    with game
-      if canDeleteGame
-        a.btn.btn-primary.delete-game(href="#") Delete Game
-      if ownsButCanteleteGame
-        a.btn.btn-primary.delete-game.disabled(href="#") Delete Game
-        p.help-block.small You can't delete your game while there are other players
-      if canQuitGame
-        a.btn.btn-primary.quit-game(href="#") Quit Game
-    fieldset
-      legend Current players
-      ul.grid-aside-content
-        each currentPlayers
-          li
-            span.glyphicon.glyphicon-user
-            | #{username}
-    fieldset
-      legend
-        span.glyphicon.glyphicon-info-sign
-        | #{grid.title}
-      dl.grid-aside-content
-        p
-          strong Bingo author :
-          | #{grid.creator.name}
-        dt Description :
-        dd #{grid.description}
-        dt Tags :
-        dd
-          each grid.tags
-            span.tag-label.tag-label-reversed= this
+    .row
+      .col-md-6
+        fieldset
+          legend Current players
+          ul.grid-aside-content
+            each currentPlayers
+              li
+                span.glyphicon.glyphicon-user
+                | #{username}
+      .col-md-6
+        fieldset
+          legend
+            span.glyphicon.glyphicon-info-sign
+            | #{grid.title}
+          dl.grid-aside-content
+            p
+              strong Bingo author :
+              | #{grid.creator.name}
+            dt Description :
+            dd #{grid.description}
+            dt Tags :
+            dd
+              each grid.tags
+                span.tag-label.tag-label-reversed= this
+
+
+template(name="playGameActionBtns")
+  .row.playGameActionBtns
+    .col-md-12
+      with game
+        if canDeleteGame
+          a.btn.btn-primary.delete-game(href="#") Delete Game
+        if ownsButCanteleteGame
+          a.btn.btn-primary.delete-game.disabled(href="#") Delete Game
+          p.help-block.small You can't delete your game while there are other players
+        if canQuitGame
+          a.btn.btn-primary.quit-game(href="#") Quit Game

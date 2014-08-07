@@ -6,7 +6,10 @@ Template.gridAside.helpers({
         return players;
       }
     }
-  },
+  }
+});
+
+Template.playGameActionBtns.helpers({
   canDeleteGame: function() {
     if (this) {
       return this.creator.id == Meteor.userId() && this.players.length == 1;

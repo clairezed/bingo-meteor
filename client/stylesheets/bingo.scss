@@ -4,7 +4,8 @@ $medium_brown: #d0cbac;
 // $dark_brown: #b0a97d;
 // $text_brown_dark : #9b956f;
 
-$primary_color: #f83f09;
+// $primary_color: #f83f09;
+$primary_color: #d14033;
 // $primary_color_dark: #e23705;
 // $primary_color_light: #fb764f
 
@@ -53,10 +54,17 @@ h1, .teaser, h2, h3, h4, .navbar-brand {
 
 h1, h2, h3, h4, p, legend, label{
   color: darken($medium_brown, 45%);
+  small {
+    color: darken($medium_brown, 30%)
+  }
 }
 
 .pull-down-15 {
   margin-top: 15px;
+}
+
+.float-none {
+  float: none;
 }
 
 .navbar-default{
@@ -353,14 +361,10 @@ ul.grid-ul {
     }
   }
 }
-// .words-list span.label{
-//   font-size: 100%;
-//   margin-right: 1%;
-//   font-weight: normal;
-// }
 
 
 /*===== PLAY BINGO =====================================================================*/
+
 #grid-gen{
   width: 100%;
   line-height: 0;
@@ -372,16 +376,20 @@ ul.grid-ul {
       width: 20%;
       padding-bottom: 20%;
       position: relative;
-      background-color: #ccc;
+      background-color: lighten($medium_brown, 10%);
       cursor: pointer;
-      border: 1px solid #ddd;
+      border: 1px solid lighten($medium_brown, 15%);
       &:hover{
-        background-color: #ddd;
+        background-color: lighten($medium_brown, 15%);
       }
       &.found-true{
-        background-color: #ff0000 ;
+        background-color: darken($primary_color, 5%);
+        color: $white;
+        p {
+          color: $white;
+        }
         &:hover{
-          background-color: #ff3700 ;
+          background-color: lighten($primary_color, 0%);
         }
       }
       .inner-square{
@@ -401,7 +409,9 @@ ul.grid-ul {
     margin-bottom: 0;
   }
 }
-
+.playGameActionBtns {
+  margin-bottom: 20px;
+}
 
 /* SHOUTS */
 
@@ -409,7 +419,7 @@ ul.grid-ul {
   background-color: #b0a97d;
   color: $white;
   padding: 10px 20px;
-  margin-top: 20px;
+  // margin-top: 20px;
   margin-bottom: 20px;
   &:after {
     content: '';

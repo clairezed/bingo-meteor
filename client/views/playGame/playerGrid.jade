@@ -1,10 +1,16 @@
 template(name="playerGridHeader")
   if canModifyGrid
-    with grid
-      a.btn.btn-primary.pull-right(href="{{pathFor 'fillGrid'}}") Modify
-  h1 #{grid.title}
-    unless previewMode
-      small  a game launched by #{game.creator.name}
+    .row
+      .col-lg-6.col-md-8.float-none
+        with grid
+          a.btn.btn-primary.pull-right(href="{{pathFor 'fillGrid'}}") Modify
+        h1 #{grid.title} 
+  else
+    .row
+      .col-md-12  
+        h1 #{grid.title}
+          unless previewMode
+            small  a game launched by #{game.creator.name}
 
 
 template(name="playerGrid")
