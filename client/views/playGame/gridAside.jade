@@ -34,6 +34,7 @@ template(name="playGameActionBtns")
           a.btn.btn-primary.delete-game(href="#") Delete Game
         if ownsButCanteleteGame
           a.btn.btn-primary.delete-game.disabled(href="#") Delete Game
-          p.help-block.small You can't delete your game while there are other players
+          //- p.help-block.small You can't delete your game while there are other players
+          +showHelp('delete-game-help')
         if canQuitGame
           a.btn.btn-primary.quit-game(href="#") Quit Game

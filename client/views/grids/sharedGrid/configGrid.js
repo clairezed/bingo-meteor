@@ -1,7 +1,15 @@
 Template.configGrid.helpers({
   onUpdatePage: function() {
-
     return this._id;
+  },
+  canDeleteGrid: function() {
+    if(this) {
+      if (gridGames = Games.find({gridId: this._id})) {
+        console.log(gridGames.count());
+        return gridGames.count() == 0;
+      };
+    };
+    return false;
   },
   hasPublicVisibility: function() {
     if(!this._id) {
@@ -32,20 +40,3 @@ Template.configGrid.events({
     });
   }
 })
-
-var helpData = {
-  'visibility-help': {
-    title: "About visibility ",
-    message: "<strong>Public visibility :</strong> everyone can see your bingo. <br> <strong>Private visibility :</strong> only you, and people who have a direct link to your bingo, can see it.", //supports Markdown
-    // url: "http://YOUR_URL_TO_ADDITIONAL_HELP",
-    options: {
-      placement: 'right'
-    }
-  },
-  'another-help-name': {
-    title: "another help document title ", //supports Markdown
-    message: "another help document message",
-    url: "http://YOUR_URL_TO_ADDITIONAL_HELP"
-  },
-}
-InlineHelp.initHelp(helpData);

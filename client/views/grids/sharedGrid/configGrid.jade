@@ -16,4 +16,8 @@ template(name="configGrid")
         | Private
     if onUpdatePage
       hr
-      a.btn.btn-primary.delete-grid(href="#" onClick="return confirm('Do you really want to delete your bingo ?')") Delete grid
+      a.btn.btn-primary.delete-grid(href="#"
+        onClick="return confirm('Do you really want to delete your bingo ?')"
+        class="{{#unless canDeleteGrid}} disabled {{/unless}}") Delete grid
+      unless canDeleteGrid
+        +showHelp('delete-grid-help')

@@ -15,3 +15,31 @@ Template.layout.events({
         });
     }
 })
+
+// Define here so that InlineHelp.initHelp is called onl once
+// and every popover helper is accessible
+var helpData = {
+  'visibility-help': {
+    title: "About visibility ",
+    message: "<strong>Public visibility :</strong> everyone can see your bingo. <br> <strong>Private visibility :</strong> only you, and people who have a direct link to your bingo, can see it.", //supports Markdown
+    // url: "http://YOUR_URL_TO_ADDITIONAL_HELP",
+    options: {
+      placement: 'right'
+    }
+  },
+  'delete-grid-help': {
+    title: "Wanna delete your bingo ?",
+    message: "Oh dear, would you really want to delete a grid that is currently being played ?",
+    options: {
+      placement: 'right'
+    }
+  },
+  'delete-game-help': {
+    title: "Wanna delete your game ?",
+    message: "How rude ! You can't delete your game while there are other sweet people playing !",
+    options: {
+      placement: 'right'
+    }
+  }
+}
+InlineHelp.initHelp(helpData);

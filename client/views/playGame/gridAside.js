@@ -53,3 +53,14 @@ Template.playGameActionBtns.events({
     });
   }
 });
+
+// var helpData2 = {
+//   'delete-game-help': {
+//     title: "Wanna delete your game ?",
+//     message: "How rude ! You can't delete your game while there are other sweet people playing !",
+//     options: {
+//       placement: 'right'
+//     }
+//   },
+// }
+// InlineHelp.initHelp(helpData2);

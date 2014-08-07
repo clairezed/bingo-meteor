@@ -28,10 +28,6 @@ Meteor.publish('game', function(gameId) {
   return Games.find({_id: gameId});
 });
 
-// Meteor.publish('userGames', function(userId) {
-//   return Games.find({creatorId: userId});
-// })
-
 Meteor.publish('gridGames', function(gridId) {
   return Games.find({gridId: gridId});
 })
