@@ -27,7 +27,7 @@ Template.playGameActionBtns.helpers({
   }
 });
 
-Template.gridAside.events({
+Template.playGameActionBtns.events({
   'click .quit-game': function(e, template) {
     e.preventDefault();
     var gameId = template.data.game. _id;

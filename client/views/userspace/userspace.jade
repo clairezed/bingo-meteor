@@ -1,13 +1,17 @@
 template(name="userspace")
-  h1 Hello #{currentUser.username} !
-  h2 Here you can find all your Bingo Games.
-  .player-games
-    ul
-      each grids
-        +gridThumbnail
-      else
-        li
-          p You don't have any bingo yet, sweetie !
-          p.text-center
-            a.play-bingo.btn.btn-primary(href="{{pathFor 'createGrid'}}")
-              |Let's create one now !
+  .row
+    .col-md-8.col-md-offset-2
+      h1 Hello #{currentUser.username} !
+      p.teaser Here you can find all your Bingo Games.
+  .row
+    .col-md-8.col-md-offset-2
+      .player-games
+        ul.row.grid-ul
+          each grids
+            +gridThumbnail
+          else
+            li
+              p You don't have any bingo yet, sweetie !
+              p.text-center
+                a.play-bingo.btn.btn-primary(href="{{pathFor 'createGrid'}}")
+                  |Let's create one now !
