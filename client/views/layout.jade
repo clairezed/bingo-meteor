@@ -12,11 +12,12 @@ template(name="layout")
         #collapse-grp.collapse.navbar-collapse
           ul.nav.navbar-nav
             li(class="{{ activeIfTemplateIs 'createGrid' }}")
-              a.btn(href="{{#if currentUser}}{{pathFor 'createGrid'}}{{else}}{{pathFor 'authenticate'}}{{/if}}") Create Bingo
+              a.btn(href="{{#if currentUser}}{{pathFor 'createGrid'}}{{else}}{{pathFor 'authenticate'}}{{/if}}"
+                title="I want to create a bingo grid !") Create Bingo
             li(class="{{ activeIfTemplateIs 'allBingos' }}")
-              a.btn(href="{{pathFor 'allBingos'}}") All bingos
+              a.btn(href="{{pathFor 'allBingos'}}" title="I want to see all these marvelous bingos !") All bingos
             li(class="{{ activeIfTemplateIs 'information' }}")
-              a.btn(href="{{pathFor 'information'}}") Info
+              a.btn(href="{{pathFor 'information'}}" title="I want to know what the heck is this thing !") Info
           ul.nav.navbar-nav.navbar-right
             li.dropdown(class="{{ activeIfTemplateIs 'userspace' }}")
               a.dropdown-toggle(href="#" data-toggle="dropdown")
@@ -26,7 +27,7 @@ template(name="layout")
               ul.dropdown-menu
                 if currentUser
                   li
-                    a(href="{{pathFor 'userspace'}}") My bingos
+                    a(href="{{pathFor 'userspace'}}" title="Home, sweet home") My bingos
                   li
                     a.disconnect(href="#") Disconnect
                 else
@@ -37,3 +38,17 @@ template(name="layout")
   #main.container-fluid
     +messages
     +yield
+
+  footer
+    hr
+    .footer-container
+      p
+        |Website realised using
+        a(href="https://www.meteor.com/") meteor.js
+        | just for da fun.
+      p
+        | Any remark, bug or suggestion can be send on
+        a(href="https://github.com/clairezed/bingo-meteor/issues") github
+        | or by email to
+        a(href="mailto:clairezuliani@gmail.com") clairezuliani at gmail dot com
+        |.

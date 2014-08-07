@@ -43,6 +43,23 @@ body {
   max-width: 80%;
 }
 
+footer{
+  width: 100%;
+  margin-top: 50px;
+  .footer-container{
+    max-width: 80%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    p {
+      font-style: italic;
+      color: darken($medium_brown, 25%);
+      font-size: 12px;
+      text-align: right;
+      margin: 0 0 5px;
+    }
+  }
+}
+
 ul{
   list-style: none;
 }
@@ -132,7 +149,7 @@ h1, h2, h3, h4, p, legend, label{
     border-color: $primary_color;
   }
   .badge {
-    color: darken($medium_brown, 15%);
+    color: darken($primary_color, 7%);
   }
 }
 
@@ -144,7 +161,7 @@ h1, h2, h3, h4, p, legend, label{
     border-color: darken($medium_brown, 10%);
   }
   .badge {
-  color: $default_color;
+  color: darken($medium_brown, 7%);
   }
 }
 
