@@ -103,6 +103,14 @@ h1, h2, h3, h4, p, legend, label{
   border-color:darken($primary_color, 10%);
 }
 
+.dropdown-menu {
+  background-color: lighten($medium_brown, 20%);
+  & > li > a:hover, & > li > a:focus {
+    color: $white;
+    background-color: $primary_color;
+  }
+}
+
 .btn{
   border-radius: 0;
   a{
@@ -123,16 +131,23 @@ h1, h2, h3, h4, p, legend, label{
     background-color: lighten($primary_color, 10%);
     border-color: $primary_color;
   }
+  .badge {
+    color: darken($medium_brown, 15%);
+  }
 }
 
 .btn-info{
-  background-color: $info_color;
-  border-color:darken($info_color, 7%);
+  background-color: $medium_brown;
+  border-color:darken($medium_brown, 7%);
   &:hover, &:active{
-    background-color: darken($info_color, 7%);
-    border-color: darken($info_color, 10%);
+    background-color: darken($medium_brown, 7%);
+    border-color: darken($medium_brown, 10%);
+  }
+  .badge {
+  color: $default_color;
   }
 }
+
 
 .btn-default{
   background-color: $default_color;
@@ -246,7 +261,7 @@ ul.grid-ul {
           width: 100%;
           overflow: hidden;
           .join-game-actions{
-            background-color: #f84c19;
+            background-color: darken($medium_brown, 7%);
             width: 100px;
             height: 100%;
             padding: 5px;
