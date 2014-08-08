@@ -40,6 +40,13 @@ var helpData = {
     options: {
       placement: 'right'
     }
+  },
+  'shout-help': {
+    title: "Shout out loud !",
+    message: "Wanna say something to the whole world ? Anything you type in here will be visible to every player for a few seconds.",
+    options: {
+      placement: 'right'
+    }
   }
 }
 InlineHelp.initHelp(helpData);

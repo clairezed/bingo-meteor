@@ -2,8 +2,10 @@ template(name="shoutOut")
   .row
     .col-sm-12
       form.form-inline.shout-form(role="form")
-        .col-xs-9.col-sm-10
+        .col-xs-1.col-sm-1
           span.glyphicon.glyphicon-bullhorn
+          +showHelp('shout-help')
+        .col-xs-8.col-sm-9
           input.form-control(name="shout" type="text")
         .col-xs-3.col-sm-2
           input.btn.btn-default.pull-right(type="submit" value="Shout !")
