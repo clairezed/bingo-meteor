@@ -19,4 +19,4 @@ template(name="playerGrid")
       each contents
         .outer-square(class="found-{{found}}")
           .inner-square(id="{{position}}")
-            p #{word}
+            p(id="{{position}}") #{word}

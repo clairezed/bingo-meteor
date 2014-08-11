@@ -26,6 +26,7 @@ Template.playerGridHeader.helpers({
 Template.playerGrid.events({
   'click .outer-square': function(e, template){
     e.preventDefault();
+    console.log($(e.target).attr('id'));
     var pos = parseInt($(e.target).attr('id'));
     var gameId = template.data.game._id;
     Meteor.call('toggleFound', gameId, pos, function(error, playerContentId){
