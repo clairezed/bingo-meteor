@@ -324,6 +324,15 @@ ul.grid-ul {
     }
   }
 }
+@media(max-width: 767px) {
+  .grid-thumbnail-btn a {
+    font-size: 10px;
+    .badge {
+      padding: 2px 5px;
+      font-size: 10px;
+    }
+  }
+}
 
 
 .tag-label {
@@ -436,6 +445,11 @@ ul.grid-ul {
     }
   }
 }
+@media(max-width: 767px) {
+  #grid-gen .outer-square p{
+    font-size: 9px;
+  }
+}
 .grid-aside-content {
   padding-left: 10px;
   p {
@@ -465,7 +479,7 @@ ul.grid-ul {
     border-color: $medium_brown;
     display: inline-block;
   }
-  .col-xs-1, .col-xs-3, .col-xs-7, .col-xs-8, 
+  .col-xs-1, .col-xs-3, .col-xs-7, .col-xs-8,
   .col-sm-1, .col-sm-2, .col-sm-8, .col-sm-9 {
     padding-right: 5px;
     padding-left: 5px;

@@ -9,13 +9,14 @@ Template.shoutOut.events({
     e.preventDefault();
     var gameId = template.data.game._id;
     var shout = $(e.target).find('[name=shout]').val();
-
-    Meteor.call('createShout', shout, gameId, function(error, shoutId){
-      if (error) {
-        throwMessage(error.reason, 'danger');
-      }
-      //// clear input text
-      $(e.target).find('[name=shout]').val("");
-    })
+    if(shout.trim().length > 0) {
+      Meteor.call('createShout', shout, gameId, function(error, shoutId){
+        if (error) {
+          throwMessage(error.reason, 'danger');
+        }
+        //// clear input text
+        $(e.target).find('[name=shout]').val("");
+      })
+    }
   },
 })
